@@ -1,6 +1,6 @@
 window.addEventListener("load", popup);
 
-var person: any = prompt("Gebe deinen Namen ein");
+var person: any = prompt("Gib deinen Namen ein");
 
 function popup(): void {
 if (person!= null) {
