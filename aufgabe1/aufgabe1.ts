@@ -2,29 +2,29 @@ window.addEventListener("load", ski);
 
 function ski(): void {
     let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-console.log(canvas);
-    
-    let crc2: CanvasRenderingContext2D = canvas.getContext("2d");
-console.log(crc2);
-    
-    crc2.fillStyle = "#ff0000";
-    crc2.fillRect(0, 0, 400, 300);
+    console.log(canvas);
 
-    crc2.beginPath();
-    crc2.moveTo(0, 0);
-    crc2.lineTo(400, 300);
-    crc2.stroke();
+    let can: CanvasRenderingContext2D = canvas.getContext("2d");
+    console.log(can);
 
-    crc2.beginPath();
-    crc2.moveTo(100, 100);
-    crc2.lineTo(120, 130);
-    crc2.lineTo(80, 130);
-    crc2.closePath();
-    crc2.stroke();
-    crc2.fillStyle = "#0000ff";
-    crc2.fill();
+    can.fillStyle = "#ff0000";
+    can.fillRect(0, 0, 400, 300);
 
-    crc2.beginPath();
-    crc2.arc(200, 50, 40, 0, 2 * Math.PI);
-    crc2.fill();
+    can.beginPath();
+    can.moveTo(0, 0);
+    can.lineTo(400, 300);
+    can.stroke();
+
+    can.beginPath();
+    can.moveTo(100, 100);
+    can.lineTo(120, 130);
+    can.lineTo(80, 130);
+    can.closePath();
+    can.stroke();
+    can.fillStyle = "#0000ff";
+    can.fill();
+
+    can.beginPath();
+    can.arc(200, 50, 40, 0, 2 * Math.PI);
+    can.fill();
 }
