@@ -1,12 +1,19 @@
-/*	canvas {
-	width: 30%;
-	}
-
-@media screen and (min-width: 768px) {
-
-	canvas {
+canvas {
 	width: 100%;
+}
+	
+@media screen and (min-width: 35.6875em) {
+	canvas {
+		width: 100%;	
 	}
 	
+@media screen and (min-width: 48.0625em) {
+	canvas {
+		width: 100%;	
+	}
 	
-}*/
+@media screen and (min-width: 64.0625em) {
+	canvas {
+		width: 800px;
+		height: 600px;	
+	}
