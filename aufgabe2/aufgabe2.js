@@ -1,6 +1,6 @@
-window.addEventListener("load", ski);
 var aufgabe2;
 (function (aufgabe2) {
+    window.addEventListener("load", ski);
     function ski() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);

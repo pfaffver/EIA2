@@ -1,6 +1,6 @@
-window.addEventListener("load", ski);
-
 namespace aufgabe2 {
+    
+    window.addEventListener("load", ski);
 
     function ski(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
