@@ -1,11 +1,11 @@
 namespace aufgabe2 {
-    
+
     window.addEventListener("load", ski);
 
     function ski(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-    
+
         let can: CanvasRenderingContext2D = canvas.getContext("2d");
         console.log(can);
 
@@ -21,7 +21,7 @@ namespace aufgabe2 {
         can.stroke();
         can.fillStyle = "#BDBDBD";
         can.fill();
-    
+
         /*Berg*/
         can.beginPath();
         can.moveTo(450, 50);
@@ -31,7 +31,7 @@ namespace aufgabe2 {
         can.stroke();
         can.fillStyle = "#BDBDBD";
         can.fill();
-    
+
         /*Berg*/
         can.beginPath();
         can.moveTo(600, 150);
@@ -47,7 +47,7 @@ namespace aufgabe2 {
         can.arc(100, 70, 30, 0, 2 * Math.PI);
         can.fillStyle = "#F7FE2E";
         can.fill();
-    
+
         /*Wolke*/
         can.beginPath();
         can.arc(600, 70, 10, 0, 2 * Math.PI);
@@ -65,7 +65,7 @@ namespace aufgabe2 {
         can.arc(590, 78, 10, 0, 2 * Math.PI);
         can.fillStyle = "#FAFAFA";
         can.fill();
-    
+
         /*Piste*/
         can.beginPath();
         can.moveTo(0, 100);
@@ -76,25 +76,25 @@ namespace aufgabe2 {
         can.stroke();
         can.fillStyle = "#EFF2FB";
         can.fill();
-    
+
         /*Lift*/
         can.beginPath();
         can.moveTo(0, 150);
         can.lineTo(800, 450);
         can.stroke();
-    
+
         /*Liftbügel*/
         can.beginPath();
         can.moveTo(300, 263);
         can.lineTo(300, 300);
         can.stroke();
-    
+
         /*Liftsitz*/
         can.beginPath();
-        can.arc(300,300, 10, 0, 1 * Math.PI);
+        can.arc(300, 300, 10, 0, 1 * Math.PI);
         can.fillStyle = "#6E6E6E";
         can.fill();
-    
+
         /*Baum*/
         can.beginPath();
         can.moveTo(100, 500);
@@ -104,12 +104,12 @@ namespace aufgabe2 {
         can.stroke();
         can.fillStyle = "#0B610B";
         can.fill();
-    
+
         /*Baum*/
         can.beginPath();
         can.moveTo(650, 550);
-        can.lineTo(750,550);
-        can.lineTo(700,400);
+        can.lineTo(750, 550);
+        can.lineTo(700, 400);
         can.closePath();
         can.stroke();
         can.fillStyle = "#0B610B";
