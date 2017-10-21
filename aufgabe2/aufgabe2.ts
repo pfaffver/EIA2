@@ -1,46 +1,23 @@
 namespace aufgabe2 {
 
     window.addEventListener("load", ski);
+    
+    let can: any;
 
     function ski(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
 
-        let can: CanvasRenderingContext2D = canvas.getContext("2d");
+        can = canvas.getContext("2d");
         console.log(can);
 
         can.fillStyle = "#5882FA";
         can.fillRect(0, 0, 800, 600);
 
         /*Berg*/
-        can.beginPath();
-        can.moveTo(250, 100);
-        can.lineTo(50, 500);
-        can.lineTo(450, 500);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#BDBDBD";
-        can.fill();
-
-        /*Berg*/
-        can.beginPath();
-        can.moveTo(450, 50);
-        can.lineTo(200, 400);
-        can.lineTo(700, 400);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#BDBDBD";
-        can.fill();
-
-        /*Berg*/
-        can.beginPath();
-        can.moveTo(600, 150);
-        can.lineTo(500, 400);
-        can.lineTo(700, 400);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#BDBDBD";
-        can.fill();
+        drawMountain(120, 300);
+        drawMountain(250, 270);
+        drawMountain(450, 450);
 
         /*Sonne*/
         can.beginPath();
@@ -49,23 +26,9 @@ namespace aufgabe2 {
         can.fill();
 
         /*Wolke*/
-        can.beginPath();
-        can.arc(600, 70, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
-        can.fill();
-        can.beginPath();
-        can.arc(610, 78, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
-        can.fill();
-        can.beginPath();
-        can.arc(600, 85, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
-        can.fill();
-        can.beginPath();
-        can.arc(590, 78, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
-        can.fill();
-
+        drawCloud(600, 70);
+        drawCloud(500, 30);
+               
         /*Piste*/
         can.beginPath();
         can.moveTo(0, 100);
@@ -96,23 +59,67 @@ namespace aufgabe2 {
         can.fill();
 
         /*Baum*/
+        drawTree(100, 500, "#0A2A0A");
+        
+        /*8 Dreiecke an zufälliger Position zwischen 150 und 600 horizontal und 500 und 550 vertikal*/
+        for (let i: number = 0; i < 8; i++) {
+            let x: number = 150 + Math.random() * 450;
+            let y: number = 500 + Math.random() * 50;
+            drawTree(x, y, "#0B6121");
+        }
+        
+        /*50 Schneeflocken an zufälliger Position zwischen 0 und 800 horizontal und 0 und 600 vertikal (über das ganze Canvas)*/
+        for (let i: number = 0; i < 50; i++) {
+            let x: number = 0 + Math.random() * 800;
+            let y: number = 0 + Math.random() * 600;
+            drawSnow(x, y);
+        }
+    }
+    
+    function drawMountain(x: any, y: any): void {
+    //Berg
         can.beginPath();
-        can.moveTo(100, 500);
-        can.lineTo(125, 450);
-        can.lineTo(150, 500);
+        can.moveTo(x, y);
+        can.lineTo(x +200, y);
+        can.lineTo(x +100, y -250);
         can.closePath();
         can.stroke();
-        can.fillStyle = "#0B610B";
-        can.fill();
-
-        /*Baum*/
-        can.beginPath();
-        can.moveTo(650, 550);
-        can.lineTo(750, 550);
-        can.lineTo(700, 400);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#0B610B";
+        can.fillStyle = "#BDBDBD";
         can.fill();
     }
+    
+    function drawCloud(x: any, y: any): void {
+    //Wolke
+        can.beginPath();
+        can.arc(x, y, 10, 0, 2 * Math.PI);
+        can.arc(x+15, y+8, 10, 0, 2 * Math.PI);
+        can.arc(x, y+10, 10, 0, 2 * Math.PI);
+        can.arc(x-15, y+8, 10, 0, 2 * Math.PI);
+        can.fillStyle = "#FAFAFA";
+        can.fill();
+    }
+    
+    function drawTree(x: any, y: any, color: any): void {
+    //Baum
+        can.beginPath();
+        can.moveTo(x, y);
+        can.lineTo(x +50, y);
+        can.lineTo(x +25, y -50);
+        can.closePath();
+        can.stroke();
+        can.fillStyle = color;
+        can.fill();
+        can.fillStyle = "#3B170B";
+        can.fillRect(x+17, y, 15, 10);
+        can.beginPath();
+    }
+    
+    function drawSnow(x: any, y: any): void {
+    //Schneeflocke
+        can.beginPath();
+        can.arc(x, y, 3, 0, 2 * Math.PI);
+        can.fillStyle = "#E6E6E6";
+        can.fill();
+    }
+      
 }
