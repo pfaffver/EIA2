@@ -1,3 +1,8 @@
+/* Aufgabe2 
+Name: Verena Pfaff 
+Matrikel: 256543
+Datum: 20.10.2017 */
+
 namespace aufgabe2 {
 
     window.addEventListener("load", ski);
