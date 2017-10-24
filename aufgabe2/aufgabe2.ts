@@ -7,7 +7,7 @@ namespace aufgabe2 {
 
     window.addEventListener("load", ski);
 
-    let can: any;
+    let can: CanvasRenderingContext2D;
 
     function ski(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -81,7 +81,7 @@ namespace aufgabe2 {
         }
     }
 
-    function drawMountain(x: any, y: any): void {
+    function drawMountain(x: number, y: number): void {
         //Berg
         can.beginPath();
         can.moveTo(x, y);
@@ -93,7 +93,7 @@ namespace aufgabe2 {
         can.fill();
     }
 
-    function drawCloud(x: any, y: any): void {
+    function drawCloud(x: number, y: number): void {
         //Wolke
         can.beginPath();
         can.arc(x, y, 10, 0, 2 * Math.PI);
@@ -104,7 +104,7 @@ namespace aufgabe2 {
         can.fill();
     }
 
-    function drawTree(x: any, y: any, color: any): void {
+    function drawTree(x: number, y: number, color: string): void {
         //Baum
         can.beginPath();
         can.moveTo(x, y);
@@ -119,7 +119,7 @@ namespace aufgabe2 {
         can.beginPath();
     }
 
-    function drawSnow(x: any, y: any): void {
+    function drawSnow(x: number, y: number): void {
         //Schneeflocke
         can.beginPath();
         can.arc(x, y, 3, 0, 2 * Math.PI);
