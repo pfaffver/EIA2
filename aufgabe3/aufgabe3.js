@@ -50,6 +50,29 @@ var aufgabe3;
         can.arc(300, 300, 10, 0, 1 * Math.PI);
         can.fillStyle = "#6E6E6E";
         can.fill();
+        /*Skifahrer*/
+        /*Kopf*/
+        can.beginPath();
+        can.arc(400, 400, 6, 0, 2 * Math.PI);
+        can.fillStyle = "#4000FF";
+        can.fill();
+        can.beginPath();
+        can.arc(400, 400, 6, 0, 1 * Math.PI);
+        can.fillStyle = "#F5A9A9";
+        can.fill();
+        /*K�rper*/
+        can.fillStyle = "#5882FA";
+        can.fillRect(395, 406, 9, 16);
+        /*Board*/
+        can.beginPath();
+        can.moveTo(390, 417);
+        can.lineTo(390, 421);
+        can.lineTo(409, 428);
+        can.lineTo(409, 424);
+        can.closePath();
+        can.stroke();
+        can.fillStyle = "#1C1C1C";
+        can.fill();
         /*Baum*/
         drawTree(100, 500, "#0A2A0A");
         /*8 Dreiecke an zuf�lliger Position zwischen 150 und 600 horizontal und 500 und 550 vertikal*/
