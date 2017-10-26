@@ -53,15 +53,15 @@ var aufgabe3;
         /*Skifahrer*/
         /*Kopf*/
         can.beginPath();
-        can.arc(400, 400, 6, 0, 2 * Math.PI);
-        can.fillStyle = "#4000FF";
+        can.arc(399, 400, 6, 0, 2 * Math.PI);
+        can.fillStyle = "#9C4747";
         can.fill();
         can.beginPath();
-        can.arc(400, 400, 6, 0, 1 * Math.PI);
+        can.arc(399, 400, 6, 0, 1 * Math.PI);
         can.fillStyle = "#F5A9A9";
         can.fill();
         /*K�rper*/
-        can.fillStyle = "#5882FA";
+        can.fillStyle = "#01DFA5";
         can.fillRect(395, 406, 9, 16);
         /*Board*/
         can.beginPath();
