@@ -8,8 +8,14 @@ namespace aufgabe3 {
     window.addEventListener("load", ski);
 
     let can: CanvasRenderingContext2D;
-    let arraySkiX: number[] = [390];
-    let arraySkiY: number[] = [360];
+    let arraySkiX: number[] = [0]; //Array für den (1) Skifahrer
+    let arraySkiY: number[] = [240];
+    
+    let arraySnowX: number[] = []; //Array für die Schneeflocken
+    let arraySnowY: number[] = [];
+    
+    let arrayCloudX: number[] = []; //Array für die Wolken
+    let arrayCloudY: number[] = [];
     
     let Background: ImageData;
 
@@ -35,9 +41,9 @@ namespace aufgabe3 {
         can.fillStyle = "#F7FE2E";
         can.fill();
 
-        /*Wolke*/
+        /*Wolke
         drawCloud(600, 70);
-        drawCloud(500, 30);
+        drawCloud(500, 30);*/
 
         /*Piste*/
         can.beginPath();
@@ -77,18 +83,21 @@ namespace aufgabe3 {
             let y: number = 500 + Math.random() * 50;
             drawTree(x, y, "#0B6121");
         }
-
-        /*50 Schneeflocken an zufälliger Position zwischen 0 und 800 horizontal und 0 und 600 vertikal (über das ganze Canvas)*/
-        for (let i: number = 0; i < 50; i++) {
-            let x: number = 0 + Math.random() * 800;
-            let y: number = 0 + Math.random() * 600;
-            drawSnow(x, y);
-        }
         
         //Hintergrund speichern
         Background = can.getImageData (0, 0, canvas.width, canvas.height);
         
         animate();
+        
+        for (let i: number = 0; i < 50; i++) {
+            arraySnowX[i] = 800 * Math.random();
+            arraySnowY[i] = 600 * Math.random();
+        }
+        
+        for (let i: number = 0; i < 3; i++) {
+            arrayCloudX[i] = 800 * Math.random();
+            arrayCloudY[i] = 100 * Math.random();
+        }
     }
 
     function drawMountain(x: number, y: number): void {
@@ -166,12 +175,32 @@ namespace aufgabe3 {
         console.log("Timeout");
         can.putImageData (Background, 0, 0); // hier Hintergrund restaurieren
         for (let i: number = 0; i < arraySkiX.length; i++) { //Hier ist es egal ob das Y oder X array geholt wird
-            arraySkiX[i] += 1.7; //X-Wert und Y-Wert einer Skala
-            arraySkiY[i] += 0.5; 
+            if (arraySkiX[i] > 800) {
+               arraySkiX[i] = 0;
+               arraySkiY[i] = 240;
+            }
+            arraySkiX[i] += 2.7; //X-Wert und Y-Wert einer Skala
+            arraySkiY[i] += 0.8; 
             drawSkier (arraySkiX[i], arraySkiY[i]);
         }
-           window.setTimeout(animate, 20);
-
+        
+        for (let i: number = 0; i < arraySnowY.length; i++) {
+            if (arraySnowY[i] > 600) {
+               arraySnowY[i] = 0;
+            }
+            arraySnowY[i] += 1; 
+            drawSnow (arraySnowX[i], arraySnowY[i]);
+        }
+        
+        for (let i: number = 0; i < arrayCloudX.length; i++) {
+            if (arrayCloudX[i] > 800) {
+               arrayCloudX[i] = 0;
+            }
+            arrayCloudX[i] += 1; 
+            drawCloud (arrayCloudX[i], arrayCloudY[i]);
+        }
+           
+           window.setTimeout(animate, 15);
     }
            
 }
