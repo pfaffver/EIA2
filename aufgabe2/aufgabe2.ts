@@ -83,7 +83,7 @@ namespace aufgabe2 {
 
     function drawMountain(x: number, y: number): void {
         //Berg
-        can.beginPath();
+        can.beginPath();    
         can.moveTo(x, y);
         can.lineTo(x + 200, y);
         can.lineTo(x + 100, y - 250);

@@ -1,11 +1,14 @@
 /* Aufgabe3
 Name: Verena Pfaff
 Matrikel: 256543
-Datum: 26.10.2017 */
+Datum: 27.10.2017 */
 var aufgabe3;
 (function (aufgabe3) {
     window.addEventListener("load", ski);
     let can;
+    let arraySkiX = [390];
+    let arraySkiY = [360];
+    let Background;
     function ski() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -50,29 +53,6 @@ var aufgabe3;
         can.arc(300, 300, 10, 0, 1 * Math.PI);
         can.fillStyle = "#6E6E6E";
         can.fill();
-        /*Skifahrer*/
-        /*Kopf*/
-        can.beginPath();
-        can.arc(399, 400, 6, 0, 2 * Math.PI);
-        can.fillStyle = "#9C4747";
-        can.fill();
-        can.beginPath();
-        can.arc(399, 400, 6, 0, 1 * Math.PI);
-        can.fillStyle = "#F5A9A9";
-        can.fill();
-        /*K�rper*/
-        can.fillStyle = "#01DFA5";
-        can.fillRect(395, 406, 9, 16);
-        /*Board*/
-        can.beginPath();
-        can.moveTo(390, 417);
-        can.lineTo(390, 421);
-        can.lineTo(409, 428);
-        can.lineTo(409, 424);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#1C1C1C";
-        can.fill();
         /*Baum*/
         drawTree(100, 500, "#0A2A0A");
         /*8 Dreiecke an zuf�lliger Position zwischen 150 und 600 horizontal und 500 und 550 vertikal*/
@@ -87,6 +67,9 @@ var aufgabe3;
             let y = 0 + Math.random() * 600;
             drawSnow(x, y);
         }
+        //Hintergrund speichern
+        Background = can.getImageData(0, 0, canvas.width, canvas.height);
+        animate();
     }
     function drawMountain(x, y) {
         //Berg
@@ -129,6 +112,40 @@ var aufgabe3;
         can.arc(x, y, 3, 0, 2 * Math.PI);
         can.fillStyle = "#E6E6E6";
         can.fill();
+    }
+    function drawSkier(x, y) {
+        //Skifahrer
+        can.beginPath();
+        can.arc(x, y, 6, 0, 2 * Math.PI);
+        can.fillStyle = "#B40431";
+        can.fill();
+        can.beginPath();
+        can.arc(x, y, 6, 0, 1 * Math.PI);
+        can.fillStyle = "#F5A9A9";
+        can.fill();
+        /*K�rper*/
+        can.fillStyle = "#01DFA5";
+        can.fillRect(x - 4, y + 6, 9, 16);
+        /*Board*/
+        can.beginPath();
+        can.moveTo(x - 9, y + 19);
+        can.lineTo(x - 9, y + 21);
+        can.lineTo(x + 10, y + 28);
+        can.lineTo(x + 10, y + 26);
+        can.closePath();
+        can.stroke();
+        can.fillStyle = "#1C1C1C";
+        can.fill();
+    }
+    function animate() {
+        console.log("Timeout");
+        can.putImageData(Background, 0, 0); // hier Hintergrund restaurieren
+        for (let i = 0; i < arraySkiX.length; i++) {
+            arraySkiX[i] += 1.7; //X-Wert und Y-Wert einer Skala
+            arraySkiY[i] += 0.5;
+            drawSkier(arraySkiX[i], arraySkiY[i]);
+        }
+        window.setTimeout(animate, 20);
     }
 })(aufgabe3 || (aufgabe3 = {}));
 //# sourceMappingURL=aufgabe3.js.map
