@@ -9,8 +9,8 @@ namespace aufgabe3 {
 
     let can: CanvasRenderingContext2D;
 
-    let arraySkiX: number[] = [0]; //Array für den (1) Skifahrer
-    let arraySkiY: number[] = [240];
+    let arraySkiX: number[] = [0, -30]; //Array für den (1) Skifahrer
+    let arraySkiY: number[] = [240, 260];
 
     let arraySnowX: number[] = []; //Array für die Schneeflocken
     let arraySnowY: number[] = [];
@@ -178,7 +178,7 @@ namespace aufgabe3 {
         for (let i: number = 0; i < arraySkiX.length; i++) { //Hier ist es egal ob das Y oder X array geholt wird
             if (arraySkiX[i] > 800) {
                 arraySkiX[i] = 0;
-                arraySkiY[i] = 240;
+                arraySkiY[i] = 240 + Math.random() * 50;
             }
             arraySkiX[i] += 2.7; //X-Wert und Y-Wert einer Skala
             arraySkiY[i] += 0.8;

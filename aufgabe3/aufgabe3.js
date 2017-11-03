@@ -6,8 +6,8 @@ var aufgabe3;
 (function (aufgabe3) {
     window.addEventListener("load", ski);
     let can;
-    let arraySkiX = [0]; //Array f�r den (1) Skifahrer
-    let arraySkiY = [240];
+    let arraySkiX = [0, -30]; //Array f�r den (1) Skifahrer
+    let arraySkiY = [240, 260];
     let arraySnowX = []; //Array f�r die Schneeflocken
     let arraySnowY = [];
     let arrayCloudX = []; //Array f�r die Wolken
@@ -149,7 +149,7 @@ var aufgabe3;
         for (let i = 0; i < arraySkiX.length; i++) {
             if (arraySkiX[i] > 800) {
                 arraySkiX[i] = 0;
-                arraySkiY[i] = 240;
+                arraySkiY[i] = 240 + Math.random() * 50;
             }
             arraySkiX[i] += 2.7; //X-Wert und Y-Wert einer Skala
             arraySkiY[i] += 0.8;
