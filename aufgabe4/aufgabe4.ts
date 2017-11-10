@@ -9,16 +9,33 @@ namespace aufgabe4 {
 
     let can: CanvasRenderingContext2D;
 
-    let arraySkiX: number[] = [0, -30]; //Array für den (1) Skifahrer
-    let arraySkiY: number[] = [240, 260];
+    interface Snow {
+        x: number;
+        y: number;
+        dx: number;
+        dy: number;
+    }
 
-    let arraySnowX: number[] = []; //Array für die Schneeflocken
-    let arraySnowY: number[] = [];
+    interface Cloud {
+        x: number;
+        y: number;
+        dx: number;
+        dy: number;
+    }
 
-    let arrayCloudX: number[] = []; //Array für die Wolken
-    let arrayCloudY: number[] = [];
+    interface Skier {
+        x: number;
+        y: number;
+        dx: number;
+        dy: number;
+        colorHat: string;
+        colorBody: string;
+    }
 
     let Background: ImageData;
+    let SnowArray: Snow[] = [];
+    let CloudArray: Cloud[] = [];
+    let SkierArray: Skier[] = [];
 
 
     function ski(): void {
@@ -85,20 +102,44 @@ namespace aufgabe4 {
             drawTree(x, y, "#0B6121");
         }
 
+        /*Gibt Start und Bewegungswert an das Interface Snow + For Schleife*/
+        for (let i: number = 0; i < 50; i++) {
+            SnowArray[i] = {
+                x: 800 * Math.random(),
+                y: 600 * Math.random(),
+                dx: 0,
+                dy: 1
+            };
+        }
+
+        /*Gibt Start und Bewegungswert an das Interface Cloud + For Schleife*/
+        for (let i: number = 0; i < 3; i++) {
+            CloudArray[i] = {
+                x: 800 * Math.random(),
+                y: 150 * Math.random(),
+                dx: 1,
+                dy: 0
+            };
+        }
+
+        /*Gibt Start und Bewegungswert an das Interface Skier + For Schleife*/
+        for (let i: number = 0; i < 4; i++) {
+            SkierArray[i] = {
+                x: 0 + Math.random() * 100,
+                y: 210 + Math.random() * 100,
+                dx: 2.7,
+                dy: 0.8,
+                colorHat: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+                colorBody: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
+            };
+        }
+
+
         //Hintergrund speichern
         Background = can.getImageData(0, 0, canvas.width, canvas.height);
 
+        //Aufruf der Animate Funktion
         animate();
-
-        for (let i: number = 0; i < 50; i++) {
-            arraySnowX[i] = 800 * Math.random();
-            arraySnowY[i] = 600 * Math.random();
-        }
-
-        for (let i: number = 0; i < 3; i++) {
-            arrayCloudX[i] = 800 * Math.random();
-            arrayCloudY[i] = 100 * Math.random();
-        }
     }
 
     function drawMountain(x: number, y: number): void {
@@ -110,17 +151,6 @@ namespace aufgabe4 {
         can.closePath();
         can.stroke();
         can.fillStyle = "#BDBDBD";
-        can.fill();
-    }
-
-    function drawCloud(x: number, y: number): void {
-        //Wolke
-        can.beginPath();
-        can.arc(x, y, 10, 0, 2 * Math.PI);
-        can.arc(x + 15, y + 8, 10, 0, 2 * Math.PI);
-        can.arc(x, y + 10, 10, 0, 2 * Math.PI);
-        can.arc(x - 15, y + 8, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
         can.fill();
     }
 
@@ -139,33 +169,54 @@ namespace aufgabe4 {
         can.beginPath();
     }
 
-    function drawSnow(x: number, y: number): void {
-        //Schneeflocke
+    function moveAndDrawCloud(_cloud: Cloud): void {
+        //Wolke bewegen
+        _cloud.x += _cloud.dx;
+
+        //Wolke zeichnen
         can.beginPath();
-        can.arc(x, y, 3, 0, 2 * Math.PI);
+        can.arc(_cloud.x, _cloud.y, 10, 0, 2 * Math.PI);
+        can.arc(_cloud.x + 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
+        can.arc(_cloud.x, _cloud.y + 10, 10, 0, 2 * Math.PI);
+        can.arc(_cloud.x - 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
+        can.fillStyle = "#FAFAFA";
+        can.fill();
+    }
+
+    function moveAndDrawSnow(_snow: Snow): void {
+        //Schneeflocke bewegen
+        _snow.y += _snow.dy;
+
+        //Schneeflocke erstellen
+        can.beginPath();
+        can.arc(_snow.x, _snow.y, 3, 0, 2 * Math.PI);
         can.fillStyle = "#E6E6E6";
         can.fill();
     }
 
-    function drawSkier(x: number, y: number): void {
+    function moveAndDrawSkier(_skier: Skier): void {
+        //Skifahrer bewegen
+        _skier.y += _skier.dy;
+        _skier.x += _skier.dx;
+
         //Skifahrer
         can.beginPath();
-        can.arc(x, y, 6, 0, 2 * Math.PI);
-        can.fillStyle = "#B40431";
+        can.arc(_skier.x, _skier.y, 6, 0, 2 * Math.PI);
+        can.fillStyle = _skier.colorHat;
         can.fill();
         can.beginPath();
-        can.arc(x, y, 6, 0, 1 * Math.PI);
+        can.arc(_skier.x, _skier.y, 6, 0, 1 * Math.PI);
         can.fillStyle = "#F5A9A9";
         can.fill();
         /*Körper*/
-        can.fillStyle = "#01DFA5";
-        can.fillRect(x - 4, y + 6, 9, 16);
+        can.fillStyle = _skier.colorBody;
+        can.fillRect(_skier.x - 4, _skier.y + 6, 9, 16);
         /*Board*/
         can.beginPath();
-        can.moveTo(x - 9, y + 19);
-        can.lineTo(x - 9, y + 21);
-        can.lineTo(x + 10, y + 28);
-        can.lineTo(x + 10, y + 26);
+        can.moveTo(_skier.x - 9, _skier.y + 19);
+        can.lineTo(_skier.x - 9, _skier.y + 21);
+        can.lineTo(_skier.x + 10, _skier.y + 28);
+        can.lineTo(_skier.x + 10, _skier.y + 26);
         can.closePath();
         can.stroke();
         can.fillStyle = "#1C1C1C";
@@ -173,35 +224,33 @@ namespace aufgabe4 {
     }
 
     function animate(): void {
+
         console.log("Timeout");
         can.putImageData(Background, 0, 0); // hier Hintergrund restaurieren
-        for (let i: number = 0; i < arraySkiX.length; i++) { //Hier ist es egal ob das Y oder X array geholt wird
-            if (arraySkiX[i] > 800) {
-                arraySkiX[i] = 0;
-                arraySkiY[i] = 240 + Math.random() * 50;
+        //Hier geht es darum, was passiert, wenn der SKifahrer den Rand vom Canvas erreicht hat.
+        //Die For-Schleife lässt jede Stelle des Arrays durchlaufen (Length)
+        for (let i: number = 0; i < SkierArray.length; i++) {
+            if (SkierArray[i].x > 800) {
+                SkierArray[i].x = 0;
+                SkierArray[i].y = 240 + Math.random() * 50;
             }
-            arraySkiX[i] += 2.7; //X-Wert und Y-Wert einer Skala
-            arraySkiY[i] += 0.8;
-            drawSkier(arraySkiX[i], arraySkiY[i]);
+            moveAndDrawSkier(SkierArray[i]);
         }
 
-        for (let i: number = 0; i < arraySnowY.length; i++) {
-            if (arraySnowY[i] > 600) {
-                arraySnowY[i] = 0;
+        for (let i: number = 0; i < SnowArray.length; i++) {
+            if (SnowArray[i].y > 600) {
+                SnowArray[i].y = 0;
             }
-            arraySnowY[i] += 1;
-            drawSnow(arraySnowX[i], arraySnowY[i]);
+            moveAndDrawSnow(SnowArray[i]);
         }
 
-        for (let i: number = 0; i < arrayCloudX.length; i++) {
-            if (arrayCloudX[i] > 800) {
-                arrayCloudX[i] = 0;
+        for (let i: number = 0; i < CloudArray.length; i++) {
+            if (CloudArray[i].x > 800) {
+                CloudArray[i].x = 0;
             }
-            arrayCloudX[i] += 1;
-            drawCloud(arrayCloudX[i], arrayCloudY[i]);
+            moveAndDrawCloud(CloudArray[i]);
         }
 
         window.setTimeout(animate, 15);
     }
-
 }
