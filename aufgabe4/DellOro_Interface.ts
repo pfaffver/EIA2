@@ -33,9 +33,8 @@ namespace L04_InterfaceArray {
         }
 
                //Hintergrund speichern
-        Background = can.getImageData(0, 0, canvas.width, canvas.height);
 
-        animate();n
+        animate();
     }
 
     function animate(): void {

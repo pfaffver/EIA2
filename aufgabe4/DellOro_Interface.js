@@ -19,7 +19,8 @@ var L04_InterfaceArray;
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"
             };
         }
-        // hier Hintergrund speichern
+        //Hintergrund speichern
+        animate();
     }
     function animate() {
         console.log("Timeout");
