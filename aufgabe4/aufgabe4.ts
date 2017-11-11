@@ -91,9 +91,9 @@ namespace aufgabe4 {
         /*Baum*/
         drawTree(100, 500, "#0A2A0A");
 
-        /*8 Dreiecke an zufälliger Position zwischen 150 und 600 horizontal und 500 und 550 vertikal*/
+        /*8 Bäume an zufälliger Position zwischen 150 und 600 horizontal und 500 und 550 vertikal*/
         for (let i: number = 0; i < 8; i++) {
-            let x: number = 150 + Math.random() * 450;
+            let x: number = 50 + Math.random() * 400;
             let y: number = 500 + Math.random() * 50;
             drawTree(x, y, "#0B6121");
         }
