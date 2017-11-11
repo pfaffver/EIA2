@@ -59,10 +59,6 @@ namespace aufgabe4 {
         can.fillStyle = "#F7FE2E";
         can.fill();
 
-        /*Wolke
-        drawCloud(600, 70);
-        drawCloud(500, 30);*/
-
         /*Piste*/
         can.beginPath();
         can.moveTo(0, 100);
