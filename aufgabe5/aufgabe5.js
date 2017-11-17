@@ -68,14 +68,10 @@ var aufgabe5;
                 dy: 1
             };
         }
-        /*Gibt Start und Bewegungswert an das Interface Cloud + For Schleife*/
+        /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
         for (let i = 0; i < 3; i++) {
-            CloudArray[i] = {
-                x: 800 * Math.random(),
-                y: 150 * Math.random(),
-                dx: 1,
-                dy: 0
-            };
+            let c = new aufgabe5.Clouds(0, 3, 1, 0);
+            CloudArray[i] = c;
         }
         /*Gibt New Skier() gibt Start und Bewegungswert an + For Schleife*/
         for (let i = 0; i < 4; i++) {
@@ -113,18 +109,6 @@ var aufgabe5;
         aufgabe5.can.fillRect(x + 17, y, 15, 10);
         aufgabe5.can.beginPath();
     }
-    function moveAndDrawCloud(_cloud) {
-        //Wolke bewegen
-        _cloud.x += _cloud.dx;
-        //Wolke zeichnen
-        aufgabe5.can.beginPath();
-        aufgabe5.can.arc(_cloud.x, _cloud.y, 10, 0, 2 * Math.PI);
-        aufgabe5.can.arc(_cloud.x + 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
-        aufgabe5.can.arc(_cloud.x, _cloud.y + 10, 10, 0, 2 * Math.PI);
-        aufgabe5.can.arc(_cloud.x - 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
-        aufgabe5.can.fillStyle = "#FAFAFA";
-        aufgabe5.can.fill();
-    }
     function moveAndDrawSnow(_snow) {
         //Schneeflocke bewegen
         _snow.y += _snow.dy;
@@ -147,17 +131,16 @@ var aufgabe5;
             s.update();
             s.SetSkierToCanvasStartAgain();
         }
+        for (let i = 0; i < CloudArray.length; i++) {
+            let s = CloudArray[i];
+            s.update();
+            s.SetCloudsToCanvasStartAgain();
+        }
         for (let i = 0; i < SnowArray.length; i++) {
             if (SnowArray[i].y > 600) {
                 SnowArray[i].y = 0;
             }
             moveAndDrawSnow(SnowArray[i]);
-        }
-        for (let i = 0; i < CloudArray.length; i++) {
-            if (CloudArray[i].x > 800) {
-                CloudArray[i].x = 0;
-            }
-            moveAndDrawCloud(CloudArray[i]);
         }
         window.setTimeout(animate, 15);
     }

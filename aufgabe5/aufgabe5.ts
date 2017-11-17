@@ -16,16 +16,9 @@ namespace aufgabe5 {
         dy: number;
     }
 
-    interface Cloud {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
-    }
-
     let Background: ImageData;
     let SnowArray: Snow[] = [];
-    let CloudArray: Cloud[] = [];
+    let CloudArray: Clouds[] = [];
     let SkierArray: Skier[] = [];
 
     //let fahrer: Skier; - Das Beispiel wäre für einen einzelnen Skifahrer
@@ -100,14 +93,10 @@ namespace aufgabe5 {
             };
         }
 
-        /*Gibt Start und Bewegungswert an das Interface Cloud + For Schleife*/
+        /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
         for (let i: number = 0; i < 3; i++) {
-            CloudArray[i] = {
-                x: 800 * Math.random(),
-                y: 150 * Math.random(),
-                dx: 1,
-                dy: 0
-            };
+            let c: Clouds = new Clouds(0, 3, 1, 0);
+            CloudArray[i] = c;
         }
 
         /*Gibt New Skier() gibt Start und Bewegungswert an + For Schleife*/
@@ -151,20 +140,6 @@ namespace aufgabe5 {
         can.beginPath();
     }
 
-    function moveAndDrawCloud(_cloud: Cloud): void {
-        //Wolke bewegen
-        _cloud.x += _cloud.dx;
-
-        //Wolke zeichnen
-        can.beginPath();
-        can.arc(_cloud.x, _cloud.y, 10, 0, 2 * Math.PI);
-        can.arc(_cloud.x + 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
-        can.arc(_cloud.x, _cloud.y + 10, 10, 0, 2 * Math.PI);
-        can.arc(_cloud.x - 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
-        can.fill();
-    }
-
     function moveAndDrawSnow(_snow: Snow): void {
         //Schneeflocke bewegen
         _snow.y += _snow.dy;
@@ -193,18 +168,17 @@ namespace aufgabe5 {
             s.SetSkierToCanvasStartAgain();
         }
 
+        for (let i: number = 0; i < CloudArray.length; i++) {
+            let s: Clouds = CloudArray[i];
+            s.update();
+            s.SetCloudsToCanvasStartAgain();
+        }
+
         for (let i: number = 0; i < SnowArray.length; i++) {
             if (SnowArray[i].y > 600) {
                 SnowArray[i].y = 0;
             }
             moveAndDrawSnow(SnowArray[i]);
-        }
-
-        for (let i: number = 0; i < CloudArray.length; i++) {
-            if (CloudArray[i].x > 800) {
-                CloudArray[i].x = 0;
-            }
-            moveAndDrawCloud(CloudArray[i]);
         }
 
         window.setTimeout(animate, 15);
