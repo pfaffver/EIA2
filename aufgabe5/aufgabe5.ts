@@ -7,7 +7,7 @@ namespace aufgabe5 {
 
     window.addEventListener("load", ski);
 
-    let can: CanvasRenderingContext2D;
+    export let can: CanvasRenderingContext2D;
 
     interface Snow {
         x: number;
@@ -23,20 +23,12 @@ namespace aufgabe5 {
         dy: number;
     }
 
-    interface Skier {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
-        colorHat: string;
-        colorBody: string;
-    }
-
     let Background: ImageData;
     let SnowArray: Snow[] = [];
     let CloudArray: Cloud[] = [];
     let SkierArray: Skier[] = [];
 
+    //let fahrer: Skier; - Das Beispiel wäre für einen einzelnen Skifahrer
 
     function ski(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -118,18 +110,12 @@ namespace aufgabe5 {
             };
         }
 
-        /*Gibt Start und Bewegungswert an das Interface Skier + For Schleife*/
+        /*Gibt New Skier() gibt Start und Bewegungswert an + For Schleife*/
         for (let i: number = 0; i < 4; i++) {
-            SkierArray[i] = {
-                x: 0 + Math.random() * 100,
-                y: 210 + Math.random() * 100,
-                dx: 2.7,
-                dy: 0.8,
-                colorHat: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                colorBody: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-            };
+            let s: Skier = new Skier(0, 210, 2.7, 0.8);
+            s.setRandomStyle();
+            SkierArray[i] = s;
         }
-
 
         //Hintergrund speichern
         Background = can.getImageData(0, 0, canvas.width, canvas.height);
@@ -190,34 +176,9 @@ namespace aufgabe5 {
         can.fill();
     }
 
-    function moveAndDrawSkier(_skier: Skier): void {
-        //Skifahrer bewegen
-        _skier.y += _skier.dy;
-        _skier.x += _skier.dx;
-
-        //Skifahrer
-        can.beginPath();
-        can.arc(_skier.x, _skier.y, 6, 0, 2 * Math.PI);
-        can.fillStyle = _skier.colorHat;
-        can.fill();
-        can.beginPath();
-        can.arc(_skier.x, _skier.y, 6, 0, 1 * Math.PI);
-        can.fillStyle = "#F5A9A9";
-        can.fill();
-        /*Körper*/
-        can.fillStyle = _skier.colorBody;
-        can.fillRect(_skier.x - 4, _skier.y + 6, 9, 16);
-        /*Board*/
-        can.beginPath();
-        can.moveTo(_skier.x - 9, _skier.y + 19);
-        can.lineTo(_skier.x - 9, _skier.y + 21);
-        can.lineTo(_skier.x + 10, _skier.y + 28);
-        can.lineTo(_skier.x + 10, _skier.y + 26);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#1C1C1C";
-        can.fill();
-    }
+    //        fahrer = new Skier(0, 210, 2.7, 0.8); - Für Einzelner Ski fahrer
+    //        fahrer.setRandomStyle(); - Für Einzelner Ski fahrer
+    //        fahrer.SetSkierToCanvasStartAgain(); - Für Einzelner Ski fahrer
 
     function animate(): void {
 
@@ -225,12 +186,11 @@ namespace aufgabe5 {
         can.putImageData(Background, 0, 0); // hier Hintergrund restaurieren
         //Hier geht es darum, was passiert, wenn der SKifahrer den Rand vom Canvas erreicht hat.
         //Die For-Schleife lässt jede Stelle des Arrays durchlaufen (Length)
+
         for (let i: number = 0; i < SkierArray.length; i++) {
-            if (SkierArray[i].x > 800) {
-                SkierArray[i].x = 0;
-                SkierArray[i].y = 240 + Math.random() * 50;
-            }
-            moveAndDrawSkier(SkierArray[i]);
+            let s: Skier = SkierArray[i];
+            s.update();
+            s.SetSkierToCanvasStartAgain();
         }
 
         for (let i: number = 0; i < SnowArray.length; i++) {

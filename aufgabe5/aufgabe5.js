@@ -5,52 +5,52 @@ Datum: 16.11.2017 */
 var aufgabe5;
 (function (aufgabe5) {
     window.addEventListener("load", ski);
-    let can;
     let Background;
     let SnowArray = [];
     let CloudArray = [];
     let SkierArray = [];
+    //let fahrer: Skier; - Das Beispiel w�re f�r einen einzelnen Skifahrer
     function ski() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        can = canvas.getContext("2d");
-        console.log(can);
-        can.fillStyle = "#5882FA";
-        can.fillRect(0, 0, 800, 600);
+        aufgabe5.can = canvas.getContext("2d");
+        console.log(aufgabe5.can);
+        aufgabe5.can.fillStyle = "#5882FA";
+        aufgabe5.can.fillRect(0, 0, 800, 600);
         /*Berg*/
         drawMountain(120, 300);
         drawMountain(250, 270);
         drawMountain(450, 450);
         /*Sonne*/
-        can.beginPath();
-        can.arc(100, 70, 30, 0, 2 * Math.PI);
-        can.fillStyle = "#F7FE2E";
-        can.fill();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.arc(100, 70, 30, 0, 2 * Math.PI);
+        aufgabe5.can.fillStyle = "#F7FE2E";
+        aufgabe5.can.fill();
         /*Piste*/
-        can.beginPath();
-        can.moveTo(0, 100);
-        can.lineTo(800, 400);
-        can.lineTo(800, 600);
-        can.lineTo(0, 600);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#EFF2FB";
-        can.fill();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.moveTo(0, 100);
+        aufgabe5.can.lineTo(800, 400);
+        aufgabe5.can.lineTo(800, 600);
+        aufgabe5.can.lineTo(0, 600);
+        aufgabe5.can.closePath();
+        aufgabe5.can.stroke();
+        aufgabe5.can.fillStyle = "#EFF2FB";
+        aufgabe5.can.fill();
         /*Lift*/
-        can.beginPath();
-        can.moveTo(0, 150);
-        can.lineTo(800, 450);
-        can.stroke();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.moveTo(0, 150);
+        aufgabe5.can.lineTo(800, 450);
+        aufgabe5.can.stroke();
         /*Liftb�gel*/
-        can.beginPath();
-        can.moveTo(300, 263);
-        can.lineTo(300, 300);
-        can.stroke();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.moveTo(300, 263);
+        aufgabe5.can.lineTo(300, 300);
+        aufgabe5.can.stroke();
         /*Liftsitz*/
-        can.beginPath();
-        can.arc(300, 300, 10, 0, 1 * Math.PI);
-        can.fillStyle = "#6E6E6E";
-        can.fill();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.arc(300, 300, 10, 0, 1 * Math.PI);
+        aufgabe5.can.fillStyle = "#6E6E6E";
+        aufgabe5.can.fill();
         /*Baum*/
         drawTree(100, 500, "#0A2A0A");
         /*8 B�ume an zuf�lliger Position zwischen 150 und 600 horizontal und 500 und 550 vertikal*/
@@ -77,106 +77,75 @@ var aufgabe5;
                 dy: 0
             };
         }
-        /*Gibt Start und Bewegungswert an das Interface Skier + For Schleife*/
+        /*Gibt New Skier() gibt Start und Bewegungswert an + For Schleife*/
         for (let i = 0; i < 4; i++) {
-            SkierArray[i] = {
-                x: 0 + Math.random() * 100,
-                y: 210 + Math.random() * 100,
-                dx: 2.7,
-                dy: 0.8,
-                colorHat: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-                colorBody: "hsl(" + Math.random() * 360 + ", 100%, 50%)",
-            };
+            let s = new aufgabe5.Skier(0, 210, 2.7, 0.8);
+            s.setRandomStyle();
+            SkierArray[i] = s;
         }
         //Hintergrund speichern
-        Background = can.getImageData(0, 0, canvas.width, canvas.height);
+        Background = aufgabe5.can.getImageData(0, 0, canvas.width, canvas.height);
         //Aufruf der Animate Funktion
         animate();
     }
     function drawMountain(x, y) {
         //Berg
-        can.beginPath();
-        can.moveTo(x, y);
-        can.lineTo(x + 200, y);
-        can.lineTo(x + 100, y - 250);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#BDBDBD";
-        can.fill();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.moveTo(x, y);
+        aufgabe5.can.lineTo(x + 200, y);
+        aufgabe5.can.lineTo(x + 100, y - 250);
+        aufgabe5.can.closePath();
+        aufgabe5.can.stroke();
+        aufgabe5.can.fillStyle = "#BDBDBD";
+        aufgabe5.can.fill();
     }
     function drawTree(x, y, color) {
         //Baum
-        can.beginPath();
-        can.moveTo(x, y);
-        can.lineTo(x + 50, y);
-        can.lineTo(x + 25, y - 50);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = color;
-        can.fill();
-        can.fillStyle = "#3B170B";
-        can.fillRect(x + 17, y, 15, 10);
-        can.beginPath();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.moveTo(x, y);
+        aufgabe5.can.lineTo(x + 50, y);
+        aufgabe5.can.lineTo(x + 25, y - 50);
+        aufgabe5.can.closePath();
+        aufgabe5.can.stroke();
+        aufgabe5.can.fillStyle = color;
+        aufgabe5.can.fill();
+        aufgabe5.can.fillStyle = "#3B170B";
+        aufgabe5.can.fillRect(x + 17, y, 15, 10);
+        aufgabe5.can.beginPath();
     }
     function moveAndDrawCloud(_cloud) {
         //Wolke bewegen
         _cloud.x += _cloud.dx;
         //Wolke zeichnen
-        can.beginPath();
-        can.arc(_cloud.x, _cloud.y, 10, 0, 2 * Math.PI);
-        can.arc(_cloud.x + 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
-        can.arc(_cloud.x, _cloud.y + 10, 10, 0, 2 * Math.PI);
-        can.arc(_cloud.x - 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
-        can.fillStyle = "#FAFAFA";
-        can.fill();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.arc(_cloud.x, _cloud.y, 10, 0, 2 * Math.PI);
+        aufgabe5.can.arc(_cloud.x + 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
+        aufgabe5.can.arc(_cloud.x, _cloud.y + 10, 10, 0, 2 * Math.PI);
+        aufgabe5.can.arc(_cloud.x - 15, _cloud.y + 8, 10, 0, 2 * Math.PI);
+        aufgabe5.can.fillStyle = "#FAFAFA";
+        aufgabe5.can.fill();
     }
     function moveAndDrawSnow(_snow) {
         //Schneeflocke bewegen
         _snow.y += _snow.dy;
         //Schneeflocke erstellen
-        can.beginPath();
-        can.arc(_snow.x, _snow.y, 3, 0, 2 * Math.PI);
-        can.fillStyle = "#E6E6E6";
-        can.fill();
+        aufgabe5.can.beginPath();
+        aufgabe5.can.arc(_snow.x, _snow.y, 3, 0, 2 * Math.PI);
+        aufgabe5.can.fillStyle = "#E6E6E6";
+        aufgabe5.can.fill();
     }
-    function moveAndDrawSkier(_skier) {
-        //Skifahrer bewegen
-        _skier.y += _skier.dy;
-        _skier.x += _skier.dx;
-        //Skifahrer
-        can.beginPath();
-        can.arc(_skier.x, _skier.y, 6, 0, 2 * Math.PI);
-        can.fillStyle = _skier.colorHat;
-        can.fill();
-        can.beginPath();
-        can.arc(_skier.x, _skier.y, 6, 0, 1 * Math.PI);
-        can.fillStyle = "#F5A9A9";
-        can.fill();
-        /*K�rper*/
-        can.fillStyle = _skier.colorBody;
-        can.fillRect(_skier.x - 4, _skier.y + 6, 9, 16);
-        /*Board*/
-        can.beginPath();
-        can.moveTo(_skier.x - 9, _skier.y + 19);
-        can.lineTo(_skier.x - 9, _skier.y + 21);
-        can.lineTo(_skier.x + 10, _skier.y + 28);
-        can.lineTo(_skier.x + 10, _skier.y + 26);
-        can.closePath();
-        can.stroke();
-        can.fillStyle = "#1C1C1C";
-        can.fill();
-    }
+    //        fahrer = new Skier(0, 210, 2.7, 0.8); - F�r Einzelner Ski fahrer
+    //        fahrer.setRandomStyle(); - F�r Einzelner Ski fahrer
+    //        fahrer.SetSkierToCanvasStartAgain(); - F�r Einzelner Ski fahrer
     function animate() {
         console.log("Timeout");
-        can.putImageData(Background, 0, 0); // hier Hintergrund restaurieren
+        aufgabe5.can.putImageData(Background, 0, 0); // hier Hintergrund restaurieren
         //Hier geht es darum, was passiert, wenn der SKifahrer den Rand vom Canvas erreicht hat.
         //Die For-Schleife l�sst jede Stelle des Arrays durchlaufen (Length)
         for (let i = 0; i < SkierArray.length; i++) {
-            if (SkierArray[i].x > 800) {
-                SkierArray[i].x = 0;
-                SkierArray[i].y = 240 + Math.random() * 50;
-            }
-            moveAndDrawSkier(SkierArray[i]);
+            let s = SkierArray[i];
+            s.update();
+            s.SetSkierToCanvasStartAgain();
         }
         for (let i = 0; i < SnowArray.length; i++) {
             if (SnowArray[i].y > 600) {
