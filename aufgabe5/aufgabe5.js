@@ -59,14 +59,10 @@ var aufgabe5;
             let y = 500 + Math.random() * 50;
             drawTree(x, y, "#0B6121");
         }
-        /*Gibt Start und Bewegungswert an das Interface Snow + For Schleife*/
-        for (let i = 0; i < 50; i++) {
-            SnowArray[i] = {
-                x: 800 * Math.random(),
-                y: 600 * Math.random(),
-                dx: 0,
-                dy: 1
-            };
+        /*Gibt New Snow() gibt Start und Bewegungswert an + For Schleife*/
+        for (let i = 0; i < 250; i++) {
+            let s = new aufgabe5.Snow(0, 0, 0, 1);
+            SnowArray[i] = s;
         }
         /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
         for (let i = 0; i < 3; i++) {
@@ -109,15 +105,6 @@ var aufgabe5;
         aufgabe5.can.fillRect(x + 17, y, 15, 10);
         aufgabe5.can.beginPath();
     }
-    function moveAndDrawSnow(_snow) {
-        //Schneeflocke bewegen
-        _snow.y += _snow.dy;
-        //Schneeflocke erstellen
-        aufgabe5.can.beginPath();
-        aufgabe5.can.arc(_snow.x, _snow.y, 3, 0, 2 * Math.PI);
-        aufgabe5.can.fillStyle = "#E6E6E6";
-        aufgabe5.can.fill();
-    }
     //        fahrer = new Skier(0, 210, 2.7, 0.8); - F�r Einzelner Ski fahrer
     //        fahrer.setRandomStyle(); - F�r Einzelner Ski fahrer
     //        fahrer.SetSkierToCanvasStartAgain(); - F�r Einzelner Ski fahrer
@@ -137,10 +124,9 @@ var aufgabe5;
             s.SetCloudsToCanvasStartAgain();
         }
         for (let i = 0; i < SnowArray.length; i++) {
-            if (SnowArray[i].y > 600) {
-                SnowArray[i].y = 0;
-            }
-            moveAndDrawSnow(SnowArray[i]);
+            let s = SnowArray[i];
+            s.update();
+            s.SetSnowToCanvasStartAgain();
         }
         window.setTimeout(animate, 15);
     }

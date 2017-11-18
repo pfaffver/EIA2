@@ -9,13 +9,6 @@ namespace aufgabe5 {
 
     export let can: CanvasRenderingContext2D;
 
-    interface Snow {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
-    }
-
     let Background: ImageData;
     let SnowArray: Snow[] = [];
     let CloudArray: Clouds[] = [];
@@ -83,14 +76,10 @@ namespace aufgabe5 {
             drawTree(x, y, "#0B6121");
         }
 
-        /*Gibt Start und Bewegungswert an das Interface Snow + For Schleife*/
-        for (let i: number = 0; i < 50; i++) {
-            SnowArray[i] = {
-                x: 800 * Math.random(),
-                y: 600 * Math.random(),
-                dx: 0,
-                dy: 1
-            };
+        /*Gibt New Snow() gibt Start und Bewegungswert an + For Schleife*/
+        for (let i: number = 0; i < 250; i++) {
+            let s: Snow = new Snow(0, 0, 0, 1);
+            SnowArray[i] = s;
         }
 
         /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
@@ -140,17 +129,6 @@ namespace aufgabe5 {
         can.beginPath();
     }
 
-    function moveAndDrawSnow(_snow: Snow): void {
-        //Schneeflocke bewegen
-        _snow.y += _snow.dy;
-
-        //Schneeflocke erstellen
-        can.beginPath();
-        can.arc(_snow.x, _snow.y, 3, 0, 2 * Math.PI);
-        can.fillStyle = "#E6E6E6";
-        can.fill();
-    }
-
     //        fahrer = new Skier(0, 210, 2.7, 0.8); - Für Einzelner Ski fahrer
     //        fahrer.setRandomStyle(); - Für Einzelner Ski fahrer
     //        fahrer.SetSkierToCanvasStartAgain(); - Für Einzelner Ski fahrer
@@ -175,10 +153,9 @@ namespace aufgabe5 {
         }
 
         for (let i: number = 0; i < SnowArray.length; i++) {
-            if (SnowArray[i].y > 600) {
-                SnowArray[i].y = 0;
-            }
-            moveAndDrawSnow(SnowArray[i]);
+            let s: Snow = SnowArray[i];
+            s.update();
+            s.SetSnowToCanvasStartAgain();
         }
 
         window.setTimeout(animate, 15);
