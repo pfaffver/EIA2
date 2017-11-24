@@ -1,17 +1,14 @@
 var aufgabe6;
 (function (aufgabe6) {
-    class Skier {
+    class Skier extends aufgabe6.MovingObjects {
         constructor(_x, _y, _dx, _dy) {
-            this.x = _x + Math.random() * 100;
-            this.y = _y + Math.random() * 100;
-            this.dx = _dx;
-            this.dy = _dy;
-        }
-        update() {
-            this.move();
-            this.draw();
+            super(_x + Math.random() * 100, _y + Math.random() * 100, _dx, _dy);
         }
         move() {
+            if (this.x > 800) {
+                this.x = 0;
+                this.y = 240 + Math.random() * 100;
+            }
             this.x += this.dx;
             this.y += this.dy;
         }
@@ -42,14 +39,6 @@ var aufgabe6;
         setRandomStyle() {
             this.colorHat = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
             this.colorBody = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-        }
-        SetSkierToCanvasStartAgain() {
-            for (let i = 0; i < Skier.length; i++) {
-                if (this.x > 800) {
-                    this.x = 0;
-                    this.y = 240 + Math.random() * 100;
-                }
-            }
         }
     }
     aufgabe6.Skier = Skier;

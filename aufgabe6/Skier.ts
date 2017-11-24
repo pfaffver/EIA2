@@ -1,25 +1,17 @@
 namespace aufgabe6 {
-    export class Skier {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
+    export class Skier extends MovingObjects {
         colorHat: string;
         colorBody: string;
 
         constructor(_x: number, _y: number, _dx: number, _dy: number) {
-            this.x = _x + Math.random() * 100;
-            this.y = _y + Math.random() * 100;
-            this.dx = _dx;
-            this.dy = _dy;
-        }
-
-        update(): void {
-            this.move();
-            this.draw();
+            super(_x + Math.random() * 100, _y + Math.random() * 100, _dx, _dy);
         }
 
         move(): void {
+            if (this.x > 800) {
+                this.x = 0;
+                this.y = 240 + Math.random() * 100;
+            }
             this.x += this.dx;
             this.y += this.dy;
         }
@@ -54,14 +46,6 @@ namespace aufgabe6 {
             this.colorBody = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
         }
 
-        SetSkierToCanvasStartAgain(): void {
-            for (let i: number = 0; i < Skier.length; i++) {
-                if (this.x > 800) {
-                    this.x = 0;
-                    this.y = 240 + Math.random() * 100;
-                }
-            }
-        }
     }
 
 }

@@ -1,23 +1,14 @@
 namespace aufgabe6 {
-    export class Snow {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
+    export class Snow extends MovingObjects {
 
         constructor(_x: number, _y: number, _dx: number, _dy: number) {
-            this.x = _x + Math.random() * 800;
-            this.y = _y + Math.random() * 600;
-            this.dx = _dx;
-            this.dy = _dy;
-        }
-
-        update(): void {
-            this.move();
-            this.draw();
+            super(_x + Math.random() * 800, _y + Math.random() * 600, _dx, _dy);
         }
 
         move(): void {
+            if (this.y > 600) {
+                this.y = 0;
+            }
             this.y += this.dy;
         }
 
@@ -29,13 +20,6 @@ namespace aufgabe6 {
             can.fill();
         }
 
-        SetSnowToCanvasStartAgain(): void {
-            for (let i: number = 0; i < Snow.length; i++) {
-                if (this.y > 600) {
-                    this.y = 0;
-                }
-            }
-        }
     }
 
 }

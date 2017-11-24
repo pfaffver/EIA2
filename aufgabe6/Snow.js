@@ -1,17 +1,13 @@
 var aufgabe6;
 (function (aufgabe6) {
-    class Snow {
+    class Snow extends aufgabe6.MovingObjects {
         constructor(_x, _y, _dx, _dy) {
-            this.x = _x + Math.random() * 800;
-            this.y = _y + Math.random() * 600;
-            this.dx = _dx;
-            this.dy = _dy;
-        }
-        update() {
-            this.move();
-            this.draw();
+            super(_x + Math.random() * 800, _y + Math.random() * 600, _dx, _dy);
         }
         move() {
+            if (this.y > 600) {
+                this.y = 0;
+            }
             this.y += this.dy;
         }
         draw() {
@@ -20,13 +16,6 @@ var aufgabe6;
             aufgabe6.can.arc(this.x, this.y, 3, 0, 2 * Math.PI);
             aufgabe6.can.fillStyle = "#E6E6E6";
             aufgabe6.can.fill();
-        }
-        SetSnowToCanvasStartAgain() {
-            for (let i = 0; i < Snow.length; i++) {
-                if (this.y > 600) {
-                    this.y = 0;
-                }
-            }
         }
     }
     aufgabe6.Snow = Snow;

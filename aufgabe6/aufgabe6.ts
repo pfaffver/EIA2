@@ -10,11 +10,7 @@ namespace aufgabe6 {
     export let can: CanvasRenderingContext2D;
 
     let Background: ImageData;
-    let SnowArray: Snow[] = [];
-    let CloudArray: Clouds[] = [];
-    let SkierArray: Skier[] = [];
-
-    //let fahrer: Skier; - Das Beispiel wäre für einen einzelnen Skifahrer
+    let objects: MovingObjects[] = [];
 
     function ski(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -79,20 +75,20 @@ namespace aufgabe6 {
         /*Gibt New Snow() gibt Start und Bewegungswert an + For Schleife*/
         for (let i: number = 0; i < 250; i++) {
             let s: Snow = new Snow(0, 0, 0, 1);
-            SnowArray[i] = s;
+            objects.push(s);
         }
 
         /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
         for (let i: number = 0; i < 3; i++) {
             let c: Clouds = new Clouds(0, 3, 1, 0);
-            CloudArray[i] = c;
+            objects.push(c);
         }
 
         /*Gibt New Skier() gibt Start und Bewegungswert an + For Schleife*/
         for (let i: number = 0; i < 4; i++) {
             let s: Skier = new Skier(0, 210, 2.7, 0.8);
             s.setRandomStyle();
-            SkierArray[i] = s;
+            objects.push(s);
         }
 
         //Hintergrund speichern
@@ -140,22 +136,9 @@ namespace aufgabe6 {
         //Hier geht es darum, was passiert, wenn der SKifahrer den Rand vom Canvas erreicht hat.
         //Die For-Schleife lässt jede Stelle des Arrays durchlaufen (Length)
 
-        for (let i: number = 0; i < SkierArray.length; i++) {
-            let s: Skier = SkierArray[i];
+        for (let i: number = 0; i < MovingObjects.length; i++) {
+            let s: MovingObjects = objects[i];
             s.update();
-            s.SetSkierToCanvasStartAgain();
-        }
-
-        for (let i: number = 0; i < CloudArray.length; i++) {
-            let s: Clouds = CloudArray[i];
-            s.update();
-            s.SetCloudsToCanvasStartAgain();
-        }
-
-        for (let i: number = 0; i < SnowArray.length; i++) {
-            let s: Snow = SnowArray[i];
-            s.update();
-            s.SetSnowToCanvasStartAgain();
         }
 
         window.setTimeout(animate, 15);
