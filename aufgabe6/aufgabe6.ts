@@ -80,7 +80,7 @@ namespace aufgabe6 {
 
         /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
         for (let i: number = 0; i < 3; i++) {
-            let c: Clouds = new Clouds(0, 3, 1, 0);
+            let c: Clouds = new Clouds(0 + i * 100 + Math.random()*50, 50 + Math.random()*50, 2, 0);
             objects.push(c);
         }
 
@@ -136,7 +136,7 @@ namespace aufgabe6 {
         //Hier geht es darum, was passiert, wenn der SKifahrer den Rand vom Canvas erreicht hat.
         //Die For-Schleife lässt jede Stelle des Arrays durchlaufen (Length)
 
-        for (let i: number = 0; i < MovingObjects.length; i++) {
+        for (let i: number = 0; i < objects.length; i++) {
             let s: MovingObjects = objects[i];
             s.update();
         }

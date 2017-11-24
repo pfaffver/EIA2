@@ -63,7 +63,7 @@ var aufgabe6;
         }
         /*Gibt New Cloud() gibt Start und Bewegungswert an + For Schleife*/
         for (let i = 0; i < 3; i++) {
-            let c = new aufgabe6.Clouds(0, 3, 1, 0);
+            let c = new aufgabe6.Clouds(0 + i * 100 + Math.random() * 50, 50 + Math.random() * 50, 2, 0);
             objects.push(c);
         }
         /*Gibt New Skier() gibt Start und Bewegungswert an + For Schleife*/
@@ -110,7 +110,7 @@ var aufgabe6;
         aufgabe6.can.putImageData(Background, 0, 0); // hier Hintergrund restaurieren
         //Hier geht es darum, was passiert, wenn der SKifahrer den Rand vom Canvas erreicht hat.
         //Die For-Schleife l�sst jede Stelle des Arrays durchlaufen (Length)
-        for (let i = 0; i < aufgabe6.MovingObjects.length; i++) {
+        for (let i = 0; i < objects.length; i++) {
             let s = objects[i];
             s.update();
         }
