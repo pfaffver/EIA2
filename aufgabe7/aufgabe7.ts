@@ -1,6 +1,12 @@
 namespace StudiVZ {
     interface StudentData {
-        // hier ist noch die richtige Datenstruktur festzulegen
+        matrikelnummer: number;
+        name: string;
+        vorname: string;
+        alter: number;
+        geschlecht: boolean;
+        kommentar: string;        
+        // Datenstruktur festgelegt
     }
     var students: StudentData[] = [];
     var stop: boolean = false;
