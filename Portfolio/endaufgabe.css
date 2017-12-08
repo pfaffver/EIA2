@@ -1,0 +1,194 @@
+/* Sytlesheet Online Portfolio */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC');
+
+header {
+	font-family:"Open Sans Condensed", sans-serif;
+	font-size: 1.2em;
+	color: black;
+	width: 100%;
+	height:3em;	
+	border-bottom: solid silver;
+}
+
+header h1 {
+	font-family: "IM Fell DW Pica SC", serif;
+	font-size: 2em;	
+}
+
+#drop:hover #dropInhalt{
+	display: block;
+}
+
+#dropInhalt {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 1em;
+	background-color: white;
+	z-index: 99;
+	list-style: square;
+}
+
+header nav a {
+	text-decoration:none;
+	color: black;
+}
+
+header nav a:hover {
+	color:#414141;
+}
+
+main {
+	font-family:"Open Sans Condensed", sans-serif;
+	font-size: 1.2em;
+	color: black;
+	float: left;
+	width:100%;
+	position:relative;
+	top:-3em;
+}
+
+img[alt="Menue button"] {
+	width:30px;
+	height:30px;
+	float:right;
+	position:relative;
+	top:-3.3em;
+	right:0.6em;
+	z-index:100;
+}
+
+img[alt="Profilbild"] {
+	width: 270px;
+	height: 200px;
+}
+
+#Australienfotos {
+	margin:1em;
+	text-align: center;
+}
+
+img[alt="Australienfoto"] {
+	width:100%;
+	text-align: center;
+}
+
+img[alt="HFU Logo"] {
+	width:200px;
+	height:73px;
+}
+
+img[alt="E-Mail Button"] {
+	width:20px;
+	height:20px;
+	padding-right:0.5em;
+	position:relative;
+	top: 0.25em;
+}
+
+footer {
+	font-family:"Open Sans Condensed", sans-serif;
+	font-size: 1.2em;
+	color: black;
+	width:98%;
+}
+
+.Footerspalte {
+	width:98%;
+	float:left;
+	padding-left:1em;
+}
+
+/*Responsive*/
+
+@media screen and (min-width: 35.6875em) {	
+	
+	img[alt="Australienfoto"] {
+		width:49%;
+	}
+}
+
+@media screen and (min-width: 48.0625em) {
+	header nav ul li {
+		display: block;
+		list-style: none;
+		float: left;
+		margin-right: 1em;
+		text-decoration: none;
+		padding-right: 1em;
+		border-right: 0.1em solid black;
+	}
+	
+	#dropInhalt{
+		background-color:Transparent;
+		display:block;
+	}
+		
+	header nav ul li:last-child {
+		border-right:none;
+	}
+		
+	img[alt="Menue button"] {
+		display:none;
+	}
+	
+	main {
+		position:relative;
+		top: 0.5em;
+	}
+	
+	header ul {
+		position: absolute;
+		left: 11em;
+		top: 1em;
+	}
+	
+	footer {
+		position:relative;
+		top: 2em;
+	}
+	
+	body {
+		background-image: url("hintergrundbild_neu.jpg");
+		background-position: 0% 75%;
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+	}
+	
+	header {
+		border-bottom: none;
+	}
+	
+	footer {
+		font-weight: bold;
+	}
+	
+	img[alt="Australienfoto"] {
+		width:33%;
+	}
+}
+
+@media screen and (min-width: 64.0625em) {
+		#dropInhalt{
+		display:block;
+		background-color:Transparent;
+	}
+		
+	header ul {
+		position: absolute;
+		left: 18em;
+		top: 1em;
+	}
+	
+	.Footerspalte {
+		width:30%;
+	}
+	
+	img[alt="Australienfoto"] {
+		width:24%;
+	}
+}
