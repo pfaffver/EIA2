@@ -3,19 +3,17 @@ namespace aufgabe8 {
 
     function init(): void {
         let anzahl: string = prompt("Gib hier ein, wie viele Quadrate du erzeugen willst");
-        let anzahlNeu: number = parseInt(anzahl);
+        let anzahlNeu: number = parseInt(anzahl); //FÜr die For Schleife - man kann nur Typ number mit Typ number vergleichen
 
         let width: string = prompt("Gib hier ein, wie breit die Quadrate sein sollen");
-        let widthNeu: number = parseInt(width);
 
         let height: string = prompt("Gib hier ein, wie hoch die Quadrate sein sollen");
-        let heightNeu: number = parseInt(height);
 
         var x: number = 10;
         var total: number = 100;
         if (anzahlNeu >= x && anzahlNeu <= total) {
             for (var i: number = 0; i < anzahlNeu; i++) {
-                drawSquare(Math.random() * 800, Math.random() * 500, "hsl(" + Math.random() * 360 + ", 100%, 50%)", widthNeu, heightNeu);
+                drawSquare(Math.random() * 800, Math.random() * 500, "hsl(" + Math.random() * 360 + ", 100%, 50%)", width, height)
             }
         }
         else {
@@ -24,15 +22,15 @@ namespace aufgabe8 {
         }
     }
 
-    function drawSquare(_x: number, _y: number, _color: string, _width: number, _height: number): void {
+    function drawSquare(_x: number, _y: number, _color: string, _width: string, _height: string): void {
 
         let quadrat: HTMLDivElement = document.createElement("div");
 
         quadrat.style.backgroundColor = _color;
-        quadrat.style.width = _width.toString();
-        quadrat.style.height = _height.toString();
-        quadrat.style.left = _x.toString();
-        quadrat.style.top = _y.toString();
+        quadrat.style.width = _width;
+        quadrat.style.height = _height;
+        quadrat.style.left = _x.toString(); //Sytle = CSS und erwartet immer ein String
+        quadrat.style.top = _y.toString(); //Sytle = CSS und erwartet immer ein String
 
         document.body.appendChild(quadrat);
     }
