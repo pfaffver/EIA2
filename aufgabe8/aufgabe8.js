@@ -12,11 +12,11 @@ var aufgabe8;
         var total = 100;
         if (anzahlNeu >= x && anzahlNeu <= total) {
             for (var i = 0; i < anzahlNeu; i++) {
-                drawSquare(Math.random() * 800, Math.random() * 600, "hsl(" + Math.random() * 360 + ", 100%, 50%)", widthNeu, heightNeu);
+                drawSquare(Math.random() * 800, Math.random() * 500, "hsl(" + Math.random() * 360 + ", 100%, 50%)", widthNeu, heightNeu);
             }
         }
         else {
-            window.alert("Deine Anzahl liegt nicht zwischen 10 und 100\nn versuche es noch einmal");
+            window.alert("Deine Anzahl liegt nicht zwischen 10 und 100\nVersuche es bitte noch einmal");
             init();
         }
     }
@@ -25,8 +25,8 @@ var aufgabe8;
         quadrat.style.backgroundColor = _color;
         quadrat.style.width = _width.toString();
         quadrat.style.height = _height.toString();
-        quadrat.style.marginLeft = _x.toString();
-        quadrat.style.marginTop = _y.toString();
+        quadrat.style.left = _x.toString();
+        quadrat.style.top = _y.toString();
         document.body.appendChild(quadrat);
     }
 })(aufgabe8 || (aufgabe8 = {}));
