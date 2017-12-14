@@ -13,11 +13,18 @@ var aufgabe9;
             l.addEventListener("click", handleMouseClick);
             document.body.appendChild(l);
         }
+        let b = document.createElement("div");
+        b.style.backgroundColor = "#F2F2F2";
+        b.style.border = "3px solid lightgrey";
+        b.style.width = "85%";
+        b.style.height = "50%";
+        b.style.marginTop = "2em";
+        document.body.appendChild(b);
     }
     function handleMouseClick(_event) {
         let d = _event.target;
-        d.style.color = "blue";
-        d.style.backgroundColor = "lightblue";
+        d.style.color = "grey";
+        d.style.backgroundColor = "black";
     }
 })(aufgabe9 || (aufgabe9 = {}));
 //# sourceMappingURL=aufgabe9.js.map

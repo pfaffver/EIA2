@@ -14,11 +14,19 @@ namespace aufgabe9 {
             l.addEventListener("click", handleMouseClick);
             document.body.appendChild(l);
         }
+        
+        let b: HTMLDivElement = document.createElement("div");
+        b.style.backgroundColor = "#F2F2F2";
+        b.style.border = "3px solid lightgrey";
+        b.style.width = "85%";
+        b.style.height = "50%";
+        b.style.marginTop ="2em";
+        document.body.appendChild(b);
     }
 
     function handleMouseClick(_event: MouseEvent): void {
         let d: HTMLHeadingElement = <HTMLHeadingElement>_event.target;
-        d.style.color = "blue";
-        d.style.backgroundColor = "lightblue";
+        d.style.color = "grey";
+        d.style.backgroundColor = "black";
     }
 }
