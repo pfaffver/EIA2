@@ -1,0 +1,60 @@
+body {
+	background-color: white
+}
+
+header {
+	width: 100%;
+	height: 15%;
+	background-color: white
+}
+
+footer {
+	width: 100%;
+	height: 15%;
+	background-color: white
+}
+
+#headernav {
+	display: inline
+}
+
+#navigation {
+	margin-left: 1em;
+}
+
+img[alt="backgroundimage"] {
+	width: 100%;
+}
+
+img[alt="sandwichicon"] {
+	width: 2em
+}
+
+#lupe {
+	width: 2em;
+}
+
+#Suche {
+	height: 3em;
+	width: 15em;
+	border: 0;
+	color: grey;
+}
+
+.icons {
+	margin-left: 3.5em
+}
+
+.headicons {
+	display: inline;
+	height: 2em;
+}
+
+label {
+	margin-left: 2em;
+	height: 3em;
+}
+
+form {
+	height: 80%
+}
