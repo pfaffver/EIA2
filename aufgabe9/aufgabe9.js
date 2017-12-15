@@ -2,8 +2,8 @@ var aufgabe9;
 (function (aufgabe9) {
     window.addEventListener("load", init);
     let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    //Speichert den angeklickten Buchstaben
     let saveLetter = "";
-    let saveBox = "";
     function init() {
         //Buchstaben Boxen
         for (let i = 0; i < letters.length; i++) {
@@ -38,10 +38,6 @@ var aufgabe9;
     function handleMouseClickInBox(_event) {
         let e = document.createElement("div");
         e.innerText = saveLetter;
-        // e.style.width = "2%";
-        // e.style.margin = "0.5em";
-        // e.style.height = "4%";
-        // e.style.backgroundColor = "#BDBDBD";
         e.style.position = "absolute";
         e.style.left = _event.pageX + "px";
         e.style.top = _event.pageY + "px";

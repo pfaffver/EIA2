@@ -3,8 +3,8 @@ namespace aufgabe9 {
 
     let letters: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
+    //Speichert den angeklickten Buchstaben
     let saveLetter: string = "";
-    let saveBox: string ="";
 
     function init(): void {
         //Buchstaben Boxen
@@ -43,10 +43,6 @@ namespace aufgabe9 {
     function handleMouseClickInBox(_event: MouseEvent): void {
         let e: HTMLDivElement = document.createElement("div");
         e.innerText = saveLetter;
-       // e.style.width = "2%";
-       // e.style.margin = "0.5em";
-       // e.style.height = "4%";
-       // e.style.backgroundColor = "#BDBDBD";
         e.style.position = "absolute";
         e.style.left =  _event.pageX + "px";
         e.style.top = _event.pageY + "px";
