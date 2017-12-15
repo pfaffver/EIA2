@@ -33,10 +33,10 @@ namespace aufgabe9 {
     //Event Anklicken des Buchstabens
     function handleMouseClick(_event: MouseEvent): void {
         let d: HTMLDivElement = <HTMLDivElement>_event.target;
-        console.log(_event.target)
+        console.log(_event)
         d.style.color = "grey";
         d.style.backgroundColor = "black";
-        saveLetter = d.innerText;
+        saveLetter = d.innerText; 
     }
 
     //Event Einfügen des Buchstabens in der BriefBox
@@ -47,5 +47,5 @@ namespace aufgabe9 {
         e.style.left =  _event.pageX + "px";
         e.style.top = _event.pageY + "px";
         document.body.appendChild(e);
-    }
+        }
 }

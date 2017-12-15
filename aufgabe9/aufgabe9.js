@@ -29,7 +29,7 @@ var aufgabe9;
     //Event Anklicken des Buchstabens
     function handleMouseClick(_event) {
         let d = _event.target;
-        console.log(_event.target);
+        console.log(_event);
         d.style.color = "grey";
         d.style.backgroundColor = "black";
         saveLetter = d.innerText;
