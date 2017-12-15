@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Martel+Sans');
+
 body {
-	background-color: white
+	background-color: white;
+	margin: 0;
+	font-family: 'Martel Sans', sans-serif;
 }
 
 header {
@@ -39,6 +43,7 @@ img[alt="Kompass"] {
 
 #lupe {
 	width: 2em;
+	margin-top: 1em;
 }
 
 #Suche {
@@ -64,4 +69,36 @@ label {
 
 form {
 	height: 80%
+}
+
+/*Seite 4 Verena*/
+
+#dropInhalt {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 60%;
+	background-color: white;
+}
+
+ul li:nth-child(3n){
+	margin-top: 14em;
+}
+
+#Triver {
+	background-color: #0295CA;
+	height: 8%;
+	color: white;
+	text-align: center;
+	font-size: 2em;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
