@@ -30,6 +30,13 @@ img[alt="sandwichicon"] {
 	width: 2em
 }
 
+img[alt="Kompass"] {
+	padding: -5em;
+	position: absolute;
+	right: 5%;
+	top: 10%;
+}
+
 #lupe {
 	width: 2em;
 }
