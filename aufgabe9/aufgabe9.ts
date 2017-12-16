@@ -5,6 +5,8 @@ namespace aufgabe9 {
 
     //Speichert den angeklickten Buchstaben
     let saveLetter: string = "";
+    
+    
 
     function init(): void {
         //Buchstaben Boxen
@@ -14,7 +16,12 @@ namespace aufgabe9 {
             l.style.margin = "0.5em";
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
-            l.innerText = letters[i];
+            l.innerText = letters[i];   
+            
+            //für cancelLetter
+            l.id = letters[i];
+            l.className = "letters";
+            
             l.addEventListener("click", handleMouseClick);
             document.body.appendChild(l);
         }
@@ -33,10 +40,18 @@ namespace aufgabe9 {
     //Event Anklicken des Buchstabens
     function handleMouseClick(_event: MouseEvent): void {
         let d: HTMLDivElement = <HTMLDivElement>_event.target;
-        console.log(_event)
-        d.style.color = "grey";
-        d.style.backgroundColor = "black";
+        console.log(_event);
+        d.style.color = "white";
         saveLetter = d.innerText; 
+        
+        //Buchstabe wieder in den "alten" Zustand versetzten, sobald ein andere geklickt wurde
+        let cancelLetter: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters");
+        
+        for (let i: number = 0; i < cancelLetter.length; i++ ) {
+            if (saveLetter != cancelLetter[i].id) {
+                cancelLetter[i].style.color = "black";
+            }
+        }
     }
 
     //Event Einfügen des Buchstabens in der BriefBox

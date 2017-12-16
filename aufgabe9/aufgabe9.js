@@ -13,6 +13,9 @@ var aufgabe9;
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
             l.innerText = letters[i];
+            //f�r cancelLetter
+            l.id = letters[i];
+            l.className = "letters";
             l.addEventListener("click", handleMouseClick);
             document.body.appendChild(l);
         }
@@ -30,9 +33,15 @@ var aufgabe9;
     function handleMouseClick(_event) {
         let d = _event.target;
         console.log(_event);
-        d.style.color = "grey";
-        d.style.backgroundColor = "black";
+        d.style.color = "white";
         saveLetter = d.innerText;
+        //Buchstabe wieder in den "alten" Zustand versetzten, sobald ein andere geklickt wurde
+        let cancelLetter = document.getElementsByClassName("letters");
+        for (let i = 0; i < cancelLetter.length; i++) {
+            if (saveLetter != cancelLetter[i].id) {
+                cancelLetter[i].style.color = "black";
+            }
+        }
     }
     //Event Einf�gen des Buchstabens in der BriefBox
     function handleMouseClickInBox(_event) {
