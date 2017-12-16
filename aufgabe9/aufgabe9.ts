@@ -7,6 +7,7 @@ namespace aufgabe9 {
     //Speichert den angeklickten Buchstaben
     let saveLetter: string = "";
     //let saveLetterKeyboard : string = "";
+    //let turnInNumber: number = parseInt(saveLetterKeyboard);
 
 
 
@@ -19,8 +20,7 @@ namespace aufgabe9 {
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
             l.innerText = letters[i];
-            //let neu: number = parseInt(saveLetterKeyboard); 
-
+            //l.keyCode = letters[i];
 
             //für cancelLetter
             l.id = letters[i];
@@ -70,11 +70,11 @@ namespace aufgabe9 {
 
 
     //Event auswählen eines Buchstaben mit der Tastatur
-    /*function handleKeydown(_event: KeyboardEvent): void {
+    function handleKeydown(_event: KeyboardEvent): void {
 
         console.log(_event);
         let k: HTMLDivElement = <HTMLDivElement>_event.target;
         console.log(_event);
-        saveLetter = k.innerText;
-    }*/
+        //turnInNumber = k.keyCode;
+    }
 }

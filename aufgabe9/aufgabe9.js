@@ -6,6 +6,7 @@ var aufgabe9;
     //Speichert den angeklickten Buchstaben
     let saveLetter = "";
     //let saveLetterKeyboard : string = "";
+    //let turnInNumber: number = parseInt(saveLetterKeyboard);
     function init() {
         //Buchstaben Boxen
         for (let i = 0; i < letters.length; i++) {
@@ -15,7 +16,7 @@ var aufgabe9;
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
             l.innerText = letters[i];
-            //let neu: number = parseInt(saveLetterKeyboard); 
+            //l.keyCode = letters[i];
             //f�r cancelLetter
             l.id = letters[i];
             l.className = "letters";
@@ -54,6 +55,13 @@ var aufgabe9;
         e.style.left = _event.pageX + "px";
         e.style.top = _event.pageY + "px";
         document.body.appendChild(e);
+    }
+    //Event ausw�hlen eines Buchstaben mit der Tastatur
+    function handleKeydown(_event) {
+        console.log(_event);
+        let k = _event.target;
+        console.log(_event);
+        //turnInNumber = k.keyCode;
     }
 })(aufgabe9 || (aufgabe9 = {}));
 //# sourceMappingURL=aufgabe9.js.map
