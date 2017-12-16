@@ -1,9 +1,11 @@
 var aufgabe9;
 (function (aufgabe9) {
     window.addEventListener("load", init);
+    //document.addEventListener("keydown", handleKeydown);
     let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     //Speichert den angeklickten Buchstaben
     let saveLetter = "";
+    //let saveLetterKeyboard : string = "";
     function init() {
         //Buchstaben Boxen
         for (let i = 0; i < letters.length; i++) {
@@ -13,6 +15,7 @@ var aufgabe9;
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
             l.innerText = letters[i];
+            //let neu: number = parseInt(saveLetterKeyboard); 
             //f�r cancelLetter
             l.id = letters[i];
             l.className = "letters";
