@@ -12,5 +12,109 @@ Datum: 21.12.2017 -->
 </head>
 <body>
 	<h1>Aufgabe 10 FormElements: Weihnachtsbaumkonfigurator</h1>
+	
+	<fieldset id="Weihnachtsbaum">
+		<legend>Weihnachtsbaum</legend>
+		<h2>Baumart</h2>
+		<input type="radio" name="BaumGruppe" value="BaumKlein" id="BaumKlein" />
+		<label for="BaumKlein">klein</label>
+		<input type="radio" name="BaumGruppe" value="BaumMittel" id="BaumMittel" />
+		<label for="BaumMittel">mittel</label>
+		<input type="radio" name="BaumGruppe" value="BaumGroß" id="BaumGroß" />
+		<label for="BaumGroß">groß</label>
+		
+		Anzahl
+		<input type="number" name="BaumartAnzahl" step="1" min="1" max="10" value="0"/>
+		
+		<hr/>
+		
+		<h2>Halterung</h2>
+		<input type="radio" name="HalterungGruppe" value="HalterungBlau" id="HalterungBlau" />
+		<label for="HalterungBlau">blau</label>
+		<input type="radio" name="HalterungGruppe" value="HalterungGrün" id="HalterungGrün" />
+		<label for="HalterungGrün">grün</label>
+		<input type="radio" name="HalterungGruppe" value="HalterungRot" id="HalterungRot" />
+		<label for="HalterungRot">rot</label>
+		
+		Anzahl
+		<input type="number" name="HalterungAnzahl" step="1" min="1" max="10" value="0"/>
+	</fieldset>
+	<fieldset id="Deko">
+	<legend>Dekoration</legend>
+		<h2>Christbaumkugeln (10er Pack)</h2>
+		<input type="radio" name="KugelGruppe" value="KugelRot" id="KugelRot" />
+		<label for="KugelRot">rot</label>
+		<input type="radio" name="KugelGruppe" value="KugelBlau" id="KugelBlau" />
+		<label for="KugelBlau">blau</label>
+		<input type="radio" name="KugelGruppe" value="KugelBunt" id="KugelBunt" />
+		<label for="KugelBunt">bunt</label>
+		
+		Anzahl
+		<input type="number" name="KugelAnzahl" step="1" min="1" max="10" value="0"/>
+		
+		<hr/>
+		
+		<h2>Lametta</h2>
+		<input type="radio" name="LamettaGruppe" value="LamettaRot" id="LamettaRot" />
+		<label for="LamettaRot">rot</label>
+		<input type="radio" name="LamettaGruppe" value="LamettaSilver" id="LamettaSilver" />
+		<label for="LamettaSilver">silver</label>
+		<input type="radio" name="LamettaGruppe" value="Lamettagold" id="Lamettagold" />
+		<label for="Lamettagold">gold</label>
+		
+		Anzahl
+		<input type="number" name="LamettaAnzahl" step="1" min="1" max="10" value="0"/>
+		
+		<hr/>
+		
+		<h2>klassische Zuckerstangen (5er Pack)</h2>		
+		Anzahl
+		<input type="number" name="LamettaAnzahl" step="1" min="1" max="10" value="0"/>
+	</fieldset>
+<!-- -->
+	<fieldset id="Beleuchtung">
+		<legend>Beleuchtung</legend>
+		<h2>Lichterketten</h2>
+		<input type="radio" name="LichtGruppe" value="Lichtweiß" id="Lichtweiß" />
+		<label for="Lichtweiß">weiß</label>
+		<input type="radio" name="LichtGruppe" value="Lichtbunt" id="Lichtbunt" />
+		<label for="Lichtbunt">bunt</label>
+		<input type="radio" name="LichtGruppe" value="Lichtblau" id="Lichtblau" />
+		<label for="Lichtblau">blau</label>
+		
+		Anzahl
+		<input type="number" name="LichtAnzahl" step="1" min="1" max="10" value="0"/>
+		
+		<hr/>
+		
+		<h2>Kerzen</h2>
+		<input type="radio" name="KerzenGruppe" value="Kerzeweiß" id="Kerzeweiß" />
+		<label for="Kerzeweiß">weiß</label>
+		<input type="radio" name="KerzenGruppe" value="Kerzebunt" id="Kerzebunt" />
+		<label for="Kerzebunt">bunt</label>
+		
+		Anzahl
+		<input type="number" name="LichtAnzahl" step="1" min="1" max="10" value="0"/>
+	</fieldset>
+<!-- -->
+
+	<fieldset id="Kontaktdaten">
+	<legend>Persönliche Daten</legend>
+		<p>Name:
+		<input type="text" name="Text" placeholder="type here" required/></p>
+		<p>Straße:
+		<input type="text" name="Text" placeholder="type here" required/></p>
+		<p>PLZ:
+		<input type="text" name="Text" placeholder="type here" required/></p>
+		<p>E-Mail:
+		<input type="text" name="Text" placeholder="type here" required/></p>
+		<hr/>
+	<legend>Lieferart</legend>
+		<select name="Select" id="select">
+			<optgroup label="Lieferart"></optgroup>
+			<option value="option1">Standardversand</option>
+			<option value="option2">Expressversand</option>
+		</select>
+	</fieldset>
 </body>
 </html>
