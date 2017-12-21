@@ -1,12 +1,10 @@
 var aufgabe9;
 (function (aufgabe9) {
     window.addEventListener("load", init);
-    //document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("keydown", handleKeydown);
     let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     //Speichert den angeklickten Buchstaben
     let saveLetter = "";
-    //let saveLetterKeyboard : string = "";
-    //let turnInNumber: number = parseInt(saveLetterKeyboard);
     function init() {
         //Buchstaben Boxen
         for (let i = 0; i < letters.length; i++) {
@@ -16,9 +14,7 @@ var aufgabe9;
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
             l.innerText = letters[i];
-            //l.keyCode = letters[i];
-            //f�r cancelLetter
-            l.id = letters[i];
+            l.id = letters[i].toLowerCase();
             l.className = "letters";
             l.addEventListener("click", handleMouseClick);
             document.body.appendChild(l);
@@ -39,13 +35,7 @@ var aufgabe9;
         console.log(_event);
         d.style.color = "white";
         saveLetter = d.innerText;
-        //Buchstabe wieder in den "alten" Zustand versetzten, sobald ein andere geklickt wurde
-        let cancelLetter = document.getElementsByClassName("letters");
-        for (let i = 0; i < cancelLetter.length; i++) {
-            if (saveLetter != cancelLetter[i].id) {
-                cancelLetter[i].style.color = "black";
-            }
-        }
+        saveLetter = d.id.toUpperCase();
     }
     //Event Einf�gen des Buchstabens in der BriefBox
     function handleMouseClickInBox(_event) {
@@ -55,13 +45,25 @@ var aufgabe9;
         e.style.left = _event.pageX + "px";
         e.style.top = _event.pageY + "px";
         document.body.appendChild(e);
+        e.addEventListener("click", cancelLetterMouseDown);
     }
     //Event ausw�hlen eines Buchstaben mit der Tastatur
     function handleKeydown(_event) {
-        console.log(_event);
-        let k = _event.target;
-        console.log(_event);
-        //turnInNumber = k.keyCode;
+        if (letters.indexOf(_event.key.toUpperCase()) != -1) {
+            let k = document.getElementById(_event.key);
+            k.style.color = "white";
+            saveLetter = _event.key.toUpperCase();
+            console.log(_event);
+        }
+    }
+    //Event eingef�gter Buchstabe mit der Alt Taste wieder l�schen
+    function cancelLetterMouseDown(_event) {
+        if (_event.altKey == false)
+            return;
+        if (_event.altKey == true) {
+            let c = _event.target;
+            document.body.removeChild(c);
+        }
     }
 })(aufgabe9 || (aufgabe9 = {}));
 //# sourceMappingURL=aufgabe9.js.map

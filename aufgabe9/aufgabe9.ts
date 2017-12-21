@@ -1,15 +1,11 @@
 namespace aufgabe9 {
     window.addEventListener("load", init);
-    //document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("keydown", handleKeydown);
 
     let letters: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
     //Speichert den angeklickten Buchstaben
     let saveLetter: string = "";
-    //let saveLetterKeyboard : string = "";
-    //let turnInNumber: number = parseInt(saveLetterKeyboard);
-
-
 
     function init(): void {
         //Buchstaben Boxen
@@ -20,10 +16,8 @@ namespace aufgabe9 {
             l.style.height = "4%";
             l.style.backgroundColor = "#BDBDBD";
             l.innerText = letters[i];
-            //l.keyCode = letters[i];
 
-            //für cancelLetter
-            l.id = letters[i];
+            l.id = letters[i].toLowerCase();
             l.className = "letters";
 
             l.addEventListener("click", handleMouseClick);
@@ -47,15 +41,7 @@ namespace aufgabe9 {
         console.log(_event);
         d.style.color = "white";
         saveLetter = d.innerText;
-
-        //Buchstabe wieder in den "alten" Zustand versetzten, sobald ein andere geklickt wurde
-        let cancelLetter: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letters");
-
-        for (let i: number = 0; i < cancelLetter.length; i++) {
-            if (saveLetter != cancelLetter[i].id) {
-                cancelLetter[i].style.color = "black";
-            }
-        }
+        saveLetter = d.id.toUpperCase();
     }
 
     //Event Einfügen des Buchstabens in der BriefBox
@@ -66,15 +52,31 @@ namespace aufgabe9 {
         e.style.left = _event.pageX + "px";
         e.style.top = _event.pageY + "px";
         document.body.appendChild(e);
+        e.addEventListener("click", cancelLetterMouseDown);
     }
 
 
     //Event auswählen eines Buchstaben mit der Tastatur
     function handleKeydown(_event: KeyboardEvent): void {
+        if (letters.indexOf(_event.key.toUpperCase()) != -1) {
 
-        console.log(_event);
-        let k: HTMLDivElement = <HTMLDivElement>_event.target;
-        console.log(_event);
-        //turnInNumber = k.keyCode;
+            let k: HTMLDivElement = <HTMLDivElement>document.getElementById(_event.key);
+            k.style.color = "white";
+            saveLetter = _event.key.toUpperCase();
+
+            console.log(_event);
+        }
     }
+
+    //Event eingefügter Buchstabe mit der Alt Taste wieder löschen
+    function cancelLetterMouseDown(_event: MouseEvent): void {
+        if (_event.altKey == false)
+            return;
+
+        if (_event.altKey == true) {
+            let c: HTMLDivElement = <HTMLDivElement>_event.target;
+            document.body.removeChild(c);
+        }
+    }
+
 }
