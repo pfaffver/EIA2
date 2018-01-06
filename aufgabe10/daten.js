@@ -33,4 +33,4 @@ var Aufgabe10;
         }
     }
 })(Aufgabe10 || (Aufgabe10 = {}));
-//# sourceMappingURL=aufgabe10NEU_DATA.js.map
+//# sourceMappingURL=daten.js.map
