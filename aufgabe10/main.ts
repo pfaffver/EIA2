@@ -189,7 +189,7 @@ namespace Aufgabe10 {
             if (posten[i].art == "Schmuck") {
                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
             }
-           if (target.value == posten[i].name && target.id == "selectBaumart") {
+            if (target.value == posten[i].name && target.id == "selectBaumart") {
                 baumArt[0] = posten[i].name;
                baumArt[1] = "" + posten[i].preis;
             }
@@ -198,7 +198,7 @@ namespace Aufgabe10 {
                halter[1] = "" + posten[i].preis;
 
             }
-           if (target.id == "radio2." + i) {
+            if (target.id == "radio2." + i) {
                basketLieferopt[0] = posten[i].name;
                 basketLieferopt[1] = "" + posten[i].preis;
 
@@ -225,7 +225,7 @@ namespace Aufgabe10 {
                 gesamtpreis += parseFloat(baumArt[i][1]);
                 korb.innerHTML += "" + baumArt[i][0] + " " + baumArt[i][1] + " <br>";
         }
-       korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
     }
 
 
