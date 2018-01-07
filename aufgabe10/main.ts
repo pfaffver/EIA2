@@ -187,19 +187,19 @@ namespace Aufgabe10 {
 
         for (let i: number = 0; i < posten.length; i++) {
             if (posten[i].art == "Schmuck") {
-               stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
             }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 baumArt[0] = posten[i].name;
-               baumArt[1] = "" + posten[i].preis;
+                baumArt[1] = "" + posten[i].preis;
             }
             if (target.id == "radio" + i) {
                 halter[0] = posten[i].name;
-               halter[1] = "" + posten[i].preis;
+                halter[1] = "" + posten[i].preis;
 
             }
             if (target.id == "radio2." + i) {
-               basketLieferopt[0] = posten[i].name;
+                basketLieferopt[0] = posten[i].name;
                 basketLieferopt[1] = "" + posten[i].preis;
 
             }
