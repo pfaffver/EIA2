@@ -1,6 +1,6 @@
 namespace Aufgabe10 {
     window.addEventListener("load", createElements);
-    window.addEventListener("change", warenkorb);
+    //window.addEventListener("change", warenkorb);
 
 
     var name: HTMLInputElement;
@@ -179,7 +179,7 @@ namespace Aufgabe10 {
         button.appendChild(submit);
     }
 
-    function warenkorb(_event: Event): void {
+    /*function warenkorb(_event: Event): void {
        console.log(_event.target);
        let target: HTMLInputElement = <HTMLInputElement>_event.target;
        let stepper: HTMLInputElement[] = [];
@@ -226,7 +226,7 @@ namespace Aufgabe10 {
                 korb.innerHTML += "" + baumArt[i][0] + " " + baumArt[i][1] + " <br>";
         }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
-    }
+    }*/
 
 
 

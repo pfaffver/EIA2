@@ -22,4 +22,4 @@ namespace Aufgabe10 {
         { art: "Schmuck", name: "Lametta, gold", preis: 1.50 },
         { art: "Lieferung", name: "Standard", preis: 0.00 },
         { art: "Lieferung", name: "Express", preis: 3.95 }
-];}
+    ];}
