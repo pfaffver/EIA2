@@ -11,11 +11,13 @@ namespace Aufgabe10 {
     var mail: HTMLInputElement;
     var label: HTMLLabelElement;
 
-var basketBaumart: string[] = [bA[0][0], "" + bA[0][1]];
-  var basketHalter: string[] = ["kein Halter ausgewählt", "0"];
-  var basketBeleuchtung: string[] = [b[0][0], "" + b[0][1]];
-   var basketSchmuck: string[][] = [];
-  var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
+var baumArt: string[] = [posten[0].name, "" + posten[0].preis];
+    var halter: string[] = ["kein Halter", "0"];
+    var beleuchtungW: string[] = [];
+    var schmuck: string[][] = [];
+  var basketLieferopt: string[] = ["keine Lieferoption ausgewÃ¤hlt", "0"];
+
+
 
     function createElements(): void {
         //Baumart:
@@ -99,7 +101,7 @@ var basketBaumart: string[] = [bA[0][0], "" + bA[0][1]];
             }
         }
 
-        //Persönliche Daten:
+        //PersÃ¶nliche Daten:
         let daten: HTMLDivElement = <HTMLDivElement>document.getElementById("daten");
         name = document.createElement("input");
         name.type = "text";
@@ -167,7 +169,7 @@ var basketBaumart: string[] = [bA[0][0], "" + bA[0][1]];
             }
         }
 
-        //Bestätigungseingabe:
+        //BestÃ¤tigungseingabe:
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("eingabe");
         let submit: HTMLButtonElement = document.createElement("button");
         submit.name = "Button";
@@ -177,11 +179,10 @@ var basketBaumart: string[] = [bA[0][0], "" + bA[0][1]];
         button.appendChild(submit);
     }
 
-  function warenkorb(_event: Event): void {
+function warenkorb(_event: Event): void {
    console.log(_event.target);
        let target: HTMLInputElement = <HTMLInputElement>_event.target;
       let stepper: HTMLInputElement[] = [];
-        let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
@@ -189,12 +190,12 @@ var basketBaumart: string[] = [bA[0][0], "" + bA[0][1]];
                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
             }
            if (target.value == posten[i].name && target.id == "selectBaumart") {
-                basketBaumart[0] = posten[i].name;
-               basketBaumart[1] = "" + posten[i].preis;
+                baumArt[0] = posten[i].name;
+               baumArt[1] = "" + posten[i].preis;
             }
             if (target.id == "radio" + i) {
-                basketHalter[0] = posten[i].name;
-               basketHalter[1] = "" + posten[i].preis;
+                halter[0] = posten[i].name;
+               halter[1] = "" + posten[i].preis;
 
             }
            if (target.id == "radio2." + i) {
@@ -203,31 +204,30 @@ var basketBaumart: string[] = [bA[0][0], "" + bA[0][1]];
 
             }
             if (target.value == posten[i].name && target.id == "selectBeleuchtung") {
-                basketBeleuchtung[0] = posten[i].name;
-                basketBeleuchtung[1] = "" + posten[i].preis;
+                beleuchtungW[0] = posten[i].name;
+                beleuchtungW[1] = "" + posten[i].preis;
 
             }
             if (target.id == "stepper" + i) {
-                basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
+                schmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
             }
         }
         
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
         korb.innerHTML = "Warenkorb";
-        korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "€ <br>";
-        korb.innerHTML += "Weihnachtsbaumständer: " + basketHalter[0] + " " + basketHalter[1] + "€ <br>";
-        korb.innerHTML += "" + basketBeleuchtung[0] + " " + basketBeleuchtung[1] + "€ <br>";
-        korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "€ <br>";
-
-        gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
+        korb.innerHTML += "" + baumArt[0] + " " + baumArt[1] + "Â€ <br>";
+        korb.innerHTML += "WeihnachtsbaumstÃ¤nder: " + halter[0] + " " + halter[1] + "Â€ <br>";
+        korb.innerHTML += "" + beleuchtungW[0] + " " + beleuchtungW[1] + "Â€ <br>";
+        korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "Â€ <br>";
+        gesamtpreis = parseFloat(halter[1]) + parseFloat(halter[1]) + parseFloat(basketLieferopt[1]);
+      
         for (let i: number = 0; i < stepper.length; i++) {
-           if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
-                gesamtpreis += parseFloat(basketSchmuck[i][1]);
-                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
-            }
+                gesamtpreis += parseFloat(baumArt[i][1]);
+                korb.innerHTML += "" + baumArt[i][0] + " " + baumArt[i][1] + "Â€ <br>";
         }
-       korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
-  }
+       korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "Â€";
+}
+
 
 
     function handleMouseDown(_event: MouseEvent): void {

@@ -9,11 +9,11 @@ var Aufgabe10;
     var plz;
     var mail;
     var label;
-    var basketBaumart = [Aufgabe10.bA[0][0], "" + Aufgabe10.bA[0][1]];
-    var basketHalter = ["kein Halter ausgew�hlt", "0"];
-    var basketBeleuchtung = [Aufgabe10.b[0][0], "" + Aufgabe10.b[0][1]];
-    var basketSchmuck = [];
-    var basketLieferopt = ["keine Lieferoption ausgew�hlt", "0"];
+    var baumArt = [Aufgabe10.posten[0].name, "" + Aufgabe10.posten[0].preis];
+    var halter = ["kein Halter", "0"];
+    var beleuchtungW = [];
+    var schmuck = [];
+    var basketLieferopt = ["keine Lieferoption ausgewählt", "0"];
     function createElements() {
         //Baumart:
         let baumart = document.getElementById("baumart");
@@ -86,7 +86,7 @@ var Aufgabe10;
                 schmuckartikel.appendChild(br2);
             }
         }
-        //Pers�nliche Daten:
+        //Persönliche Daten:
         let daten = document.getElementById("daten");
         name = document.createElement("input");
         name.type = "text";
@@ -146,7 +146,7 @@ var Aufgabe10;
                 lieferopt.appendChild(label3);
             }
         }
-        //Best�tigungseingabe:
+        //Bestätigungseingabe:
         let button = document.getElementById("eingabe");
         let submit = document.createElement("button");
         submit.name = "Button";
@@ -159,46 +159,43 @@ var Aufgabe10;
         console.log(_event.target);
         let target = _event.target;
         let stepper = [];
-        let checkBoxes = [];
         let gesamtpreis = 0;
         for (let i = 0; i < Aufgabe10.posten.length; i++) {
             if (Aufgabe10.posten[i].art == "Schmuck") {
                 stepper[i] = document.getElementById("stepper" + i);
             }
             if (target.value == Aufgabe10.posten[i].name && target.id == "selectBaumart") {
-                basketBaumart[0] = Aufgabe10.posten[i].name;
-                basketBaumart[1] = "" + Aufgabe10.posten[i].preis;
+                baumArt[0] = Aufgabe10.posten[i].name;
+                baumArt[1] = "" + Aufgabe10.posten[i].preis;
             }
             if (target.id == "radio" + i) {
-                basketHalter[0] = Aufgabe10.posten[i].name;
-                basketHalter[1] = "" + Aufgabe10.posten[i].preis;
+                halter[0] = Aufgabe10.posten[i].name;
+                halter[1] = "" + Aufgabe10.posten[i].preis;
             }
             if (target.id == "radio2." + i) {
                 basketLieferopt[0] = Aufgabe10.posten[i].name;
                 basketLieferopt[1] = "" + Aufgabe10.posten[i].preis;
             }
             if (target.value == Aufgabe10.posten[i].name && target.id == "selectBeleuchtung") {
-                basketBeleuchtung[0] = Aufgabe10.posten[i].name;
-                basketBeleuchtung[1] = "" + Aufgabe10.posten[i].preis;
+                beleuchtungW[0] = Aufgabe10.posten[i].name;
+                beleuchtungW[1] = "" + Aufgabe10.posten[i].preis;
             }
             if (target.id == "stepper" + i) {
-                basketSchmuck[i] = [Aufgabe10.posten[i].name, "" + (Aufgabe10.posten[i].preis * parseInt(stepper[i].value))];
+                schmuck[i] = [Aufgabe10.posten[i].name, "" + (Aufgabe10.posten[i].preis * parseInt(stepper[i].value))];
             }
         }
         let korb = document.getElementById("warenkorb");
         korb.innerHTML = "Warenkorb";
-        korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "� <br>";
-        korb.innerHTML += "Weihnachtsbaumst�nder: " + basketHalter[0] + " " + basketHalter[1] + "� <br>";
-        korb.innerHTML += "" + basketBeleuchtung[0] + " " + basketBeleuchtung[1] + "� <br>";
-        korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "� <br>";
-        gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
+        korb.innerHTML += "" + baumArt[0] + " " + baumArt[1] + " <br>";
+        korb.innerHTML += "Weihnachtsbaumständer: " + halter[0] + " " + halter[1] + " <br>";
+        korb.innerHTML += "" + beleuchtungW[0] + " " + beleuchtungW[1] + " <br>";
+        korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + " <br>";
+        gesamtpreis = parseFloat(halter[1]) + parseFloat(halter[1]) + parseFloat(basketLieferopt[1]);
         for (let i = 0; i < stepper.length; i++) {
-            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
-                gesamtpreis += parseFloat(basketSchmuck[i][1]);
-                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "� <br>";
-            }
+            gesamtpreis += parseFloat(baumArt[i][1]);
+            korb.innerHTML += "" + baumArt[i][0] + " " + baumArt[i][1] + " <br>";
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "�";
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
     }
     function handleMouseDown(_event) {
         let feedback = document.createElement("div");
