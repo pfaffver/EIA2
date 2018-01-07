@@ -1,6 +1,6 @@
 namespace Aufgabe10 {
     window.addEventListener("load", createElements);
-  window.addEventListener("change", warenkorb);
+    window.addEventListener("change", warenkorb);
 
 
     var name: HTMLInputElement;
@@ -11,11 +11,11 @@ namespace Aufgabe10 {
     var mail: HTMLInputElement;
     var label: HTMLLabelElement;
 
-var baumArt: string[] = [posten[0].name, "" + posten[0].preis];
+    var baumArt: string[] = [posten[0].name, "" + posten[0].preis];
     var halter: string[] = ["kein Halter", "0"];
     var beleuchtungW: string[] = [];
     var schmuck: string[][] = [];
-  var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
+    var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 
 
 
@@ -179,11 +179,11 @@ var baumArt: string[] = [posten[0].name, "" + posten[0].preis];
         button.appendChild(submit);
     }
 
-function warenkorb(_event: Event): void {
-   console.log(_event.target);
+    function warenkorb(_event: Event): void {
+       console.log(_event.target);
        let target: HTMLInputElement = <HTMLInputElement>_event.target;
-      let stepper: HTMLInputElement[] = [];
-        let gesamtpreis: number = 0;
+       let stepper: HTMLInputElement[] = [];
+       let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
             if (posten[i].art == "Schmuck") {
@@ -226,7 +226,7 @@ function warenkorb(_event: Event): void {
                 korb.innerHTML += "" + baumArt[i][0] + " " + baumArt[i][1] + " <br>";
         }
        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
-}
+    }
 
 
 
