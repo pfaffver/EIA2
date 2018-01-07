@@ -6,29 +6,43 @@ Datum: 06.01.2018 -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
+<meta charset="UTF-8">
 <title>Aufgabe 10</title>
-<link rel="stylesheet" href="stylesheet_aufgabe10.css" type="text/css"
-	media="screen" />
-<script src="main.js" type="text/javascript" charset="utf-8"></script>
-<script src="daten.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="main.js"></script>
+<script src="daten.js"></script>
+<link rel="stylesheet" type="text/css" href="aufgabe10.css">
 </head>
 <body>
-<h1>Dein Weihnachtsbaumgenerator</h1>
-<p>Du hast viel Stess an Weihnachten? Dann erspar' Dir die Suche nach dem perfekten Weihnachtsbaum - wir liefern Ihn Dir!<br>Wähle, wie Du Dir den perfekten Weihnachtsbaum vorstellst und im Nu steht er in Deinem Wohnzimmer. </p>
-<h2>Welche Baumart möchtest Du?</h2>
-<form id="baumart"><!--Baumart  --></form>
-<h2>Welche Farbe soll der Weihnachtsbaumständer haben?</h2>
-<div id="halterung"><!--Halterung  --></div><br>
-<h2>Wie soll Dein Baum beleuchtet werden?</h2>
-<div id="beleuchtung"><!--Beleuchtung  --></div><br>
-<h2>Mit was soll der Baum geschmückt sein?</h2>
-<div id="schmuckartikel"><!--Schmuckartikel  --></div><br>
-<h2>Nun zu Dir... Wohin soll der Baum geliefert werden?</h2>
-<div id="daten"><!--Deine Daten  --></div><br>
-<h2>Wie möchtest Du Deinen Baum geliefert bekommen?</h2>
-<div id="lieferoptionen"><!--Lieferoptionen  --></div><br>
-<div id="button"><!--Bestellung abschicken  --></div><br>
-<div id="zusammenfassung"><!--Zusammenfassung  --></div>	
+	<div id="heading">
+		<h1>FormElements: Weihnachtsbaumkonfigurator</h1>
+			<p>Dein selbst konfigurierter, individuell geschmückter Weihnachtsbaum</p>
+	</div>
+	<form id="Baum">
+		<h2>Baumart</h2>
+			<div id="baumart"></div>
+	</form>
+	<form id="Halter">
+		<h2>Weihnachtsbaumhalterung</h2>
+			<div id="halterung"></div><br>
+	</form>
+	<form id="Beleuchtung">
+		<h2>Beleuchtung</h2>
+			<div id="beleuchtung"></div><br>
+	</form>
+	<form id="Deko">
+		<h2>Dekoration</h2>
+			<div id="dekoration"></div><br>
+	</form>
+	<form id="Daten">
+		<h2>Persönliche Daten</h2>
+			<div id="daten"></div><br>
+	</form>
+	<form id="Lieferung">
+		<h2>Lieferoptionen</h2>
+			<div id="lieferoptionen"></div><br>
+			<div id="eingabe"></div><br>
+	</form>
+	<div id="warenkorb"></div>
 </body>
 </html>
