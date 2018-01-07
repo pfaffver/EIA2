@@ -228,8 +228,6 @@ namespace Aufgabe10 {
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
     }*/
 
-
-
     function handleMouseDown(_event: MouseEvent): void {
         let feedback: HTMLDivElement = document.createElement("div");
         
