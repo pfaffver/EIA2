@@ -17,7 +17,7 @@ namespace Aufgabe10 {
     var schmuck: string[][] = [];
     var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 
-
+    let feedback: HTMLDivElement = document.createElement("div");
 
     function createElements(): void {
         //Baumart:
@@ -229,7 +229,6 @@ namespace Aufgabe10 {
     }*/
 
     function handleMouseDown(_event: MouseEvent): void {
-        let feedback: HTMLDivElement = document.createElement("div");
         
         if (name.checkValidity() == false || strasse.checkValidity() == false || hNr.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Fehler bei der Eingabe deiner Daten - Versuche es erneut";

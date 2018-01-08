@@ -22,4 +22,20 @@ namespace Aufgabe10 {
         { art: "Schmuck", name: "Lametta, gold", preis: 1.50 },
         { art: "Lieferung", name: "Standard", preis: 0.00 },
         { art: "Lieferung", name: "Express", preis: 3.95 }
-    ];}
+    ];
+    
+    export let sort: string[][] = [];
+    export let light: string[][] = [];
+
+    for (var i: number = 0; i < posten.length; i++) {
+        if (posten[i].art == "Sorte") {
+            var temp: any = [posten[i].name, posten[i].preis];
+            sort.push(temp);
+        }
+
+        if (posten[i].art == "Beleuchtung") {
+            var temp: any = [posten[i].name, posten[i].preis];
+            light.push(temp);
+        }
+    }
+}

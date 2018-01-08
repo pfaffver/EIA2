@@ -14,6 +14,7 @@ var Aufgabe10;
     var beleuchtungW = [];
     var schmuck = [];
     var basketLieferopt = ["keine Lieferoption ausgewählt", "0"];
+    let feedback = document.createElement("div");
     function createElements() {
         //Baumart:
         let baumart = document.getElementById("baumart");
@@ -204,7 +205,6 @@ var Aufgabe10;
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
     }*/
     function handleMouseDown(_event) {
-        let feedback = document.createElement("div");
         if (name.checkValidity() == false || strasse.checkValidity() == false || hNr.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Fehler bei der Eingabe deiner Daten - Versuche es erneut";
             feedback.style.color = "red";
