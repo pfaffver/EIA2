@@ -17,12 +17,15 @@ var Aufgabe10;
         { art: "Lieferung", name: "Standard", preis: 0.00 },
         { art: "Lieferung", name: "Express", preis: 3.95 }
     ];
-    Aufgabe10.sort = [];
+    Aufgabe10.baumartStandard = [];
     Aufgabe10.light = [];
     for (var i = 0; i < Aufgabe10.posten.length; i++) {
-        if (Aufgabe10.posten[i].art == "Sorte") {
-            var temp = [Aufgabe10.posten[i].name, Aufgabe10.posten[i].preis];
-            Aufgabe10.sort.push(temp);
+        if (Aufgabe10.posten[i].art == "Baumart") {
+            Aufgabe10.baumartStandard[0] = Aufgabe10.posten[i].name;
+            var x = Aufgabe10.posten[i].preis;
+            Aufgabe10.baumartStandard[1] = x.toString();
+            ;
+            Aufgabe10.baumartStandard.push(temp);
         }
         if (Aufgabe10.posten[i].art == "Beleuchtung") {
             var temp = [Aufgabe10.posten[i].name, Aufgabe10.posten[i].preis];

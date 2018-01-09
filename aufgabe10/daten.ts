@@ -24,13 +24,15 @@ namespace Aufgabe10 {
         { art: "Lieferung", name: "Express", preis: 3.95 }
     ];
     
-    export let sort: string[][] = [];
+    export let baumartStandard: string[] = [];
     export let light: string[][] = [];
 
     for (var i: number = 0; i < posten.length; i++) {
-        if (posten[i].art == "Sorte") {
-            var temp: any = [posten[i].name, posten[i].preis];
-            sort.push(temp);
+        if (posten[i].art == "Baumart") {
+            baumartStandard[0] = posten[i].name;
+            var x: number = posten[i].preis;
+            baumartStandard[1] = x.toString();;
+            baumartStandard.push(temp);
         }
 
         if (posten[i].art == "Beleuchtung") {

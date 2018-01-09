@@ -1,7 +1,7 @@
 var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", createElements);
-    //window.addEventListener("change", warenkorb);
+    window.addEventListener("change", warenkorb);
     var name;
     var strasse;
     var hNr;
@@ -9,12 +9,11 @@ var Aufgabe10;
     var plz;
     var mail;
     var label;
-    var baumArt = [Aufgabe10.posten[0].name, "" + Aufgabe10.posten[0].preis];
-    var halter = ["kein Halter", "0"];
-    var beleuchtungW = [];
-    var schmuck = [];
+    var basketBaumart = [Aufgabe10.baumartStandard[0], "" + Aufgabe10.baumartStandard[1]];
+    var basketHalter = ["kein Halter", "0"];
+    var basketBeleuchtung = [Aufgabe10.light[0][0], "" + Aufgabe10.light[0][1]];
+    var basketSchmuck = [];
     var basketLieferopt = ["keine Lieferoption ausgewählt", "0"];
-    let feedback = document.createElement("div");
     function createElements() {
         //Baumart:
         let baumart = document.getElementById("baumart");
@@ -156,55 +155,58 @@ var Aufgabe10;
         submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
     }
-    /*function warenkorb(_event: Event): void {
-       console.log(_event.target);
-       let target: HTMLInputElement = <HTMLInputElement>_event.target;
-       let stepper: HTMLInputElement[] = [];
-       let gesamtpreis: number = 0;
-
-        for (let i: number = 0; i < posten.length; i++) {
-            if (posten[i].art == "Schmuck") {
-                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+    function warenkorb(_event) {
+        let target = _event.target;
+        let stepper = [];
+        let checkBoxes = [];
+        let gesamtpreis = 0;
+        for (let i = 0; i < Aufgabe10.posten.length; i++) {
+            console.log(_event.target);
+            if (Aufgabe10.posten[i].art == "Schmuck") {
+                stepper[i] = document.getElementById("stepper" + i);
+                checkBoxes[i] = document.getElementById("check" + i);
             }
-            if (target.value == posten[i].name && target.id == "selectBaumart") {
-                baumArt[0] = posten[i].name;
-                baumArt[1] = "" + posten[i].preis;
+            if (target.value == Aufgabe10.posten[i].name && target.id == "selectBaumart") {
+                basketBaumart[0] = Aufgabe10.posten[i].name;
+                basketBaumart[1] = "" + Aufgabe10.posten[i].preis;
             }
             if (target.id == "radio" + i) {
-                halter[0] = posten[i].name;
-                halter[1] = "" + posten[i].preis;
-
+                basketHalter[0] = Aufgabe10.posten[i].name;
+                basketHalter[1] = "" + Aufgabe10.posten[i].preis;
             }
             if (target.id == "radio2." + i) {
-                basketLieferopt[0] = posten[i].name;
-                basketLieferopt[1] = "" + posten[i].preis;
-
+                basketLieferopt[0] = Aufgabe10.posten[i].name;
+                basketLieferopt[1] = "" + Aufgabe10.posten[i].preis;
             }
-            if (target.value == posten[i].name && target.id == "selectBeleuchtung") {
-                beleuchtungW[0] = posten[i].name;
-                beleuchtungW[1] = "" + posten[i].preis;
-
+            if (target.value == Aufgabe10.posten[i].name && target.id == "selectBeleuchtung") {
+                basketBeleuchtung[0] = Aufgabe10.posten[i].name;
+                basketBeleuchtung[1] = "" + Aufgabe10.posten[i].preis;
             }
-            if (target.id == "stepper" + i) {
-                schmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
+            if (target.id == "check" + i || target.id == "stepper" + i) {
+                basketSchmuck[i] = [Aufgabe10.posten[i].name, "" + (Aufgabe10.posten[i].preis * parseInt(stepper[i].value))];
             }
         }
-        
-        let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
-        korb.innerHTML = "Warenkorb";
-        korb.innerHTML += "" + baumArt[0] + " " + baumArt[1] + " <br>";
-        korb.innerHTML += "Weihnachtsbaumständer: " + halter[0] + " " + halter[1] + " <br>";
-        korb.innerHTML += "" + beleuchtungW[0] + " " + beleuchtungW[1] + " <br>";
-        korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + " <br>";
-        gesamtpreis = parseFloat(halter[1]) + parseFloat(halter[1]) + parseFloat(basketLieferopt[1]);
-      
-        for (let i: number = 0; i < stepper.length; i++) {
-                gesamtpreis += parseFloat(baumArt[i][1]);
-                korb.innerHTML += "" + baumArt[i][0] + " " + baumArt[i][1] + " <br>";
+        let korb = document.getElementById("warenkorb");
+        korb.style.width = "25%";
+        korb.style.height = "auto";
+        korb.style.backgroundColor = "#0B610B";
+        korb.innerHTML = "<span class='wk'>Warenkorb</span><hr>";
+        korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "€ <br>";
+        korb.innerHTML += "Weihnachtsbaumständer: " + basketHalter[0] + " " + basketHalter[1] + "€ <br>";
+        korb.innerHTML += "" + basketBeleuchtung[0] + " " + basketBeleuchtung[1] + "€ <br>";
+        korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "€ <br>";
+        gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
+        for (let i = 0; i < stepper.length; i++) {
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+                gesamtpreis += parseFloat(basketSchmuck[i][1]);
+                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
+            }
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "";
-    }*/
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
+    }
     function handleMouseDown(_event) {
+        var feedback = document.createElement("div");
+        //feedback.innerText = "";
         if (name.checkValidity() == false || strasse.checkValidity() == false || hNr.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Fehler bei der Eingabe deiner Daten - Versuche es erneut";
             feedback.style.color = "red";
