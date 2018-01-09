@@ -97,37 +97,3 @@ label {
     margin-left: 1.5em;
 	height: 3em;
 }
-
-/*Seite 4 Verena*/
-
-#dropInhalt {
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	height: 98%;
-	width: 60%;
-	background-color: white;
-	z-index: 40;
-	box-shadow: 3px 3px 5px lightgrey;
-}
-
-ul li:nth-child(3n){
-	margin-top: 28.5em;
-}
-
-#Triver {
-	background-color: #0295CA;
-	height: 10%;
-	color: white;
-	text-align: center;
-	font-size: 2em;
-}
-
-ul {
-	list-style: none;
-}
-
-a {
-	text-decoration: none;
-	color: grey;
-}
