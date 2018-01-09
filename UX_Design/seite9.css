@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Martel+Sans');
 
+
 body {
 	background-color: white;
 	font-family: 'Martel Sans', sans-serif;
@@ -27,10 +28,8 @@ footer {
 	padding-bottom: -1em;
 }
 
-#footernavigation{ 
-	position:absolute;
-	bottom: 5%
-}
+#footernavigation{ position:absolute;
+bottom: 5%}
 
 
 #headernav {
@@ -58,13 +57,11 @@ img[alt="Kompass"] {
 	top: 15%;
 	z-index: 30;
 }
-
 option {
 	display: inline;
 	margin: 0px;
 	padding: 0px;
 }
-
 #lupe {
     margin-top: 1.5em;
     width: 2em;
