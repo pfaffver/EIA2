@@ -94,3 +94,38 @@ label {
     margin-left: 1.5em;
 	height: 3em;
 }
+
+img[alt="Ausrufezeichen"] {
+	width: 20%;
+	position: absolute;
+	top: 17em;
+	left: 3.5em;
+}
+
+img[alt="BrueckenInfo"] {
+	width: 55%;
+	position: absolute;
+	top: 17.5em;
+	left: 7em;
+}
+
+img[alt="Pfad1"] {
+	width: 18%;
+	position: absolute;
+	top: 20.8em;
+	left: 5.7em;
+}
+
+img[alt="Pfad2"] {
+	width: 3.5%;
+	position: absolute;
+	top: 4.5em;
+	left: 5.5em;
+}
+
+img[alt="kahn"] {
+	width: 8%;
+	position: absolute;
+	bottom: 3.8em;
+	left: 8.75em;
+}

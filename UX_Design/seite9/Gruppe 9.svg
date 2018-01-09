@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="3707.458 279 221.542 66">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #95989a;
+        font-size: 20px;
+        font-family: MartelSans-Regular, Martel Sans;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #95989a;
+      }
+
+      .cls-4, .cls-5 {
+        stroke: none;
+      }
+
+      .cls-5 {
+        fill: #ff4800;
+      }
+
+      .cls-6 {
+        filter: url(#Pfad_53);
+      }
+    </style>
+    <filter id="Pfad_53" x="3707.458" y="279" width="221.542" height="66" filterUnits="userSpaceOnUse">
+      <feOffset dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Gruppe_9" data-name="Gruppe 9" transform="translate(3560)">
+    <g class="cls-6" transform="matrix(1, 0, 0, 1, -3560, 0)">
+      <g id="Pfad_53-2" data-name="Pfad 53" class="cls-1" transform="translate(3743 284)">
+        <path class="cls-4" d="M 173 41 L 0.3885413408279419 41 L -22.03962135314941 20.4724006652832 L 0.3737359642982483 1 L 173 1 L 173 41 Z"/>
+        <path class="cls-5" d="M 172 40 L 172 2 L 0.7474400401115417 2 L -20.53725624084473 20.49183464050293 L 0.7770860195159912 40 L 172 40 M 174 42 L 3.906250185536919e-06 42 L -23.54199600219727 20.45294761657715 L 3.906250185536919e-06 0 L 174 0 L 174 42 Z"/>
+      </g>
+    </g>
+    <text id="Brücke" class="cls-2" transform="translate(184 313)"><tspan x="0" y="0">Brücke</tspan></text>
+    <line id="Linie_59" data-name="Linie 59" class="cls-3" x2="20.645" transform="translate(257.855 296.448)"/>
+    <line id="Linie_60" data-name="Linie 60" class="cls-3" x2="20.645" transform="translate(257.855 315.5)"/>
+    <path id="Pfad_54" data-name="Pfad 54" class="cls-3" d="M0-.315V14" transform="translate(275.5 299.5)"/>
+    <text id="_2_60m" data-name="2,60m" class="cls-2" transform="translate(285 313)"><tspan x="0" y="0">2,60m</tspan></text>
+  </g>
+</svg>

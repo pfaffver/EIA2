@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="3636.558 262.708 95.63 89.791">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff4800;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        filter: url(#Pfad_51);
+      }
+    </style>
+    <filter id="Pfad_51" x="3636.558" y="262.708" width="95.63" height="89.791" filterUnits="userSpaceOnUse">
+      <feOffset dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Gruppe_8" data-name="Gruppe 8" transform="translate(3560)">
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, -3560, 0)">
+      <path id="Pfad_51-2" data-name="Pfad 51" class="cls-1" d="M27.1-12.292C31.953-12.419,65.506,47.88,63.06,51S-5.589,54.536-8.287,51,22.24-12.165,27.1-12.292Z" transform="translate(3657 280)"/>
+    </g>
+    <path id="Pfad_52" data-name="Pfad 52" class="cls-2" d="M18.3,0c1.718,5.877-6.87,23.506-6.87,23.506S2.846,5.877,4.564,0,16.587-5.877,18.3,0Z" transform="translate(112 295)"/>
+    <circle id="Ellipse_33" data-name="Ellipse 33" class="cls-2" cx="3.5" cy="3.5" r="3.5" transform="translate(120 320)"/>
+  </g>
+</svg>
