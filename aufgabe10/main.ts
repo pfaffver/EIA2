@@ -178,16 +178,15 @@ namespace Aufgabe10 {
 
  function warenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-       // let stepper: HTMLInputElement[] = [];
-        //let checkBoxes: HTMLInputElement[] = [];
+     console.log(target);
+        let stepper: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);
-       /*     if (posten[i].art == "Schmuck") {
+           if (posten[i].art == "Schmuck") {
                 stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
-                //checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
-            }*/
+            }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = posten[i].name;
                 basketBaumart[1] = "" + posten[i].preis;
@@ -207,10 +206,10 @@ namespace Aufgabe10 {
                 basketBeleuchtung[1] = "" + posten[i].preis;
 
             }
-          /*  if (target.id == "check" + i || target.id == "stepper" + i) {
+            if (target.id == "stepper" + i) {
                 basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
 
-            }*/
+            }
         }
         
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
@@ -224,12 +223,12 @@ namespace Aufgabe10 {
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "€ <br>";
 
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
-    /*    for (let i: number = 0; i < stepper.length; i++) {
+        for (let i: number = 0; i < stepper.length; i++) {
             if (stepper[i].value != "0") {
                 gesamtpreis += parseFloat(basketSchmuck[i][1]);
                 korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
             }
-        }*/
+        }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
     }
 

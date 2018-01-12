@@ -157,15 +157,14 @@ var Aufgabe10;
     }
     function warenkorb(_event) {
         let target = _event.target;
-        // let stepper: HTMLInputElement[] = [];
-        //let checkBoxes: HTMLInputElement[] = [];
+        console.log(target);
+        let stepper = [];
         let gesamtpreis = 0;
         for (let i = 0; i < Aufgabe10.posten.length; i++) {
             console.log(_event.target);
-            /*     if (posten[i].art == "Schmuck") {
-                     stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
-                     //checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
-                 }*/
+            if (Aufgabe10.posten[i].art == "Schmuck") {
+                stepper[i] = document.getElementById("stepper" + i);
+            }
             if (target.value == Aufgabe10.posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = Aufgabe10.posten[i].name;
                 basketBaumart[1] = "" + Aufgabe10.posten[i].preis;
@@ -182,6 +181,9 @@ var Aufgabe10;
                 basketBeleuchtung[0] = Aufgabe10.posten[i].name;
                 basketBeleuchtung[1] = "" + Aufgabe10.posten[i].preis;
             }
+            if (target.id == "stepper" + i) {
+                basketSchmuck[i] = [Aufgabe10.posten[i].name, "" + (Aufgabe10.posten[i].preis * parseInt(stepper[i].value))];
+            }
         }
         let korb = document.getElementById("warenkorb");
         korb.style.width = "25%";
@@ -193,12 +195,12 @@ var Aufgabe10;
         korb.innerHTML += "" + basketBeleuchtung[0] + " " + basketBeleuchtung[1] + "€ <br>";
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "€ <br>";
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
-        /*    for (let i: number = 0; i < stepper.length; i++) {
-                if (stepper[i].value != "0") {
-                    gesamtpreis += parseFloat(basketSchmuck[i][1]);
-                    korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
-                }
-            }*/
+        for (let i = 0; i < stepper.length; i++) {
+            if (stepper[i].value != "0") {
+                gesamtpreis += parseFloat(basketSchmuck[i][1]);
+                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
+            }
+        }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
     }
     function handleMouseDown(_event) {
