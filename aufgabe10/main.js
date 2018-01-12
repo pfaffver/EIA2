@@ -227,7 +227,7 @@ var Aufgabe10;
             feedback.style.color = "green";
             feedback.style.position = "absolute";
             feedback.style.top = "70%";
-            feedback.style.right = "4%";
+            feedback.style.right = "7%";
             document.body.appendChild(feedback);
         }
     }
