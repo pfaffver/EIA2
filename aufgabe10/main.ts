@@ -178,14 +178,14 @@ namespace Aufgabe10 {
 
  function warenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-     console.log(target);
+        console.log(target);
         let stepper: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);
-           if (posten[i].art == "Schmuck") {
-                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+            if (posten[i].art == "Schmuck") {
+                stepper.push( <HTMLInputElement>document.getElementById("stepper" + i));
             }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = posten[i].name;
@@ -194,21 +194,22 @@ namespace Aufgabe10 {
             if (target.id == "radio" + i) {
                 basketHalter[0] = posten[i].name;
                 basketHalter[1] = "" + posten[i].preis;
-
             }
             if (target.id == "radio2." + i) {
                 basketLieferopt[0] = posten[i].name;
                 basketLieferopt[1] = "" + posten[i].preis;
-
             }
             if (target.value == posten[i].name && target.id == "selectBeleuchtung") {
                 basketBeleuchtung[0] = posten[i].name;
                 basketBeleuchtung[1] = "" + posten[i].preis;
-
             }
             if (target.id == "stepper" + i) {
-                basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
-
+                let valueTmp: string = "0";
+                for(let j = 0; j < stepper.length; j++)
+                    if(stepper[j].id == "stepper" + i)
+                          valueTmp = stepper[j].value;
+                
+                basketSchmuck.push( [posten[i].name, "" + (posten[i].preis * parseInt(valueTmp))]);
             }
         }
         
@@ -225,8 +226,8 @@ namespace Aufgabe10 {
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i: number = 0; i < stepper.length; i++) {
             if (stepper[i].value != "0") {
-                gesamtpreis += parseFloat(basketSchmuck[i][1]);
-                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
+                gesamtpreis += parseFloat(basketSchmuck[i + 1].toString());
+                korb.innerHTML += "" + basketSchmuck[i] + " " + basketSchmuck[i + 1] + "€ <br>";
             }
         }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
