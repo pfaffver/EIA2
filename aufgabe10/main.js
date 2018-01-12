@@ -2,6 +2,7 @@ var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", createElements);
     window.addEventListener("change", warenkorb);
+    var feedback = document.createElement("div");
     var name;
     var strasse;
     var hNr;
@@ -69,14 +70,21 @@ var Aufgabe10;
             if (Aufgabe10.posten[i].art == "Schmuck") {
                 let br1 = document.createElement("br");
                 let br2 = document.createElement("br");
+                let checkBox = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.name = "CheckboxSchmuckartikel";
+                checkBox.value = "check";
+                checkBox.id = "check" + i;
+                schmuckartikel.appendChild(checkBox);
                 let label2 = document.createElement("label");
                 label2.id = "label2." + i;
+                label2.htmlFor = checkBox.id; //Sorgt dafür, dass man nicht genau in die Box klicken muss
                 label2.innerText = Aufgabe10.posten[i].name;
                 schmuckartikel.appendChild(label2);
                 let stepper = document.createElement("input");
                 stepper.type = "number";
                 stepper.name = "StepperSchmuckartikel" + i;
-                stepper.value = "0";
+                stepper.value = "1";
                 stepper.id = "stepper" + i;
                 stepper.min = "0";
                 stepper.max = "5";
@@ -159,11 +167,13 @@ var Aufgabe10;
         let target = _event.target;
         console.log(target);
         let stepper = [];
+        let checkBoxes = [];
         let gesamtpreis = 0;
         for (let i = 0; i < Aufgabe10.posten.length; i++) {
             console.log(_event.target);
             if (Aufgabe10.posten[i].art == "Schmuck") {
-                stepper.push(document.getElementById("stepper" + i));
+                stepper[i] = document.getElementById("stepper" + i);
+                checkBoxes[i] = document.getElementById("check" + i);
             }
             if (target.value == Aufgabe10.posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = Aufgabe10.posten[i].name;
@@ -181,43 +191,43 @@ var Aufgabe10;
                 basketBeleuchtung[0] = Aufgabe10.posten[i].name;
                 basketBeleuchtung[1] = "" + Aufgabe10.posten[i].preis;
             }
-            if (target.id == "stepper" + i) {
-                let valueTmp = "0";
-                for (let j = 0; j < stepper.length; j++)
-                    if (stepper[j].id == "stepper" + i)
-                        valueTmp = stepper[j].value;
-                basketSchmuck.push([Aufgabe10.posten[i].name, "" + (Aufgabe10.posten[i].preis * parseInt(valueTmp))]);
+            if (target.id == "check" + i || target.id == "stepper" + i) {
+                basketSchmuck[i] = [Aufgabe10.posten[i].name, "" + (Aufgabe10.posten[i].preis * parseInt(stepper[i].value))];
             }
         }
         let korb = document.getElementById("warenkorb");
-        korb.style.width = "25%";
+        korb.style.width = "30%";
         korb.style.height = "auto";
-        korb.style.backgroundColor = "pink";
-        korb.innerHTML = "<span class='wk'>Warenkorb</span><hr>";
+        korb.style.backgroundColor = "lightgrey";
+        korb.innerHTML = "<span id='WK'>Warenkorb</span>" + "<br>";
         korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "€ <br>";
         korb.innerHTML += "Weihnachtsbaumständer: " + basketHalter[0] + " " + basketHalter[1] + "€ <br>";
         korb.innerHTML += "" + basketBeleuchtung[0] + " " + basketBeleuchtung[1] + "€ <br>";
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "€ <br>";
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i = 0; i < stepper.length; i++) {
-            if (stepper[i].value != "0") {
-                gesamtpreis += parseFloat(basketSchmuck[i + 1].toString());
-                korb.innerHTML += "" + basketSchmuck[i] + " " + basketSchmuck[i + 1] + "€ <br>";
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+                gesamtpreis += parseFloat(basketSchmuck[i][1]);
+                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
             }
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
     }
     function handleMouseDown(_event) {
-        var feedback = document.createElement("div");
-        //feedback.innerText = "";
+        feedback.innerText = "";
         if (name.checkValidity() == false || strasse.checkValidity() == false || hNr.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Fehler bei der Eingabe deiner Daten - Versuche es erneut";
             feedback.style.color = "red";
+            feedback.style.position = "absolute";
+            feedback.style.top = "70%";
+            feedback.style.right = "4%";
             document.body.appendChild(feedback);
         }
         else {
             feedback.innerText = "Vielen Dank - Deine Bestellung wird bearbeitet";
             feedback.style.color = "green";
+            feedback.style.position = "absolute";
+            feedback.style.top = "70%";
+            feedback.style.right = "4%";
             document.body.appendChild(feedback);
         }
     }

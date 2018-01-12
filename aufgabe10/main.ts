@@ -1,6 +1,8 @@
 namespace Aufgabe10 {
     window.addEventListener("load", createElements);
     window.addEventListener("change", warenkorb);
+    
+    var feedback: HTMLDivElement = document.createElement("div");
 
     var name: HTMLInputElement;
     var strasse: HTMLInputElement;
@@ -32,7 +34,7 @@ namespace Aufgabe10 {
                 opt.innerText = posten[i].name;
                 opt.id = "option" + i;
                 selectBox.appendChild(opt);
-               
+
             }
         }
 
@@ -78,16 +80,24 @@ namespace Aufgabe10 {
 
                 let br1: HTMLElement = document.createElement("br");
                 let br2: HTMLElement = document.createElement("br");
-                
+
+                let checkBox: HTMLInputElement = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.name = "CheckboxSchmuckartikel";
+                checkBox.value = "check";
+                checkBox.id = "check" + i;
+                schmuckartikel.appendChild(checkBox);
+
                 let label2: HTMLLabelElement = document.createElement("label");
                 label2.id = "label2." + i;
+                label2.htmlFor = checkBox.id; //Sorgt dafür, dass man nicht genau in die Box klicken muss
                 label2.innerText = posten[i].name;
                 schmuckartikel.appendChild(label2);
-                
+
                 let stepper: HTMLInputElement = document.createElement("input");
                 stepper.type = "number";
                 stepper.name = "StepperSchmuckartikel" + i;
-                stepper.value = "0";
+                stepper.value = "1";
                 stepper.id = "stepper" + i;
                 stepper.min = "0";
                 stepper.max = "5";
@@ -176,16 +186,19 @@ namespace Aufgabe10 {
         button.appendChild(submit);
     }
 
- function warenkorb(_event: Event): void {
+    function warenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         console.log(target);
         let stepper: HTMLInputElement[] = [];
+        let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);
+
             if (posten[i].art == "Schmuck") {
-                stepper.push( <HTMLInputElement>document.getElementById("stepper" + i));
+                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+                checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
             }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = posten[i].name;
@@ -203,49 +216,49 @@ namespace Aufgabe10 {
                 basketBeleuchtung[0] = posten[i].name;
                 basketBeleuchtung[1] = "" + posten[i].preis;
             }
-            if (target.id == "stepper" + i) {
-                let valueTmp: string = "0";
-                for(let j = 0; j < stepper.length; j++)
-                    if(stepper[j].id == "stepper" + i)
-                          valueTmp = stepper[j].value;
-                
-                basketSchmuck.push( [posten[i].name, "" + (posten[i].preis * parseInt(valueTmp))]);
+            if (target.id == "check" + i || target.id == "stepper" + i) {
+                basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
             }
         }
-        
+
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
-        korb.style.width = "25%";
+        korb.style.width = "30%";
         korb.style.height = "auto";
-        korb.style.backgroundColor = "pink";
-        korb.innerHTML = "<span class='wk'>Warenkorb</span><hr>";
+        korb.style.backgroundColor = "lightgrey";
+        korb.innerHTML = "<span id='WK'>Warenkorb</span>" + "<br>";
         korb.innerHTML += "" + basketBaumart[0] + " " + basketBaumart[1] + "€ <br>";
         korb.innerHTML += "Weihnachtsbaumständer: " + basketHalter[0] + " " + basketHalter[1] + "€ <br>";
         korb.innerHTML += "" + basketBeleuchtung[0] + " " + basketBeleuchtung[1] + "€ <br>";
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "€ <br>";
 
+
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i: number = 0; i < stepper.length; i++) {
-            if (stepper[i].value != "0") {
-                gesamtpreis += parseFloat(basketSchmuck[i + 1].toString());
-                korb.innerHTML += "" + basketSchmuck[i] + " " + basketSchmuck[i + 1] + "€ <br>";
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+                gesamtpreis += parseFloat(basketSchmuck[i][1]);
+                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
             }
         }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + "€";
     }
 
     function handleMouseDown(_event: MouseEvent): void {
-       
-        var feedback: HTMLDivElement = document.createElement("div");
-        //feedback.innerText = "";
-        
+
+        feedback.innerText = "";
+
         if (name.checkValidity() == false || strasse.checkValidity() == false || hNr.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Fehler bei der Eingabe deiner Daten - Versuche es erneut";
             feedback.style.color = "red";
+            feedback.style.position ="absolute";
+            feedback.style.top ="70%";
+            feedback.style.right ="4%";
             document.body.appendChild(feedback);
         }
         else {
             feedback.innerText = "Vielen Dank - Deine Bestellung wird bearbeitet";
             feedback.style.color = "green";
+            feedback.style.position ="absolute";
+            feedback.style.top ="70%";
+            feedback.style.right ="4%";
             document.body.appendChild(feedback);
         }
     }

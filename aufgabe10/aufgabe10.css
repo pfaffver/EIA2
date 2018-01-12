@@ -69,6 +69,11 @@ form {
 
 #warenkorb {
 	position: fixed;
-	right: 1em;
-	width: 30%;	
+	right: 3em;
+	width: 30%;
+	margin-top: 0.5em;
+}
+
+#WK {
+	font-weight: bold;
 }
