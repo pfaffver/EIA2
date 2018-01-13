@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Martel+Sans');
+
+body {
+	font-family: 'Martel Sans', sans-serif;
+}
+
+h2 {
+	font-size: medium;
+}
+
+form {
+	float:left;
+	position: relative;
+	margin: 0.5em;
+}
+#heading {
+	background-color: lightgrey;
+	text-align: center;
+	width: 100%;
+}
+
+#Baum {
+	border: 0.1em solid silver;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 1em;
+	padding-bottom: 1.9em;
+	
+}
+
+#Halter {
+	border: 0.1em solid silver;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#Beleuchtung {
+	border: 0.1em solid silver;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#Deko {
+	border: 0.1em solid silver;
+	width: 20%;
+	clear: left;
+}
+
+#Daten {
+	border: 0.1em solid silver;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#Lieferung {
+	border: 0.1em solid silver;
+	width: 20%;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#eingabe {
+	border-top: 0.1em solid silver;
+	padding-top: 1.9em;
+}
+
+#warenkorb {
+	position: fixed;
+	right: 3em;
+	width: 30%;
+	margin-top: 0.5em;
+}
+
+#WK {
+	font-weight: bold;
+}
