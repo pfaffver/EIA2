@@ -70,6 +70,7 @@ div {
 #warenkorb {
 	position: fixed;
 	right: 3em;
+	top: 13em;
 	width: 30%;
 	margin-top: 0.5em;
 }

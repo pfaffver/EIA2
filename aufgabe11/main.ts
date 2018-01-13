@@ -261,5 +261,5 @@ namespace Aufgabe11 {
             feedback.style.right ="7%";
             document.body.appendChild(feedback);
         }
-    }
+    }    
 }
