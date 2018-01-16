@@ -180,7 +180,7 @@ namespace Aufgabe11 {
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("eingabe");
         let submit: HTMLButtonElement = document.createElement("button");
         submit.name = "Button";
-        submit.type = "button";
+        submit.type = "submit";
         submit.innerText = "Bestellung abschicken";
         submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);

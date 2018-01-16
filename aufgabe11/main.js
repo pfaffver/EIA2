@@ -158,7 +158,7 @@ var Aufgabe11;
         let button = document.getElementById("eingabe");
         let submit = document.createElement("button");
         submit.name = "Button";
-        submit.type = "button";
+        submit.type = "submit";
         submit.innerText = "Bestellung abschicken";
         submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
