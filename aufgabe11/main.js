@@ -19,7 +19,7 @@ var Aufgabe11;
         //Baumart:
         let baumart = document.getElementById("baumart");
         let selectBox = document.createElement("select");
-        selectBox.name = "SelectBaumart";
+        selectBox.name = "Baumart";
         selectBox.id = "selectBaumart";
         let group = document.createElement("optgroup");
         group.label = "Tannenarten";

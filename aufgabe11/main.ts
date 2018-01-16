@@ -22,7 +22,7 @@ namespace Aufgabe11 {
         //Baumart:
         let baumart: HTMLDivElement = <HTMLDivElement>document.getElementById("baumart");
         let selectBox: HTMLSelectElement = document.createElement("select");
-        selectBox.name = "SelectBaumart";
+        selectBox.name = "Baumart";
         selectBox.id = "selectBaumart";
         let group: HTMLOptGroupElement = document.createElement("optgroup");
         group.label = "Tannenarten";
