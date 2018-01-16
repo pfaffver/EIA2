@@ -163,7 +163,7 @@ namespace Aufgabe11 {
             if (posten[i].art == "Lieferung") {
                 var radioB2: HTMLInputElement = document.createElement("input");
                 radioB2.type = "radio";
-                radioB2.name = "radioGroupLieferoptionen";
+                radioB2.name = "Deine Lieferoption";
                 radioB2.value = "radio2." + i;
                 radioB2.id = "radio2." + i;
                 lieferopt.appendChild(radioB2);
@@ -179,7 +179,7 @@ namespace Aufgabe11 {
         //Bestätigungseingabe:
         let button: HTMLDivElement = <HTMLDivElement>document.getElementById("eingabe");
         let submit: HTMLButtonElement = document.createElement("button");
-        submit.name = "Button";
+        //submit.name = "Button";
         submit.type = "submit";
         submit.innerText = "Bestellung abschicken";
         submit.addEventListener("mousedown", handleMouseDown);
