@@ -60,7 +60,7 @@ var Aufgabe11;
             if (Aufgabe11.posten[i].art == "Beleuchtung") {
                 let opt2 = document.createElement("option");
                 opt2.innerText = Aufgabe11.posten[i].name;
-                opt2.id = "option2." + i;
+                opt2.id = "Kerzen" + i;
                 selectBox2.appendChild(opt2);
             }
         }
@@ -145,7 +145,7 @@ var Aufgabe11;
                 radioB2.type = "radio";
                 radioB2.name = "Deine Lieferoption";
                 radioB2.value = "radio2." + i;
-                radioB2.id = "Auswahl" + i;
+                radioB2.id = "radio2." + i;
                 lieferopt.appendChild(radioB2);
                 var label3 = document.createElement("label");
                 label3.id = "label3." + i;

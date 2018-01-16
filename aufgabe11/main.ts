@@ -68,7 +68,7 @@ namespace Aufgabe11 {
             if (posten[i].art == "Beleuchtung") {
                 let opt2: HTMLElement = document.createElement("option");
                 opt2.innerText = posten[i].name;
-                opt2.id = "option2." + i;
+                opt2.id = "Kerzen" + i;
                 selectBox2.appendChild(opt2);
             }
         }
@@ -165,7 +165,7 @@ namespace Aufgabe11 {
                 radioB2.type = "radio";
                 radioB2.name = "Deine Lieferoption";
                 radioB2.value = "radio2." + i;
-                radioB2.id = "Auswahl" + i;
+                radioB2.id = "radio2." + i;
                 lieferopt.appendChild(radioB2);
 
                 var label3: HTMLLabelElement = document.createElement("label");
