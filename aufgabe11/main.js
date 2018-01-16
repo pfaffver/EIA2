@@ -74,7 +74,7 @@ var Aufgabe11;
                 checkBox.type = "checkbox";
                 checkBox.name = "Dein Schmuckartikel";
                 checkBox.value = "check";
-                checkBox.id = "Auswahl" + i;
+                checkBox.id = "check" + i;
                 schmuckartikel.appendChild(checkBox);
                 let label2 = document.createElement("label");
                 label2.id = "label2." + i;
