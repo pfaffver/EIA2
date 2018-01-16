@@ -46,7 +46,7 @@ namespace Aufgabe11 {
                 radioB.type = "radio";
                 radioB.name = "Deine Halterung";
                 radioB.value = "radio" + i;
-                radioB.id = "radio" + i;
+                radioB.id = "Auswahl" + i;
                 halterung.appendChild(radioB);
 
                 label = document.createElement("label");
@@ -96,7 +96,7 @@ namespace Aufgabe11 {
 
                 let stepper: HTMLInputElement = document.createElement("input");
                 stepper.type = "number";
-                stepper.name = "StepperSchmuckartikel" + i;
+                stepper.name = "Schmuckartikel1" + i;
                 stepper.value = "1";
                 stepper.id = "stepper" + i;
                 stepper.min = "0";
