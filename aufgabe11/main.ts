@@ -85,7 +85,7 @@ namespace Aufgabe11 {
                 checkBox.type = "checkbox";
                 checkBox.name = "Dein Schmuckartikel";
                 checkBox.value = "check";
-                checkBox.id = "check" + i;
+                checkBox.id = "Auswahl" + i;
                 schmuckartikel.appendChild(checkBox);
 
                 let label2: HTMLLabelElement = document.createElement("label");
@@ -165,7 +165,7 @@ namespace Aufgabe11 {
                 radioB2.type = "radio";
                 radioB2.name = "Deine Lieferoption";
                 radioB2.value = "radio2." + i;
-                radioB2.id = "radio2." + i;
+                radioB2.id = "Auswahl" + i;
                 lieferopt.appendChild(radioB2);
 
                 var label3: HTMLLabelElement = document.createElement("label");
