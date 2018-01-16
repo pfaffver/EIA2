@@ -45,8 +45,8 @@ namespace Aufgabe11 {
                 let radioB: HTMLInputElement = document.createElement("input");
                 radioB.type = "radio";
                 radioB.name = "Deine Halterung";
-                radioB.value = "radio" + i;
-                radioB.id = "Auswahl" + i;
+                radioB.value = "Auswahl" + i;
+                radioB.id = "radio" + i;
                 halterung.appendChild(radioB);
 
                 label = document.createElement("label");
