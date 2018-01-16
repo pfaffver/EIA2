@@ -19,7 +19,7 @@ var Aufgabe11;
         //Baumart:
         let baumart = document.getElementById("baumart");
         let selectBox = document.createElement("select");
-        selectBox.name = "Baumart";
+        selectBox.name = "Deine Baumart";
         selectBox.id = "selectBaumart";
         let group = document.createElement("optgroup");
         group.label = "Tannenarten";
@@ -39,7 +39,7 @@ var Aufgabe11;
             if (Aufgabe11.posten[i].art == "Halter") {
                 let radioB = document.createElement("input");
                 radioB.type = "radio";
-                radioB.name = "radioGroupHalterung";
+                radioB.name = "Deine Halterung";
                 radioB.value = "radio" + i;
                 radioB.id = "radio" + i;
                 halterung.appendChild(radioB);
@@ -53,7 +53,7 @@ var Aufgabe11;
         //Beleuchtung:
         let beleuchtung = document.getElementById("beleuchtung");
         let selectBox2 = document.createElement("select");
-        selectBox2.name = "SelectBeleuchtung";
+        selectBox2.name = "Deine Beleuchtung";
         selectBox2.id = "selectBeleuchtung";
         beleuchtung.appendChild(selectBox2);
         for (let i = 0; i < Aufgabe11.posten.length; i++) {
@@ -72,7 +72,7 @@ var Aufgabe11;
                 let br2 = document.createElement("br");
                 let checkBox = document.createElement("input");
                 checkBox.type = "checkbox";
-                checkBox.name = "CheckboxSchmuckartikel";
+                checkBox.name = "Dein Schmuckartikel";
                 checkBox.value = "check";
                 checkBox.id = "check" + i;
                 schmuckartikel.appendChild(checkBox);

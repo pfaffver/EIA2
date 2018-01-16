@@ -22,7 +22,7 @@ namespace Aufgabe11 {
         //Baumart:
         let baumart: HTMLDivElement = <HTMLDivElement>document.getElementById("baumart");
         let selectBox: HTMLSelectElement = document.createElement("select");
-        selectBox.name = "Baumart";
+        selectBox.name = "Deine Baumart";
         selectBox.id = "selectBaumart";
         let group: HTMLOptGroupElement = document.createElement("optgroup");
         group.label = "Tannenarten";
@@ -44,7 +44,7 @@ namespace Aufgabe11 {
             if (posten[i].art == "Halter") {
                 let radioB: HTMLInputElement = document.createElement("input");
                 radioB.type = "radio";
-                radioB.name = "radioGroupHalterung";
+                radioB.name = "Deine Halterung";
                 radioB.value = "radio" + i;
                 radioB.id = "radio" + i;
                 halterung.appendChild(radioB);
@@ -60,7 +60,7 @@ namespace Aufgabe11 {
         //Beleuchtung:
         let beleuchtung: HTMLDivElement = <HTMLDivElement>document.getElementById("beleuchtung");
         let selectBox2: HTMLSelectElement = document.createElement("select");
-        selectBox2.name = "SelectBeleuchtung";
+        selectBox2.name = "Deine Beleuchtung";
         selectBox2.id = "selectBeleuchtung";
         beleuchtung.appendChild(selectBox2);
         for (let i: number = 0; i < posten.length; i++) {
@@ -83,7 +83,7 @@ namespace Aufgabe11 {
 
                 let checkBox: HTMLInputElement = document.createElement("input");
                 checkBox.type = "checkbox";
-                checkBox.name = "CheckboxSchmuckartikel";
+                checkBox.name = "Dein Schmuckartikel";
                 checkBox.value = "check";
                 checkBox.id = "check" + i;
                 schmuckartikel.appendChild(checkBox);
