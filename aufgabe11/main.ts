@@ -96,7 +96,7 @@ namespace Aufgabe11 {
 
                 let stepper: HTMLInputElement = document.createElement("input");
                 stepper.type = "number";
-                stepper.name = "Schmuckartikel1" + i;
+                stepper.name = "Schmuckartikel" + i;
                 stepper.value = "1";
                 stepper.id = "stepper" + i;
                 stepper.min = "0";
@@ -112,7 +112,7 @@ namespace Aufgabe11 {
         let daten: HTMLDivElement = <HTMLDivElement>document.getElementById("daten");
         name = document.createElement("input");
         name.type = "text";
-        name.name = "DatenName";
+        name.name = "Name:";
         name.placeholder = "Name";
         name.pattern = "[a-zA-Z]{1,}";
         name.required = true;
@@ -120,7 +120,7 @@ namespace Aufgabe11 {
 
         strasse = document.createElement("input");
         strasse.type = "text";
-        strasse.name = "DatenStrasse";
+        strasse.name = "Strasse:";
         strasse.placeholder = "Strasse";
         strasse.pattern = "[a-zA-Z]{1,}";
         strasse.required = true;
@@ -128,7 +128,7 @@ namespace Aufgabe11 {
 
         hNr = document.createElement("input");
         hNr.type = "text";
-        hNr.name = "DatenHausnummer";
+        hNr.name = "Hausnummer:";
         hNr.placeholder = "Hausnummer";
         hNr.pattern = "[0-9]{1,}";
         hNr.required = true;
@@ -136,7 +136,7 @@ namespace Aufgabe11 {
 
         ort = document.createElement("input");
         ort.type = "text";
-        ort.name = "DatenOrt";
+        ort.name = "Ort:";
         ort.placeholder = "Ort";
         ort.pattern = "[a-zA-Z]{1,}";
         ort.required = true;
@@ -144,7 +144,7 @@ namespace Aufgabe11 {
 
         plz = document.createElement("input");
         plz.type = "text";
-        plz.name = "DatenPLZ";
+        plz.name = "PLZ:";
         plz.placeholder = "Postleitzahl";
         plz.pattern = "[0-9]{5}";
         plz.required = true;
@@ -152,7 +152,7 @@ namespace Aufgabe11 {
 
         mail = document.createElement("input");
         mail.type = "email";
-        mail.name = "DatenMail";
+        mail.name = "E-Mail:";
         mail.placeholder = "E-Mail";
         mail.required = true;
         daten.appendChild(mail);
