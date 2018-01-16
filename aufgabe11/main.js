@@ -145,7 +145,7 @@ var Aufgabe11;
                 radioB2.type = "radio";
                 radioB2.name = "Deine Lieferoption";
                 radioB2.value = "radio2." + i;
-                radioB2.id = "radio2." + i;
+                radioB2.id = "Auswahl" + i;
                 lieferopt.appendChild(radioB2);
                 var label3 = document.createElement("label");
                 label3.id = "label3." + i;
@@ -183,7 +183,7 @@ var Aufgabe11;
                 basketHalter[0] = Aufgabe11.posten[i].name;
                 basketHalter[1] = "" + Aufgabe11.posten[i].preis;
             }
-            if (target.id == "radio2." + i) {
+            if (target.id == "Auswahl" + i) {
                 basketLieferopt[0] = Aufgabe11.posten[i].name;
                 basketLieferopt[1] = "" + Aufgabe11.posten[i].preis;
             }

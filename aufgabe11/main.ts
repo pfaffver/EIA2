@@ -165,7 +165,7 @@ namespace Aufgabe11 {
                 radioB2.type = "radio";
                 radioB2.name = "Deine Lieferoption";
                 radioB2.value = "radio2." + i;
-                radioB2.id = "radio2." + i;
+                radioB2.id = "Auswahl" + i;
                 lieferopt.appendChild(radioB2);
 
                 var label3: HTMLLabelElement = document.createElement("label");
@@ -208,7 +208,7 @@ namespace Aufgabe11 {
                 basketHalter[0] = posten[i].name;
                 basketHalter[1] = "" + posten[i].preis;
             }
-            if (target.id == "radio2." + i) {
+            if (target.id == "Auswahl" + i) {
                 basketLieferopt[0] = posten[i].name;
                 basketLieferopt[1] = "" + posten[i].preis;
             }
