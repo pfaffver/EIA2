@@ -160,13 +160,14 @@ var Aufgabe11;
     function warenkorb(_event) {
         let target = _event.target;
         let stepper = [];
-        //let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis = 0;
         for (let i = 0; i < Aufgabe11.posten.length; i++) {
             console.log(_event.target);
-            if (Aufgabe11.posten[i].art == "Schmuck") {
-                stepper[i] = document.getElementById("stepper" + i);
-            }
+            //if (posten[i].art == "Schmuck") {
+            //     stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+            //    basketSchmuck[0] = posten[i].name;
+            //   basketSchmuck[1] = "" + posten[i].preis;
+            //   }
             if (target.value == Aufgabe11.posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = Aufgabe11.posten[i].name;
                 basketBaumart[1] = "" + Aufgabe11.posten[i].preis;
@@ -198,7 +199,6 @@ var Aufgabe11;
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "� <br>";
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i = 0; i < stepper.length; i++) {
-            // if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
             gesamtpreis += parseFloat(basketSchmuck[i][1]);
             korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "� <br>";
         }
