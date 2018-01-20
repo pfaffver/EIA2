@@ -185,15 +185,11 @@ namespace Aufgabe11 {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let stepper: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
+        let inputInfo = target.id.split("§"); 
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);
 
-            //if (posten[i].art == "Schmuck") {
-           //     stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
-            //    basketSchmuck[0] = posten[i].name;
-             //   basketSchmuck[1] = "" + posten[i].preis;
-         //   }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = posten[i].name;
                 basketBaumart[1] = "" + posten[i].preis;
@@ -210,10 +206,22 @@ namespace Aufgabe11 {
                 basketBeleuchtung[0] = posten[i].name;
                 basketBeleuchtung[1] = "" + posten[i].preis;
             }
-            if (target.id == "stepper" + i) {
-                basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
+            
+            if (inputInfo[0] == "Schmuck") {
+  let SchmuckName : any [] = [];
+
+  for(let i: number = 0; i < posten.length; i++) {
+    if(posten[i].art == "Schmuck"){
+      SchmuckName.push(posten[i].name);
+    }
+  }
+  for(let i: number = 0; i < SchmuckName.length; i++){
+    if(SchmuckName[i] == inputInfo[1]) {
+      basketSchmuck[i] = [inputInfo[1],inputInfo[2],target.value];
+    }
+  }
+}
             }
-        }
 
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
         korb.style.width = "30%";

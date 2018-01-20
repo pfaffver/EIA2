@@ -161,13 +161,9 @@ var Aufgabe11;
         let target = _event.target;
         let stepper = [];
         let gesamtpreis = 0;
+        let inputInfo = target.id.split("�");
         for (let i = 0; i < Aufgabe11.posten.length; i++) {
             console.log(_event.target);
-            //if (posten[i].art == "Schmuck") {
-            //     stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
-            //    basketSchmuck[0] = posten[i].name;
-            //   basketSchmuck[1] = "" + posten[i].preis;
-            //   }
             if (target.value == Aufgabe11.posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = Aufgabe11.posten[i].name;
                 basketBaumart[1] = "" + Aufgabe11.posten[i].preis;
@@ -184,8 +180,18 @@ var Aufgabe11;
                 basketBeleuchtung[0] = Aufgabe11.posten[i].name;
                 basketBeleuchtung[1] = "" + Aufgabe11.posten[i].preis;
             }
-            if (target.id == "stepper" + i) {
-                basketSchmuck[i] = [Aufgabe11.posten[i].name, "" + (Aufgabe11.posten[i].preis * parseInt(stepper[i].value))];
+            if (inputInfo[0] == "Schmuck") {
+                let SchmuckName = [];
+                for (let i = 0; i < Aufgabe11.posten.length; i++) {
+                    if (Aufgabe11.posten[i].art == "Schmuck") {
+                        SchmuckName.push(Aufgabe11.posten[i].name);
+                    }
+                }
+                for (let i = 0; i < SchmuckName.length; i++) {
+                    if (SchmuckName[i] == inputInfo[1]) {
+                        basketSchmuck[i] = [inputInfo[1], inputInfo[2], target.value];
+                    }
+                }
             }
         }
         let korb = document.getElementById("warenkorb");
