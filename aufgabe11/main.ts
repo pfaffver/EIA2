@@ -1,7 +1,7 @@
 namespace Aufgabe11 {
     window.addEventListener("load", createElements);
     window.addEventListener("change", warenkorb);
-    
+
     var feedback: HTMLDivElement = document.createElement("div");
 
     var name: HTMLInputElement;
@@ -81,31 +81,26 @@ namespace Aufgabe11 {
                 let br1: HTMLElement = document.createElement("br");
                 let br2: HTMLElement = document.createElement("br");
 
-                let checkBox: HTMLInputElement = document.createElement("input");
-                checkBox.type = "checkbox";
-                checkBox.name = "Dein Schmuckartikel";
-                checkBox.value = "check";
-                checkBox.id = "check" + i;
-                schmuckartikel.appendChild(checkBox);
 
+                let stepper: HTMLInputElement = document.createElement("input");
                 let label2: HTMLLabelElement = document.createElement("label");
-                label2.id = "label2." + i;
-                label2.htmlFor = checkBox.id; //Sorgt dafür, dass man nicht genau in die Box klicken muss
+                label2.id = "label" + i;
+                label2.htmlFor = stepper.id; //Sorgt dafür, dass man nicht genau in die Box klicken muss
                 label2.innerText = posten[i].name;
                 schmuckartikel.appendChild(label2);
 
-                let stepper: HTMLInputElement = document.createElement("input");
                 stepper.type = "number";
-                stepper.name = "Schmuckartikel" + i;
-                stepper.value = "1";
-                stepper.id = "stepper" + i;
+                stepper.value = "0";
+                stepper.id = posten[i].art + "§" + posten[i].name + "§" + posten[i].preis;
+                stepper.name = posten[i].art + "§" + posten[i].name + "§" + posten[i].preis;
                 stepper.min = "0";
-                stepper.max = "5";
+                stepper.max = "10";
                 stepper.step = "1";
                 schmuckartikel.appendChild(br1);
                 schmuckartikel.appendChild(stepper);
                 schmuckartikel.appendChild(br2);
             }
+
         }
 
         //Persönliche Daten:
@@ -248,18 +243,18 @@ namespace Aufgabe11 {
         if (name.checkValidity() == false || strasse.checkValidity() == false || hNr.checkValidity() == false || ort.checkValidity() == false || plz.checkValidity() == false || mail.checkValidity() == false) {
             feedback.innerText = "Fehler bei der Eingabe deiner Daten - Versuche es erneut";
             feedback.style.color = "red";
-            feedback.style.position ="absolute";
-            feedback.style.top ="70%";
-            feedback.style.right ="4%";
+            feedback.style.position = "absolute";
+            feedback.style.top = "70%";
+            feedback.style.right = "4%";
             document.body.appendChild(feedback);
         }
         else {
             feedback.innerText = "Vielen Dank - Deine Bestellung wird bearbeitet";
             feedback.style.color = "green";
-            feedback.style.position ="absolute";
-            feedback.style.top ="70%";
-            feedback.style.right ="7%";
+            feedback.style.position = "absolute";
+            feedback.style.top = "70%";
+            feedback.style.right = "7%";
             document.body.appendChild(feedback);
         }
-    }    
+    }
 }

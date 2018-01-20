@@ -70,24 +70,18 @@ var Aufgabe11;
             if (Aufgabe11.posten[i].art == "Schmuck") {
                 let br1 = document.createElement("br");
                 let br2 = document.createElement("br");
-                let checkBox = document.createElement("input");
-                checkBox.type = "checkbox";
-                checkBox.name = "Dein Schmuckartikel";
-                checkBox.value = "check";
-                checkBox.id = "check" + i;
-                schmuckartikel.appendChild(checkBox);
+                let stepper = document.createElement("input");
                 let label2 = document.createElement("label");
-                label2.id = "label2." + i;
-                label2.htmlFor = checkBox.id; //Sorgt daf�r, dass man nicht genau in die Box klicken muss
+                label2.id = "label" + i;
+                label2.htmlFor = stepper.id; //Sorgt daf�r, dass man nicht genau in die Box klicken muss
                 label2.innerText = Aufgabe11.posten[i].name;
                 schmuckartikel.appendChild(label2);
-                let stepper = document.createElement("input");
                 stepper.type = "number";
-                stepper.name = "Schmuckartikel" + i;
-                stepper.value = "1";
-                stepper.id = "stepper" + i;
+                stepper.value = "0";
+                stepper.id = Aufgabe11.posten[i].art + "�" + Aufgabe11.posten[i].name + "�" + Aufgabe11.posten[i].preis;
+                stepper.name = Aufgabe11.posten[i].art + "�" + Aufgabe11.posten[i].name + "�" + Aufgabe11.posten[i].preis;
                 stepper.min = "0";
-                stepper.max = "5";
+                stepper.max = "10";
                 stepper.step = "1";
                 schmuckartikel.appendChild(br1);
                 schmuckartikel.appendChild(stepper);
