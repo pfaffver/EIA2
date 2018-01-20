@@ -185,7 +185,6 @@ namespace Aufgabe11 {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let stepper: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
-        let inputInfo = target.id.split("§");
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);

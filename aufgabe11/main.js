@@ -161,7 +161,6 @@ var Aufgabe11;
         let target = _event.target;
         let stepper = [];
         let gesamtpreis = 0;
-        let inputInfo = target.id.split("�");
         for (let i = 0; i < Aufgabe11.posten.length; i++) {
             console.log(_event.target);
             if (target.value == Aufgabe11.posten[i].name && target.id == "selectBaumart") {
