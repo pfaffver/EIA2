@@ -180,19 +180,6 @@ var Aufgabe11;
                 basketBeleuchtung[0] = Aufgabe11.posten[i].name;
                 basketBeleuchtung[1] = "" + Aufgabe11.posten[i].preis;
             }
-            if (inputInfo[0] == "Schmuck") {
-                let SchmuckName = [];
-                for (let i = 0; i < Aufgabe11.posten.length; i++) {
-                    if (Aufgabe11.posten[i].art == "Schmuck") {
-                        SchmuckName.push(Aufgabe11.posten[i].name);
-                    }
-                }
-                for (let i = 0; i < SchmuckName.length; i++) {
-                    if (SchmuckName[i] == inputInfo[1]) {
-                        basketSchmuck[i] = [inputInfo[1], inputInfo[2], target.value];
-                    }
-                }
-            }
         }
         let korb = document.getElementById("warenkorb");
         korb.style.width = "30%";

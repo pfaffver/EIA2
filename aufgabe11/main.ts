@@ -174,7 +174,7 @@ namespace Aufgabe11 {
         //submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
     }
-    
+
     var basketBaumart: string[] = [baumartStandard[0], "" + baumartStandard[1]];
     var basketHalter: string[] = ["kein Halter", "0"];
     var basketBeleuchtung: string[] = [light[0][0], "" + light[0][1]];
@@ -185,7 +185,7 @@ namespace Aufgabe11 {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         let stepper: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
-        let inputInfo = target.id.split("§"); 
+        let inputInfo = target.id.split("§");
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);
@@ -206,22 +206,7 @@ namespace Aufgabe11 {
                 basketBeleuchtung[0] = posten[i].name;
                 basketBeleuchtung[1] = "" + posten[i].preis;
             }
-            
-            if (inputInfo[0] == "Schmuck") {
-  let SchmuckName : any [] = [];
-
-  for(let i: number = 0; i < posten.length; i++) {
-    if(posten[i].art == "Schmuck"){
-      SchmuckName.push(posten[i].name);
-    }
-  }
-  for(let i: number = 0; i < SchmuckName.length; i++){
-    if(SchmuckName[i] == inputInfo[1]) {
-      basketSchmuck[i] = [inputInfo[1],inputInfo[2],target.value];
-    }
-  }
-}
-            }
+        }
 
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
         korb.style.width = "30%";
@@ -236,9 +221,9 @@ namespace Aufgabe11 {
 
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i: number = 0; i < stepper.length; i++) {
-                gesamtpreis += parseFloat(basketSchmuck[i][1]);
-                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
-          
+            gesamtpreis += parseFloat(basketSchmuck[i][1]);
+            korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
+
         }
     }
 
