@@ -75,26 +75,31 @@ namespace Aufgabe11 {
                 let br1: HTMLElement = document.createElement("br");
                 let br2: HTMLElement = document.createElement("br");
 
+                let checkBox: HTMLInputElement = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.name = "CheckboxSchmuckartikel";
+                checkBox.value = "check";
+                checkBox.id = "check" + i;
+                schmuckartikel.appendChild(checkBox);
 
-                let stepper: HTMLInputElement = document.createElement("input");
                 let label2: HTMLLabelElement = document.createElement("label");
-                label2.id = "label" + i;
-                label2.htmlFor = stepper.id; //Sorgt dafür, dass man nicht genau in die Box klicken muss
+                label2.id = "label2." + i;
+                label2.htmlFor = checkBox.id; //Sorgt dafür, dass man nicht genau in die Box klicken muss
                 label2.innerText = posten[i].name;
                 schmuckartikel.appendChild(label2);
 
+                let stepper: HTMLInputElement = document.createElement("input");
                 stepper.type = "number";
-                stepper.value = "0";
-                stepper.id = posten[i].art + "§" + posten[i].name + "§" + posten[i].preis;
-                stepper.name = posten[i].art + "§" + posten[i].name + "§" + posten[i].preis;
+                stepper.name = "StepperSchmuckartikel" + i;
+                stepper.value = "1";
+                stepper.id = "stepper" + i;
                 stepper.min = "0";
-                stepper.max = "10";
+                stepper.max = "5";
                 stepper.step = "1";
                 schmuckartikel.appendChild(br1);
                 schmuckartikel.appendChild(stepper);
                 schmuckartikel.appendChild(br2);
             }
-
         }
 
         //Persönliche Daten:
@@ -181,14 +186,20 @@ namespace Aufgabe11 {
     var basketSchmuck: string[][] = [];
     var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 
-    function warenkorb(_event: Event): void {
+   function warenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
+        console.log(target);
         let stepper: HTMLInputElement[] = [];
+        let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
             console.log(_event.target);
 
+            if (posten[i].art == "Schmuck") {
+                stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
+                checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
+            }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = posten[i].name;
                 basketBaumart[1] = "" + posten[i].preis;
@@ -205,6 +216,9 @@ namespace Aufgabe11 {
                 basketBeleuchtung[0] = posten[i].name;
                 basketBeleuchtung[1] = "" + posten[i].preis;
             }
+            if (target.id == "check" + i || target.id == "stepper" + i) {
+                basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
+            }
         }
 
         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("warenkorb");
@@ -220,9 +234,10 @@ namespace Aufgabe11 {
 
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i: number = 0; i < stepper.length; i++) {
-            gesamtpreis += parseFloat(basketSchmuck[i][1]);
-            korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
-
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+                gesamtpreis += parseFloat(basketSchmuck[i][1]);
+                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
+            }
         }
     }
 

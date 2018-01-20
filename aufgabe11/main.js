@@ -65,18 +65,24 @@ var Aufgabe11;
             if (Aufgabe11.posten[i].art == "Schmuck") {
                 let br1 = document.createElement("br");
                 let br2 = document.createElement("br");
-                let stepper = document.createElement("input");
+                let checkBox = document.createElement("input");
+                checkBox.type = "checkbox";
+                checkBox.name = "CheckboxSchmuckartikel";
+                checkBox.value = "check";
+                checkBox.id = "check" + i;
+                schmuckartikel.appendChild(checkBox);
                 let label2 = document.createElement("label");
-                label2.id = "label" + i;
-                label2.htmlFor = stepper.id; //Sorgt daf�r, dass man nicht genau in die Box klicken muss
+                label2.id = "label2." + i;
+                label2.htmlFor = checkBox.id; //Sorgt daf�r, dass man nicht genau in die Box klicken muss
                 label2.innerText = Aufgabe11.posten[i].name;
                 schmuckartikel.appendChild(label2);
+                let stepper = document.createElement("input");
                 stepper.type = "number";
-                stepper.value = "0";
-                stepper.id = Aufgabe11.posten[i].art + "�" + Aufgabe11.posten[i].name + "�" + Aufgabe11.posten[i].preis;
-                stepper.name = Aufgabe11.posten[i].art + "�" + Aufgabe11.posten[i].name + "�" + Aufgabe11.posten[i].preis;
+                stepper.name = "StepperSchmuckartikel" + i;
+                stepper.value = "1";
+                stepper.id = "stepper" + i;
                 stepper.min = "0";
-                stepper.max = "10";
+                stepper.max = "5";
                 stepper.step = "1";
                 schmuckartikel.appendChild(br1);
                 schmuckartikel.appendChild(stepper);
@@ -159,10 +165,16 @@ var Aufgabe11;
     var basketLieferopt = ["keine Lieferoption ausgew�hlt", "0"];
     function warenkorb(_event) {
         let target = _event.target;
+        console.log(target);
         let stepper = [];
+        let checkBoxes = [];
         let gesamtpreis = 0;
         for (let i = 0; i < Aufgabe11.posten.length; i++) {
             console.log(_event.target);
+            if (Aufgabe11.posten[i].art == "Schmuck") {
+                stepper[i] = document.getElementById("stepper" + i);
+                checkBoxes[i] = document.getElementById("check" + i);
+            }
             if (target.value == Aufgabe11.posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = Aufgabe11.posten[i].name;
                 basketBaumart[1] = "" + Aufgabe11.posten[i].preis;
@@ -179,6 +191,9 @@ var Aufgabe11;
                 basketBeleuchtung[0] = Aufgabe11.posten[i].name;
                 basketBeleuchtung[1] = "" + Aufgabe11.posten[i].preis;
             }
+            if (target.id == "check" + i || target.id == "stepper" + i) {
+                basketSchmuck[i] = [Aufgabe11.posten[i].name, "" + (Aufgabe11.posten[i].preis * parseInt(stepper[i].value))];
+            }
         }
         let korb = document.getElementById("warenkorb");
         korb.style.width = "30%";
@@ -191,8 +206,10 @@ var Aufgabe11;
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "� <br>";
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i = 0; i < stepper.length; i++) {
-            gesamtpreis += parseFloat(basketSchmuck[i][1]);
-            korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "� <br>";
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+                gesamtpreis += parseFloat(basketSchmuck[i][1]);
+                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "� <br>";
+            }
         }
     }
     function handleMouseDown(_event) {
