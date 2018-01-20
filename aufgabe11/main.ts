@@ -182,7 +182,7 @@ namespace Aufgabe11 {
         //submit.name = "Button";
         submit.type = "submit";
         submit.innerText = "Bestellung abschicken";
-        submit.addEventListener("mousedown", handleMouseDown);
+        //submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
     }
 
