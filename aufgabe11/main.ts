@@ -12,12 +12,6 @@ namespace Aufgabe11 {
     var mail: HTMLInputElement;
     var label: HTMLLabelElement;
 
-    var basketBaumart: string[] = [baumartStandard[0], "" + baumartStandard[1]];
-    var basketHalter: string[] = ["kein Halter", "0"];
-    var basketBeleuchtung: string[] = [light[0][0], "" + light[0][1]];
-    var basketSchmuck: string[][] = [];
-    var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
-
     function createElements(): void {
         //Baumart:
         let baumart: HTMLDivElement = <HTMLDivElement>document.getElementById("baumart");
@@ -180,12 +174,17 @@ namespace Aufgabe11 {
         //submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
     }
+    
+    var basketBaumart: string[] = [baumartStandard[0], "" + baumartStandard[1]];
+    var basketHalter: string[] = ["kein Halter", "0"];
+    var basketBeleuchtung: string[] = [light[0][0], "" + light[0][1]];
+    var basketSchmuck: string[][] = [];
+    var basketLieferopt: string[] = ["keine Lieferoption ausgewählt", "0"];
 
     function warenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        console.log(target);
         let stepper: HTMLInputElement[] = [];
-        let checkBoxes: HTMLInputElement[] = [];
+        //let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis: number = 0;
 
         for (let i: number = 0; i < posten.length; i++) {
@@ -193,7 +192,7 @@ namespace Aufgabe11 {
 
             if (posten[i].art == "Schmuck") {
                 stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i);
-                checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
+               // checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i);
             }
             if (target.value == posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = posten[i].name;
@@ -211,7 +210,7 @@ namespace Aufgabe11 {
                 basketBeleuchtung[0] = posten[i].name;
                 basketBeleuchtung[1] = "" + posten[i].preis;
             }
-            if (target.id == "check" + i || target.id == "stepper" + i) {
+            if (/*target.id == "check" + i ||*/ target.id == "stepper" + i) {
                 basketSchmuck[i] = [posten[i].name, "" + (posten[i].preis * parseInt(stepper[i].value))];
             }
         }
@@ -229,10 +228,10 @@ namespace Aufgabe11 {
 
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i: number = 0; i < stepper.length; i++) {
-            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+           // if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
                 gesamtpreis += parseFloat(basketSchmuck[i][1]);
                 korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "€ <br>";
-            }
+          //  }
         }
     }
 

@@ -10,11 +10,6 @@ var Aufgabe11;
     var plz;
     var mail;
     var label;
-    var basketBaumart = [Aufgabe11.baumartStandard[0], "" + Aufgabe11.baumartStandard[1]];
-    var basketHalter = ["kein Halter", "0"];
-    var basketBeleuchtung = [Aufgabe11.light[0][0], "" + Aufgabe11.light[0][1]];
-    var basketSchmuck = [];
-    var basketLieferopt = ["keine Lieferoption ausgew�hlt", "0"];
     function createElements() {
         //Baumart:
         let baumart = document.getElementById("baumart");
@@ -157,17 +152,20 @@ var Aufgabe11;
         //submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
     }
+    var basketBaumart = [Aufgabe11.baumartStandard[0], "" + Aufgabe11.baumartStandard[1]];
+    var basketHalter = ["kein Halter", "0"];
+    var basketBeleuchtung = [Aufgabe11.light[0][0], "" + Aufgabe11.light[0][1]];
+    var basketSchmuck = [];
+    var basketLieferopt = ["keine Lieferoption ausgew�hlt", "0"];
     function warenkorb(_event) {
         let target = _event.target;
-        console.log(target);
         let stepper = [];
-        let checkBoxes = [];
+        //let checkBoxes: HTMLInputElement[] = [];
         let gesamtpreis = 0;
         for (let i = 0; i < Aufgabe11.posten.length; i++) {
             console.log(_event.target);
             if (Aufgabe11.posten[i].art == "Schmuck") {
                 stepper[i] = document.getElementById("stepper" + i);
-                checkBoxes[i] = document.getElementById("check" + i);
             }
             if (target.value == Aufgabe11.posten[i].name && target.id == "selectBaumart") {
                 basketBaumart[0] = Aufgabe11.posten[i].name;
@@ -185,7 +183,7 @@ var Aufgabe11;
                 basketBeleuchtung[0] = Aufgabe11.posten[i].name;
                 basketBeleuchtung[1] = "" + Aufgabe11.posten[i].preis;
             }
-            if (target.id == "check" + i || target.id == "stepper" + i) {
+            if (target.id == "stepper" + i) {
                 basketSchmuck[i] = [Aufgabe11.posten[i].name, "" + (Aufgabe11.posten[i].preis * parseInt(stepper[i].value))];
             }
         }
@@ -200,10 +198,9 @@ var Aufgabe11;
         korb.innerHTML += " " + basketLieferopt[0] + " " + basketLieferopt[1] + "� <br>";
         gesamtpreis = parseFloat(basketBaumart[1]) + parseFloat(basketHalter[1]) + parseFloat(basketLieferopt[1]);
         for (let i = 0; i < stepper.length; i++) {
-            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
-                gesamtpreis += parseFloat(basketSchmuck[i][1]);
-                korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "� <br>";
-            }
+            // if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+            gesamtpreis += parseFloat(basketSchmuck[i][1]);
+            korb.innerHTML += "" + basketSchmuck[i][0] + " " + basketSchmuck[i][1] + "� <br>";
         }
     }
     function handleMouseDown(_event) {
