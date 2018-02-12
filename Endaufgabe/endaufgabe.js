@@ -11,10 +11,10 @@ var endaufgabe;
         console.log(canvas);
         let crc2 = canvas.getContext("2d");
         s = new endaufgabe.Inhalt(0, 0);
+        s.draw(crc2);
         draw();
     }
     function draw() {
-        s.draw();
     }
 })(endaufgabe || (endaufgabe = {}));
 //# sourceMappingURL=endaufgabe.js.map

@@ -12,7 +12,7 @@ namespace endaufgabe {
         }
 
 
-        draw(): void {
+        draw(crc2:any): void {
    
 
             crc2.beginPath();

@@ -19,11 +19,12 @@ namespace endaufgabe {
 
         
          s = new Inhalt(0,0);
+        s.draw(crc2);
         draw();
 
 
     }
     function draw():void{
-        s.draw();
+        
     }
 }
