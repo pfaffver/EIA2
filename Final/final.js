@@ -55,7 +55,7 @@ var final;
     }
     function richtig() {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
-        alert("Und von neuem");
+        alert("Und von Neuem");
         location.reload();
     }
 })(final || (final = {}));
