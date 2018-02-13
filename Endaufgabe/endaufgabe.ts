@@ -7,6 +7,7 @@ namespace endaufgabe {
 
     export let crc2: CanvasRenderingContext2D;
     let s: Inhalt;
+    let a: Fehler;
     window.addEventListener("load", fehlersuche);
 
 
@@ -21,6 +22,14 @@ namespace endaufgabe {
         s.draw(crc2);
         draw();
 
+        let canvas2: HTMLCanvasElement = document.getElementsByTagName("canvas")[1];
+        console.log(canvas);
+
+        let can2 = canvas2.getContext("2d");
+
+        a = new Fehler(0, 0);
+        a.draw(crc2);
+        draw();
     }
     
     function draw(): void {

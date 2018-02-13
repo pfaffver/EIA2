@@ -12,6 +12,9 @@ namespace endaufgabe {
         }
 
         draw(crc2:any): void {
+            
+            crc2.fillStyle = "#E3CEF6";
+            crc2.fillRect(0, 0, 150, 100);
  
             crc2.beginPath();
             crc2.moveTo(65, 50);

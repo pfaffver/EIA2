@@ -1,6 +1,6 @@
 var endaufgabe;
 (function (endaufgabe) {
-    class Inhalt {
+    class Fehler {
         constructor(_x, _y) {
             // this.x = _x + Math.random() * 800;
             // this.y = _y + Math.random() * 100;
@@ -48,6 +48,6 @@ var endaufgabe;
             crc2.fill();
         }
     }
-    endaufgabe.Inhalt = Inhalt;
+    endaufgabe.Fehler = Fehler;
 })(endaufgabe || (endaufgabe = {}));
-//# sourceMappingURL=Inhalt.js.map
+//# sourceMappingURL=Fehler.js.map
