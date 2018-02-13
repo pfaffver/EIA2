@@ -10,7 +10,7 @@ namespace final {
     export let can: CanvasRenderingContext2D;
     let Inhalt: bild[] = [];
     let InhaltFehler: bildFehler;
-    let fehlerText: string[] = ["Leider Falsch", "Hast du was an den Augen?", "So schwer ist es doch nicht..."];
+    let fehlerText: string[] = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus: number = 0;
     let random: number = Math.round(Math.random() * 33);
     function createPicture(): void {

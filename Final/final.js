@@ -7,7 +7,7 @@ var final;
     window.addEventListener("load", createPicture);
     let Inhalt = [];
     let InhaltFehler;
-    let fehlerText = ["Leider Falsch", "Hast du was an den Augen?", "So schwer ist es doch nicht..."];
+    let fehlerText = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus = 0;
     let random = Math.round(Math.random() * 33);
     function createPicture() {
