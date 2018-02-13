@@ -14,6 +14,14 @@ var final;
                 b.addEventListener("click", falsch);
                 document.body.appendChild(b);
             }
+            else if (random != i) {
+                let inhalt = document.getElementById("content");
+                let h = document.createElement("canvas");
+                h.width = 100;
+                h.height = 100;
+                h.addEventListener("click", falschAgain);
+                document.body.appendChild(h);
+            }
             else {
                 let inhalt = document.getElementById("content");
                 let b = document.createElement("canvas");
@@ -40,6 +48,9 @@ var final;
     }
     function falsch() {
         alert("Leider falsch - Das ist nicht das gesuchte Fehlerbild");
+    }
+    function falschAgain() {
+        alert("Wieder FALSCH - Hast du was an den Augen?");
     }
     function richtig() {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
