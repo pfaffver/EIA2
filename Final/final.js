@@ -3,9 +3,11 @@ var final;
     window.addEventListener("load", createPicture);
     let Inhalt = [];
     let InhaltFehler;
-    let random = Math.round(Math.random() * 25);
+    let fehlerText = ["Leider Falsch", "Hast du was an den Augen?", "So schwer ist es doch nicht..."];
+    let textAus = 0;
+    let random = Math.round(Math.random() * 30);
     function createPicture() {
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 30; i++) {
             if (random != i) {
                 let inhalt = document.getElementById("content");
                 let b = document.createElement("canvas");
@@ -13,14 +15,6 @@ var final;
                 b.height = 100;
                 b.addEventListener("click", falsch);
                 document.body.appendChild(b);
-            }
-            else if (random != i) {
-                let inhalt = document.getElementById("content");
-                let h = document.createElement("canvas");
-                h.width = 100;
-                h.height = 100;
-                h.addEventListener("click", falschAgain);
-                document.body.appendChild(h);
             }
             else {
                 let inhalt = document.getElementById("content");
@@ -30,8 +24,13 @@ var final;
                 b.addEventListener("click", richtig);
                 document.body.appendChild(b);
             }
+            if (i == 9 || i == 19) {
+                let inhalt = document.getElementById("content");
+                let b = document.createElement("p");
+                document.body.appendChild(b);
+            }
         }
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 30; i++) {
             if (random != i) {
                 let canvas = document.getElementsByTagName("canvas")[i];
                 final.can = canvas.getContext("2d");
@@ -47,10 +46,13 @@ var final;
         InhaltFehler.draw();
     }
     function falsch() {
-        alert("Leider falsch - Das ist nicht das gesuchte Fehlerbild");
-    }
-    function falschAgain() {
-        alert("Wieder FALSCH - Hast du was an den Augen?");
+        if (textAus < 3) {
+            alert(fehlerText[textAus]);
+            textAus++;
+        }
+        else {
+            alert("Es ist das " + (random + 1) + " Bild");
+        }
     }
     function richtig() {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
