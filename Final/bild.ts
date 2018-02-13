@@ -11,10 +11,11 @@ namespace final {
         }
 
         draw(): void {
-            
+            //Hintergrund
             can.fillStyle = "#E3CEF6";
             can.fillRect(this.x, this.y, 150, 100);
 
+            //Waffel
             can.beginPath();
             can.moveTo(this.x + 65, this.y + 50);
             can.lineTo(this.x + 35, this.y + 50);
@@ -23,6 +24,7 @@ namespace final {
             can.fillStyle = "#8A4B08";
             can.fill();
 
+            //Schirmchen
             can.beginPath();
             can.moveTo(this.x + 55, this.y + 50);
             can.lineTo(this.x + 80, this.y + 10);
@@ -38,21 +40,25 @@ namespace final {
             can.fillStyle = "#2E64FE";
             can.fill();
 
+            //Schirmchen Spitze
             can.beginPath();
             can.arc(this.x + 80, this.y + 10, 2, 0, 2 * Math.PI);
             can.fillStyle = "#2E64FE";
             can.fill();
 
+            //Erdbeere
             can.beginPath();
             can.arc(this.x + 40, this.y + 45, 12, 0, 2 * Math.PI);
             can.fillStyle = "#FA5858";
             can.fill();
 
+            //Vanille
             can.beginPath();
             can.arc(this.x + 60, this.y + 45, 12, 0, 2 * Math.PI);
             can.fillStyle = "#F7FE2E";
             can.fill();
 
+            //Schokolade
             can.beginPath();
             can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             can.fillStyle = "#3B240B";

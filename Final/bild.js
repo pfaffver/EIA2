@@ -6,8 +6,10 @@ var final;
             this.y = _y;
         }
         draw() {
+            //Hintergrund
             final.can.fillStyle = "#E3CEF6";
             final.can.fillRect(this.x, this.y, 150, 100);
+            //Waffel
             final.can.beginPath();
             final.can.moveTo(this.x + 65, this.y + 50);
             final.can.lineTo(this.x + 35, this.y + 50);
@@ -15,6 +17,7 @@ var final;
             final.can.closePath();
             final.can.fillStyle = "#8A4B08";
             final.can.fill();
+            //Schirmchen
             final.can.beginPath();
             final.can.moveTo(this.x + 55, this.y + 50);
             final.can.lineTo(this.x + 80, this.y + 10);
@@ -28,18 +31,22 @@ var final;
             final.can.stroke();
             final.can.fillStyle = "#2E64FE";
             final.can.fill();
+            //Schirmchen Spitze
             final.can.beginPath();
             final.can.arc(this.x + 80, this.y + 10, 2, 0, 2 * Math.PI);
             final.can.fillStyle = "#2E64FE";
             final.can.fill();
+            //Erdbeere
             final.can.beginPath();
             final.can.arc(this.x + 40, this.y + 45, 12, 0, 2 * Math.PI);
             final.can.fillStyle = "#FA5858";
             final.can.fill();
+            //Vanille
             final.can.beginPath();
             final.can.arc(this.x + 60, this.y + 45, 12, 0, 2 * Math.PI);
             final.can.fillStyle = "#F7FE2E";
             final.can.fill();
+            //Schokolade
             final.can.beginPath();
             final.can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             final.can.fillStyle = "#3B240B";
