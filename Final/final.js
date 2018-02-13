@@ -4,12 +4,14 @@ var final;
     let Inhalt;
     let InhaltFehler;
     function createPicture() {
+        // erstes Canvas
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
         final.can = canvas.getContext("2d");
         console.log(final.can);
         Inhalt = new final.bild(0, 0);
         Inhalt.draw();
+        // zweites Canvas
         let canvas2 = document.getElementsByTagName("canvas")[1];
         console.log(canvas);
         final.can = canvas2.getContext("2d");

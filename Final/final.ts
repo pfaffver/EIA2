@@ -7,6 +7,7 @@ namespace final {
     let InhaltFehler: bildFehler;
 
     function createPicture(): void {
+        // erstes Canvas
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
 
@@ -16,6 +17,7 @@ namespace final {
         Inhalt = new bild(0, 0);
         Inhalt.draw();
         
+        // zweites Canvas
         let canvas2: HTMLCanvasElement = document.getElementsByTagName("canvas")[1];
         console.log(canvas);
 
