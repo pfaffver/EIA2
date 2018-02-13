@@ -34,7 +34,7 @@ var final;
             final.can.fill();
             final.can.beginPath();
             final.can.arc(this.x + 40, this.y + 45, 12, 0, 2 * Math.PI);
-            final.can.fillStyle = "#FE2E2E";
+            final.can.fillStyle = "#FF0000";
             final.can.fill();
             final.can.beginPath();
             final.can.arc(this.x + 60, this.y + 45, 12, 0, 2 * Math.PI);

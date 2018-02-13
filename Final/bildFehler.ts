@@ -44,7 +44,7 @@ namespace final {
 
             can.beginPath();
             can.arc(this.x + 40, this.y + 45, 12, 0, 2 * Math.PI);
-            can.fillStyle = "#FE2E2E";
+            can.fillStyle = "#FF0000";
             can.fill();
 
             can.beginPath();

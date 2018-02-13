@@ -5,9 +5,9 @@ var final;
     let InhaltFehler;
     let fehlerText = ["Leider Falsch", "Hast du was an den Augen?", "So schwer ist es doch nicht..."];
     let textAus = 0;
-    let random = Math.round(Math.random() * 30);
+    let random = Math.round(Math.random() * 33);
     function createPicture() {
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 33; i++) {
             if (random != i) {
                 let inhalt = document.getElementById("content");
                 let b = document.createElement("canvas");
@@ -24,13 +24,8 @@ var final;
                 b.addEventListener("click", richtig);
                 document.body.appendChild(b);
             }
-            if (i == 9 || i == 19) {
-                let inhalt = document.getElementById("content");
-                let b = document.createElement("p");
-                document.body.appendChild(b);
-            }
         }
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 33; i++) {
             if (random != i) {
                 let canvas = document.getElementsByTagName("canvas")[i];
                 final.can = canvas.getContext("2d");
