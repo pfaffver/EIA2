@@ -11,10 +11,8 @@ namespace endaufgabe {
             this.y = _y;
         }
 
-
         draw(crc2:any): void {
-   
-
+ 
             crc2.beginPath();
             crc2.moveTo(65, 50);
             crc2.lineTo(35, 50);
