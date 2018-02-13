@@ -41,7 +41,7 @@ var final;
         let canvas = document.getElementsByTagName("canvas")[random];
         final.can = canvas.getContext("2d");
         console.log(final.can);
-        InhaltFehler = new final.bildFehler(0, 0, "#FF0000");
+        InhaltFehler = new final.bildFehler(0, 0, "#FE2E2E");
         InhaltFehler.draw();
     }
     function falsch() {
@@ -50,7 +50,7 @@ var final;
             textAus++;
         }
         else {
-            alert("Es ist das " + (random + 1) + " Bild");
+            alert("Es ist das " + (random + 1) + " Bild - Die Erdbeerkugel hat eine andere Farbe");
         }
     }
     function richtig() {

@@ -33,20 +33,6 @@ namespace final {
                 b.addEventListener("click", richtig);
                 document.body.appendChild(b);
             }
-//            let b: HTMLElement;
-//            if (i == 9 || i == 19) {
-//                var w = window.innerWidth;
-//                if (w > 570) {
-//               // let inhalt: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
-//                b = document.createElement("p");
-//
-//                document.body.appendChild(b);
-//                } else {
-//                 document.body.removeChild(b);
-//                    
-//                    
-//                }    
-//            }
         }
 
         for (let i: number = 0; i < 33; i++) {
@@ -64,7 +50,7 @@ namespace final {
         can = canvas.getContext("2d");
         console.log(can);
 
-        InhaltFehler = new bildFehler(0, 0, "#FF0000");
+        InhaltFehler = new bildFehler(0, 0, "#FE2E2E");
         InhaltFehler.draw();
     }
 
@@ -75,7 +61,7 @@ namespace final {
         }
 
         else {
-            alert("Es ist das " + (random + 1) + " Bild");
+            alert("Es ist das " + (random + 1) + " Bild - Die Erdbeerkugel hat eine andere Farbe");
         }
     }
 
