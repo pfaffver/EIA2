@@ -2,6 +2,7 @@ var final;
 (function (final) {
     window.addEventListener("load", createPicture);
     let Inhalt;
+    let InhaltFehler;
     function createPicture() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -13,8 +14,8 @@ var final;
         console.log(canvas);
         final.can = canvas2.getContext("2d");
         console.log(final.can);
-        Inhalt = new final.bild(0, 0);
-        Inhalt.draw();
+        InhaltFehler = new final.bildFehler(0, 0);
+        InhaltFehler.draw();
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map

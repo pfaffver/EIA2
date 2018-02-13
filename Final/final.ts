@@ -4,6 +4,7 @@ namespace final {
 
     export let can: CanvasRenderingContext2D;
     let Inhalt: bild;
+    let InhaltFehler: bildFehler;
 
     function createPicture(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -21,7 +22,7 @@ namespace final {
         can = canvas2.getContext("2d");
         console.log(can);
 
-        Inhalt = new bild(0, 0);
-        Inhalt.draw();
+        InhaltFehler = new bildFehler(0, 0);
+        InhaltFehler.draw();
     }
 }
