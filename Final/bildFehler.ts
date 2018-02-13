@@ -7,7 +7,6 @@ namespace final {
         constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
-
         }
 
         draw(): void {
@@ -22,12 +21,7 @@ namespace final {
             can.closePath();
             can.fillStyle = "#8A4B08";
             can.fill();
-
-            can.beginPath();
-            can.moveTo(this.x + 55, this.y + 50);
-            can.lineTo(this.x + 80, this.y + 10);
             can.strokeStyle = "#2E64FE";
-            can.stroke();
 
             can.beginPath();
             can.moveTo(this.x + 80, this.y + 10);
