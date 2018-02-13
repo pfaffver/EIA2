@@ -18,8 +18,8 @@ p {
 	text-align: center;
 }
 
-canvas:nth-child(7n+1) {
-	clear: left;
+div:nth-child(7n+1) {
+	position: left;
 }
 
 /*

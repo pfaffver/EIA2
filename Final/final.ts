@@ -27,7 +27,6 @@ namespace final {
                 document.body.appendChild(h);
             }
                 
-                
             else {
                 let inhalt: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
                 let b: HTMLCanvasElement = document.createElement("canvas");
