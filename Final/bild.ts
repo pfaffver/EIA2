@@ -1,3 +1,8 @@
+/* Endaufgabe
+Name: Verena Pfaff 
+Matrikel: 256543
+Datum: 13.02.2018 */
+
 namespace final {
 
     export class bild {
@@ -7,7 +12,6 @@ namespace final {
         constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
-
         }
 
         draw(): void {

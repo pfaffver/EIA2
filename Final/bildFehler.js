@@ -1,3 +1,7 @@
+/* Endaufgabe
+Name: Verena Pfaff
+Matrikel: 256543
+Datum: 13.02.2018 */
 var final;
 (function (final) {
     class bildFehler {

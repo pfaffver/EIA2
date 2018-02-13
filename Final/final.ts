@@ -1,3 +1,8 @@
+/* Endaufgabe
+Name: Verena Pfaff 
+Matrikel: 256543
+Datum: 13.02.2018 */
+
 namespace final {
 
     window.addEventListener("load", createPicture);
