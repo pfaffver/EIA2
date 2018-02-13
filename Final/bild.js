@@ -5,9 +5,10 @@ Datum: 13.02.2018 */
 var final;
 (function (final) {
     class bild {
-        constructor(_x, _y) {
+        constructor(_x, _y, _color) {
             this.x = _x;
             this.y = _y;
+            this.color = _color;
         }
         draw() {
             //Hintergrund
@@ -43,7 +44,7 @@ var final;
             //Erdbeere
             final.can.beginPath();
             final.can.arc(this.x + 40, this.y + 45, 12, 0, 2 * Math.PI);
-            final.can.fillStyle = "#FA5858";
+            final.can.fillStyle = this.color;
             final.can.fill();
             //Vanille
             final.can.beginPath();

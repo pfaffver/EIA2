@@ -34,14 +34,14 @@ var final;
                 let canvas = document.getElementsByTagName("canvas")[i];
                 final.can = canvas.getContext("2d");
                 console.log(canvas);
-                Inhalt[i] = new final.bild(0, 0);
+                Inhalt[i] = new final.bild(0, 0, "#FA5858");
                 Inhalt[i].draw();
             }
         }
         let canvas = document.getElementsByTagName("canvas")[random];
         final.can = canvas.getContext("2d");
         console.log(final.can);
-        InhaltFehler = new final.bildFehler(0, 0);
+        InhaltFehler = new final.bildFehler(0, 0, "#FF0000");
         InhaltFehler.draw();
     }
     function falsch() {

@@ -54,7 +54,7 @@ namespace final {
                 let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[i];
                 can = canvas.getContext("2d");
                 console.log(canvas);
-                Inhalt[i] = new bild(0, 0);
+                Inhalt[i] = new bild(0, 0,"#FA5858");
                 Inhalt[i].draw();
             }
         }
@@ -64,7 +64,7 @@ namespace final {
         can = canvas.getContext("2d");
         console.log(can);
 
-        InhaltFehler = new bildFehler(0, 0);
+        InhaltFehler = new bildFehler(0, 0, "#FF0000");
         InhaltFehler.draw();
     }
 

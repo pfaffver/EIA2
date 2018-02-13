@@ -8,10 +8,12 @@ namespace final {
     export class bild {
         x: number;
         y: number;
+        color: string;
 
-        constructor(_x: number, _y: number) {
+        constructor(_x: number, _y: number, _color: string) {
             this.x = _x;
             this.y = _y;
+            this.color = _color;
         }
 
         draw(): void {
@@ -53,7 +55,7 @@ namespace final {
             //Erdbeere
             can.beginPath();
             can.arc(this.x + 40, this.y + 45, 12, 0, 2 * Math.PI);
-            can.fillStyle = "#FA5858";
+            can.fillStyle = this.color;
             can.fill();
 
             //Vanille
