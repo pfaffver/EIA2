@@ -12,7 +12,7 @@ namespace final {
     let InhaltFehler: bildFehler;
     let fehlerText: string[] = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus: number = 0;
-    let random: number = Math.round(Math.random() * 33);
+    let random: number = Math.round(Math.random() * 32);
     function createPicture(): void {
 
         for (let i: number = 0; i < 33; i++) {
@@ -67,5 +67,7 @@ namespace final {
 
     function richtig(): void {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
-    }
+        alert("Und von neuem");
+        location.reload();
+    }  
 }

@@ -9,7 +9,7 @@ var final;
     let InhaltFehler;
     let fehlerText = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus = 0;
-    let random = Math.round(Math.random() * 33);
+    let random = Math.round(Math.random() * 32);
     function createPicture() {
         for (let i = 0; i < 33; i++) {
             if (random != i) {
@@ -55,6 +55,8 @@ var final;
     }
     function richtig() {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
+        alert("Und von neuem");
+        location.reload();
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map
