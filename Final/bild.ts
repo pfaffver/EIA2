@@ -11,6 +11,9 @@ namespace final {
         }
 
         draw(): void {
+            
+            can.fillStyle = "#E3CEF6";
+            can.fillRect(this.x, this.y, 150, 100);
 
             can.beginPath();
             can.moveTo(this.x + 65, this.y + 50);

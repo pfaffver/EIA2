@@ -17,5 +17,17 @@ namespace final {
 
         Inhalt = new bild(0, 0);
         Inhalt.draw();
+        
+        let canvas2: HTMLCanvasElement = document.getElementsByTagName("canvas")[1];
+        console.log(canvas);
+
+        can = canvas2.getContext("2d");
+        console.log(can);
+
+        can.fillStyle = "#E3CEF6";
+        can.fillRect(0, 0, 150, 100);
+
+        Inhalt = new bild(0, 0);
+        Inhalt.draw();
     }
 }

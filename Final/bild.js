@@ -6,6 +6,8 @@ var final;
             this.y = _y;
         }
         draw() {
+            final.can.fillStyle = "#E3CEF6";
+            final.can.fillRect(this.x, this.y, 150, 100);
             final.can.beginPath();
             final.can.moveTo(this.x + 65, this.y + 50);
             final.can.lineTo(this.x + 35, this.y + 50);

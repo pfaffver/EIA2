@@ -11,6 +11,14 @@ var final;
         final.can.fillRect(0, 0, 150, 100);
         Inhalt = new final.bild(0, 0);
         Inhalt.draw();
+        let canvas2 = document.getElementsByTagName("canvas")[1];
+        console.log(canvas);
+        final.can = canvas2.getContext("2d");
+        console.log(final.can);
+        final.can.fillStyle = "#E3CEF6";
+        final.can.fillRect(0, 0, 150, 100);
+        Inhalt = new final.bild(0, 0);
+        Inhalt.draw();
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map
