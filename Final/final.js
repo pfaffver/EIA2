@@ -3,9 +3,9 @@ var final;
     window.addEventListener("load", createPicture);
     let Inhalt = [];
     let InhaltFehler;
-    let random = Math.round(Math.random() * 10);
+    let random = Math.round(Math.random() * 25);
     function createPicture() {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 25; i++) {
             if (random != i) {
                 let inhalt = document.getElementById("content");
                 let b = document.createElement("canvas");
@@ -31,7 +31,7 @@ var final;
                 document.body.appendChild(b);
             }
         }
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 25; i++) {
             if (random != i) {
                 let canvas = document.getElementsByTagName("canvas")[i];
                 final.can = canvas.getContext("2d");

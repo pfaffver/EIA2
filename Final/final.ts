@@ -5,10 +5,10 @@ namespace final {
     export let can: CanvasRenderingContext2D;
     let Inhalt: bild[] = [];
     let InhaltFehler: bildFehler;
-    let random: number = Math.round(Math.random() * 10);
+    let random: number = Math.round(Math.random() * 25);
     function createPicture(): void {
 
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < 25; i++) {
             if (random != i) {
                 let inhalt: HTMLDivElement = <HTMLDivElement>document.getElementById("content");
                 let b: HTMLCanvasElement = document.createElement("canvas");
@@ -38,7 +38,7 @@ namespace final {
             }
         }
         
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < 25; i++) {
             if (random != i) {
                 let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[i];
                 can = canvas.getContext("2d");
