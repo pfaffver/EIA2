@@ -12,9 +12,6 @@ namespace final {
         can = canvas.getContext("2d");
         console.log(can);
 
-        can.fillStyle = "#E3CEF6";
-        can.fillRect(0, 0, 150, 100);
-
         Inhalt = new bild(0, 0);
         Inhalt.draw();
         
@@ -23,9 +20,6 @@ namespace final {
 
         can = canvas2.getContext("2d");
         console.log(can);
-
-        can.fillStyle = "#E3CEF6";
-        can.fillRect(0, 0, 150, 100);
 
         Inhalt = new bild(0, 0);
         Inhalt.draw();
