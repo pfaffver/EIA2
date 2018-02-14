@@ -56,6 +56,16 @@ var final;
             final.can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             final.can.fillStyle = "#3B240B";
             final.can.fill();
+            //Waffelstriche
+            for (let i = -20; i < 0; i += 10) {
+                final.can.beginPath();
+                final.can.strokeStyle = "black";
+                final.can.moveTo(55, 50 - i);
+                final.can.lineTo(30 - i, 50 - i);
+                final.can.lineTo(50, 60 - i);
+                final.can.stroke();
+                final.can.closePath();
+            }
         }
     }
     final.bild = bild;

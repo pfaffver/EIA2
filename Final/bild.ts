@@ -69,6 +69,18 @@ namespace final {
             can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             can.fillStyle = "#3B240B";
             can.fill();
+
+            //Waffelstriche
+            for (let i: number = -20; i < 0; i += 10) {
+                can.beginPath();
+                can.strokeStyle = "black";
+
+                can.moveTo(55, 50 - i);
+                can.lineTo(30 - i, 50 - i);
+                can.lineTo(50, 60 - i);
+                can.stroke();
+                can.closePath();
+            }
         }
     }
 }
