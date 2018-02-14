@@ -66,6 +66,15 @@ var final;
                 final.can.stroke();
                 final.can.closePath();
             }
+            for (let i = -200; i < 0; i += 10) {
+                final.can.beginPath();
+                final.can.strokeStyle = "black";
+                final.can.moveTo(600 - i, 200 - i);
+                final.can.lineTo(600 - i, 200 - i);
+                final.can.lineTo(600 - i, 400);
+                final.can.stroke();
+                final.can.closePath();
+            }
         }
     }
     final.bild = bild;

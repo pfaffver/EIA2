@@ -81,6 +81,17 @@ namespace final {
                 can.stroke();
                 can.closePath();
             }
+
+            for (let i: number = -200; i < 0; i += 10) {
+                can.beginPath();
+                can.strokeStyle = "black";
+
+                can.moveTo(600 - i, 200 - i);
+                can.lineTo(600 - i, 200 - i);
+                can.lineTo(600 - i, 400);
+                can.stroke();
+                can.closePath();
+            }
         }
     }
 }
