@@ -23,7 +23,12 @@ canvas {
 }
 
 #schluss {
-	font-size: large;
+	font-size: 3em;
+	font-family:"Open Sans Condensed", sans-serif;
+	text-align: center;
+	position: relative;
+	top: -3em;
+	
 }
 
 @media screen and (max-width: 48.0625em) {

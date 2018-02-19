@@ -67,6 +67,7 @@ var final;
         //  alert("RICHTIG - Du hast das Fehlerbild entdeckt");
         let b = document.createElement("div");
         b.innerText = "Sehr Gut! Du hast es geschafft und dabei " + clickCounter + " Versuch(e) gebraucht";
+        b.id = "schluss";
         document.body.appendChild(b);
     }
 })(final || (final = {}));
