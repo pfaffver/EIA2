@@ -13,7 +13,7 @@ namespace final {
     let fehlerText: string[] = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus: number = 0;
     let random: number = Math.round(Math.random() * 32);
-    
+
     function createPicture(): void {
 
         for (let i: number = 0; i < 33; i++) {
@@ -41,7 +41,7 @@ namespace final {
                 let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[i];
                 can = canvas.getContext("2d");
                 console.log(canvas);
-                Inhalt[i] = new bild(0, 0,"#FA5858");
+                Inhalt[i] = new bild(0, 0, "#FA5858");
                 Inhalt[i].draw();
             }
         }
@@ -68,7 +68,10 @@ namespace final {
 
     function richtig(): void {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
-        location.reload();
-        
-    }  
+        for (let i: number = 0; i < document.getElementsByTagName("canvas").length; i++) {
+
+            let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[i];
+            canvas.remove();
+        }
+    }
 }

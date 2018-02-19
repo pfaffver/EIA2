@@ -55,7 +55,10 @@ var final;
     }
     function richtig() {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
-        location.reload();
+        for (let i = 0; i < document.getElementsByTagName("canvas").length; i++) {
+            let canvas = document.getElementsByTagName("canvas")[i];
+            canvas.remove();
+        }
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map
