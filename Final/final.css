@@ -33,6 +33,11 @@ canvas {
 
 @media screen and (max-width: 48.0625em) {
 	
+	#schluss {
+		top: 1em;
+		font-size: 2em;
+	}
+	
 	canvas {
 		width: 13%;
 	}
@@ -43,5 +48,6 @@ canvas {
 	canvas {
 		width: 20%;
 	}
+	
 }
 

@@ -82,7 +82,7 @@ namespace final {
         }
         //  alert("RICHTIG - Du hast das Fehlerbild entdeckt");
         let b: HTMLDivElement = document.createElement("div");
-        b.innerText = "Sehr Gut! Du hast es geschafft und dabei " + clickCounter + " Versuch(e) gebraucht";
+        b.innerText = "Sehr Gut! Du hast das gesuchte Bild gefunden und dabei " + clickCounter + " Versuch(e) gebraucht";
         b.id = "schluss";
         document.body.appendChild(b);
     }
