@@ -71,7 +71,11 @@ namespace final {
         for (let i: number = 0; i < document.getElementsByTagName("canvas").length; i++) {
 
             let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[i];
-            canvas.remove();
+            can = canvas.getContext("2d");
+            can.clearRect(0, 0, 100, 100);
+            
+            canvas.removeEventListener("click", richtig);
+            canvas.removeEventListener("click", falsch);
         }
     }
 }

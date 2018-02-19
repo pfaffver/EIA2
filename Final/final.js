@@ -57,7 +57,10 @@ var final;
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
         for (let i = 0; i < document.getElementsByTagName("canvas").length; i++) {
             let canvas = document.getElementsByTagName("canvas")[i];
-            canvas.remove();
+            final.can = canvas.getContext("2d");
+            final.can.clearRect(0, 0, 100, 100);
+            canvas.removeEventListener("click", richtig);
+            canvas.removeEventListener("click", falsch);
         }
     }
 })(final || (final = {}));
