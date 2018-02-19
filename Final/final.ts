@@ -6,6 +6,7 @@ Datum: 13.02.2018 */
 namespace final {
 
     window.addEventListener("load", createPicture);
+    let clickCounter: number = 0;
 
     export let can: CanvasRenderingContext2D;
     let Inhalt: bild[] = [];
@@ -56,6 +57,7 @@ namespace final {
     }
 
     function falsch(): void {
+        clickCounter = clickCounter + 1;
         if (textAus < 3) {
             alert(fehlerText[textAus]);
             textAus++;
@@ -67,15 +69,20 @@ namespace final {
     }
 
     function richtig(): void {
-        alert("RICHTIG - Du hast das Fehlerbild entdeckt");
+        clickCounter = clickCounter + 1;
+
         for (let i: number = 0; i < document.getElementsByTagName("canvas").length; i++) {
 
             let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[i];
             can = canvas.getContext("2d");
             can.clearRect(0, 0, 100, 100);
-            
+
             canvas.removeEventListener("click", richtig);
             canvas.removeEventListener("click", falsch);
         }
+        //  alert("RICHTIG - Du hast das Fehlerbild entdeckt");
+        let b: HTMLDivElement = document.createElement("div");
+        b.innerText = "Sehr Gut! Du hast es geschafft und dabei " + clickCounter + " Versuch(e) gebraucht";
+        document.body.appendChild(b);
     }
 }

@@ -5,6 +5,7 @@ Datum: 13.02.2018 */
 var final;
 (function (final) {
     window.addEventListener("load", createPicture);
+    let clickCounter = 0;
     let Inhalt = [];
     let InhaltFehler;
     let fehlerText = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
@@ -45,6 +46,7 @@ var final;
         InhaltFehler.draw();
     }
     function falsch() {
+        clickCounter = clickCounter + 1;
         if (textAus < 3) {
             alert(fehlerText[textAus]);
             textAus++;
@@ -54,7 +56,7 @@ var final;
         }
     }
     function richtig() {
-        alert("RICHTIG - Du hast das Fehlerbild entdeckt");
+        clickCounter = clickCounter + 1;
         for (let i = 0; i < document.getElementsByTagName("canvas").length; i++) {
             let canvas = document.getElementsByTagName("canvas")[i];
             final.can = canvas.getContext("2d");
@@ -62,6 +64,10 @@ var final;
             canvas.removeEventListener("click", richtig);
             canvas.removeEventListener("click", falsch);
         }
+        //  alert("RICHTIG - Du hast das Fehlerbild entdeckt");
+        let b = document.createElement("div");
+        b.innerText = "Sehr Gut! Du hast es geschafft und dabei " + clickCounter + " Versuch(e) gebraucht";
+        document.body.appendChild(b);
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map
