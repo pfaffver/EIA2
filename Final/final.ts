@@ -80,10 +80,15 @@ namespace final {
             canvas.removeEventListener("click", richtig);
             canvas.removeEventListener("click", falsch);
         }
-        //  alert("RICHTIG - Du hast das Fehlerbild entdeckt");
+        
         let b: HTMLDivElement = document.createElement("div");
-        b.innerText = "Sehr Gut! Du hast das gesuchte Bild gefunden und dabei " + clickCounter + " Versuch(e) gebraucht";
         b.id = "schluss";
+        b.innerText = "Sehr Gut! Du hast das gesuchte Bild gefunden und dabei " + clickCounter + " Versuch(e) gebraucht";
         document.body.appendChild(b);
+        
+        let a: HTMLImageElement = document.createElement ("img");
+        a.src = "congrats.gif";
+        a.id = "congrats";
+        document.body.appendChild(a);
     }
 }

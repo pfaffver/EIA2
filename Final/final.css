@@ -28,18 +28,31 @@ canvas {
 	text-align: center;
 	position: relative;
 	top: -3em;
-	
+	color: fuchsia;
+}
+
+#congrats {
+	position: absolute;
+	top: 10em;
+	left: 35%;
 }
 
 @media screen and (max-width: 48.0625em) {
 	
 	#schluss {
-		top: 1em;
+		top: -12em;
 		font-size: 2em;
 	}
 	
 	canvas {
 		width: 13%;
+	}
+	
+	#congrats {
+		position: absolute;
+		top: 9em;
+		left: 2em;
+		width: 90%;
 	}
 }
 
@@ -49,5 +62,16 @@ canvas {
 		width: 20%;
 	}
 	
+	#schluss {
+		top: -20em;
+		position: relative;
+		font-size: 2em;
+	}
+	
+	#congrats {
+		position: absolute;
+		top: 13em;
+		left: 1em;
+		width: 90%;
+	}
 }
-
