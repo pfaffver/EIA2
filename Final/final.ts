@@ -69,5 +69,6 @@ namespace final {
     function richtig(): void {
         alert("RICHTIG - Du hast das Fehlerbild entdeckt");
         location.reload();
+        
     }  
 }
