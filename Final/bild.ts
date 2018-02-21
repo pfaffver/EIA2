@@ -34,56 +34,56 @@ namespace final {
             can.beginPath();
             can.moveTo(this.x + 40, this.y + 60);
             can.lineTo(this.x + 65, this.y + 50);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 41, this.y + 65);
             can.lineTo(this.x + 65, this.y + 55);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 43, this.y + 70);
             can.lineTo(this.x + 60, this.y + 62);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 45, this.y + 75);
             can.lineTo(this.x + 58, this.y + 69);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 47, this.y + 80);
             can.lineTo(this.x + 55, this.y + 76);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             //Waffelstriche von links nach rechts
             can.beginPath();
             can.moveTo(this.x + 35, this.y + 55);
             can.lineTo(this.x + 60, this.y + 62);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 40, this.y + 62);
             can.lineTo(this.x + 58, this.y + 68);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 45, this.y + 70);
             can.lineTo(this.x + 56, this.y + 74);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
             
             can.beginPath();
             can.moveTo(this.x + 46, this.y + 75);
             can.lineTo(this.x + 54, this.y + 79);
-            can.strokeStyle = "#3B240B";
+            can.strokeStyle = "#61210B";
             can.stroke();
                         
             //Schirmchen
