@@ -47,9 +47,9 @@ var final;
     }
     function falsch() {
         clickCounter = clickCounter + 1;
+        let tonFalse = document.getElementById("plop");
+        tonFalse.play();
         if (textAus < 3) {
-            let tonFalse = document.getElementById("plop");
-            tonFalse.play();
             alert(fehlerText[textAus]);
             textAus++;
         }

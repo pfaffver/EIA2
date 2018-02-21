@@ -58,10 +58,11 @@ namespace final {
 
     function falsch(): void {
         clickCounter = clickCounter + 1;
-        if (textAus < 3) {
-            let tonFalse: HTMLMediaElement = <HTMLMediaElement>document.getElementById("plop");
-            tonFalse.play();
-            
+        
+        let tonFalse: HTMLMediaElement = <HTMLMediaElement>document.getElementById("plop");
+            tonFalse.play();      
+          
+        if (textAus < 3) {            
             alert(fehlerText[textAus]);
             textAus++;
         }
