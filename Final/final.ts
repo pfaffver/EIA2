@@ -59,6 +59,9 @@ namespace final {
     function falsch(): void {
         clickCounter = clickCounter + 1;
         if (textAus < 3) {
+            let tonFalse: HTMLMediaElement = <HTMLMediaElement>document.getElementById("plop");
+            tonFalse.play();
+            
             alert(fehlerText[textAus]);
             textAus++;
         }
@@ -80,15 +83,18 @@ namespace final {
             canvas.removeEventListener("click", richtig);
             canvas.removeEventListener("click", falsch);
         }
-        
+
         let b: HTMLDivElement = document.createElement("div");
         b.id = "schluss";
         b.innerText = "Sehr Gut! Du hast das gesuchte Bild gefunden und dabei " + clickCounter + " Versuch(e) gebraucht";
         document.body.appendChild(b);
-        
-        let a: HTMLImageElement = document.createElement ("img");
+
+        let a: HTMLImageElement = document.createElement("img");
         a.src = "congrats.gif";
         a.id = "congrats";
         document.body.appendChild(a);
+
+        let tonCelebration: HTMLMediaElement = <HTMLMediaElement>document.getElementById("gold");
+        tonCelebration.play();
     }
 }

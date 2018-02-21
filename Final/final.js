@@ -48,6 +48,8 @@ var final;
     function falsch() {
         clickCounter = clickCounter + 1;
         if (textAus < 3) {
+            let tonFalse = document.getElementById("plop");
+            tonFalse.play();
             alert(fehlerText[textAus]);
             textAus++;
         }
@@ -72,6 +74,8 @@ var final;
         a.src = "congrats.gif";
         a.id = "congrats";
         document.body.appendChild(a);
+        let tonCelebration = document.getElementById("gold");
+        tonCelebration.play();
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map
