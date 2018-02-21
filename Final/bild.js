@@ -22,6 +22,53 @@ var final;
             final.can.closePath();
             final.can.fillStyle = "#8A4B08";
             final.can.fill();
+            //Waffelstriche von rechts nach links
+            final.can.beginPath();
+            final.can.moveTo(this.x + 40, this.y + 60);
+            final.can.lineTo(this.x + 65, this.y + 50);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 41, this.y + 65);
+            final.can.lineTo(this.x + 65, this.y + 55);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 43, this.y + 70);
+            final.can.lineTo(this.x + 60, this.y + 62);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 45, this.y + 75);
+            final.can.lineTo(this.x + 58, this.y + 69);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 47, this.y + 80);
+            final.can.lineTo(this.x + 55, this.y + 76);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            //Waffelstriche von links nach rechts
+            final.can.beginPath();
+            final.can.moveTo(this.x + 35, this.y + 55);
+            final.can.lineTo(this.x + 60, this.y + 62);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 40, this.y + 62);
+            final.can.lineTo(this.x + 58, this.y + 68);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 45, this.y + 70);
+            final.can.lineTo(this.x + 56, this.y + 74);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
+            final.can.beginPath();
+            final.can.moveTo(this.x + 46, this.y + 75);
+            final.can.lineTo(this.x + 54, this.y + 79);
+            final.can.strokeStyle = "#2A1B0A";
+            final.can.stroke();
             //Schirmchen
             final.can.beginPath();
             final.can.moveTo(this.x + 55, this.y + 50);
@@ -56,25 +103,6 @@ var final;
             final.can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             final.can.fillStyle = "#3B240B";
             final.can.fill();
-            //Waffelstriche
-            for (let i = -20; i < 0; i += 10) {
-                final.can.beginPath();
-                final.can.strokeStyle = "black";
-                final.can.moveTo(55, 50 - i);
-                final.can.lineTo(30 - i, 50 - i);
-                final.can.lineTo(50, 60 - i);
-                final.can.stroke();
-                final.can.closePath();
-            }
-            for (let i = -200; i < 0; i += 10) {
-                final.can.beginPath();
-                final.can.strokeStyle = "black";
-                final.can.moveTo(600 - i, 200 - i);
-                final.can.lineTo(600 - i, 200 - i);
-                final.can.lineTo(600 - i, 400);
-                final.can.stroke();
-                final.can.closePath();
-            }
         }
     }
     final.bild = bild;

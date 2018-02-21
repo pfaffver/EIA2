@@ -29,7 +29,63 @@ namespace final {
             can.closePath();
             can.fillStyle = "#8A4B08";
             can.fill();
-
+            
+            //Waffelstriche von rechts nach links
+            can.beginPath();
+            can.moveTo(this.x + 40, this.y + 60);
+            can.lineTo(this.x + 65, this.y + 50);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 41, this.y + 65);
+            can.lineTo(this.x + 65, this.y + 55);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 43, this.y + 70);
+            can.lineTo(this.x + 60, this.y + 62);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 45, this.y + 75);
+            can.lineTo(this.x + 58, this.y + 69);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 47, this.y + 80);
+            can.lineTo(this.x + 55, this.y + 76);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            //Waffelstriche von links nach rechts
+            can.beginPath();
+            can.moveTo(this.x + 35, this.y + 55);
+            can.lineTo(this.x + 60, this.y + 62);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 40, this.y + 62);
+            can.lineTo(this.x + 58, this.y + 68);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 45, this.y + 70);
+            can.lineTo(this.x + 56, this.y + 74);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+            
+            can.beginPath();
+            can.moveTo(this.x + 46, this.y + 75);
+            can.lineTo(this.x + 54, this.y + 79);
+            can.strokeStyle = "#2A1B0A";
+            can.stroke();
+                        
             //Schirmchen
             can.beginPath();
             can.moveTo(this.x + 55, this.y + 50);
@@ -68,30 +124,8 @@ namespace final {
             can.beginPath();
             can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             can.fillStyle = "#3B240B";
-            can.fill();
-
-            //Waffelstriche
-            for (let i: number = -20; i < 0; i += 10) {
-                can.beginPath();
-                can.strokeStyle = "black";
-
-                can.moveTo(55, 50 - i);
-                can.lineTo(30 - i, 50 - i);
-                can.lineTo(50, 60 - i);
-                can.stroke();
-                can.closePath();
-            }
-
-            for (let i: number = -200; i < 0; i += 10) {
-                can.beginPath();
-                can.strokeStyle = "black";
-
-                can.moveTo(600 - i, 200 - i);
-                can.lineTo(600 - i, 200 - i);
-                can.lineTo(600 - i, 400);
-                can.stroke();
-                can.closePath();
-            }
+            can.fill();   
+            
         }
     }
 }
