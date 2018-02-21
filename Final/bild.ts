@@ -124,8 +124,7 @@ namespace final {
             can.beginPath();
             can.arc(this.x + 50, this.y + 30, 12, 0, 2 * Math.PI);
             can.fillStyle = "#3B240B";
-            can.fill();   
-            
+            can.fill();          
         }
     }
 }
