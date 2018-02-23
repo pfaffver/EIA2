@@ -78,9 +78,6 @@ var final;
         let c = document.createElement("button");
         c.innerText = "Nächstes Level";
         c.id = "nl";
-        c.style.marginLeft = "30%";
-        c.style.width = "40%";
-        c.style.backgroundColor = "pink";
         c.addEventListener("click", nlAufruf);
         document.body.appendChild(c);
     }

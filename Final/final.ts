@@ -95,20 +95,19 @@ namespace final {
         let tonCelebration: HTMLMediaElement = <HTMLMediaElement>document.getElementById("gold");
         tonCelebration.play();
         
-         let c: HTMLButtonElement = document.createElement("button");
+        let c: HTMLButtonElement = document.createElement("button");
         c.innerText = "Nächstes Level";
         c.id = "nl";
-        c.style.marginLeft = "30%";
-        c.style.width = "40%";
-        c.style.backgroundColor = "pink";
         c.addEventListener("click",nlAufruf);
         document.body.appendChild(c);
 
     }
+    
     function nlAufruf():void{
-       document.getElementById("schluss").parentNode.removeChild(document.getElementById("schluss"));
+        
+        document.getElementById("schluss").parentNode.removeChild(document.getElementById("schluss"));
         document.getElementById("congrats").parentNode.removeChild(document.getElementById("congrats"));
-         document.getElementById("nl").parentNode.removeChild(document.getElementById("nl"));
+        document.getElementById("nl").parentNode.removeChild(document.getElementById("nl"));
        
         bilder += 2;
         createPicture();

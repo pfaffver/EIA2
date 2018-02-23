@@ -27,7 +27,7 @@ canvas {
 	font-family:"Open Sans Condensed", sans-serif;
 	text-align: center;
 	position: relative;
-	top: -3em;
+	top: 5em;
 	color: fuchsia;
 }
 
@@ -37,13 +37,16 @@ canvas {
 	left: 35%;
 }
 
+#nl{
+	position: absolute;
+	margin-left: 30%;
+	width: 40%;
+	background-color: pink;
+	top: 25em;
+}
+
 @media screen and (max-width: 48.0625em) {
-	
-	#schluss {
-		top: -12em;
-		font-size: 2em;
-	}
-	
+
 	canvas {
 		width: 13%;
 	}
@@ -63,8 +66,6 @@ canvas {
 	}
 	
 	#schluss {
-		top: -20em;
-		position: relative;
 		font-size: 2em;
 	}
 	
