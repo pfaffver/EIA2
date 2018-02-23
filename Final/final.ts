@@ -11,7 +11,7 @@ namespace final {
     export let can: CanvasRenderingContext2D;
     let Inhalt: bild[] = [];
     let InhaltFehler: bildFehler;
-    let bilder: number =3;
+    let bilder: number =5;
     let fehlerText: string[] = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus: number = 0;
     let random: number = Math.round(Math.random() * bilder);

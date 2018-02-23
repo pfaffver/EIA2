@@ -8,7 +8,7 @@ var final;
     let clickCounter = 0;
     let Inhalt = [];
     let InhaltFehler;
-    let bilder = 3;
+    let bilder = 5;
     let fehlerText = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus = 0;
     let random = Math.round(Math.random() * bilder);
