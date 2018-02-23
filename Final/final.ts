@@ -10,7 +10,6 @@ namespace final {
 
     export let can: CanvasRenderingContext2D;
     let Inhalt: bild[] = [];
-    let InhaltFehler: bildFehler;
     let bilder: number =5;
     let fehlerText: string[] = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus: number = 0;
@@ -55,8 +54,8 @@ namespace final {
         can = canvas.getContext("2d");
         console.log(can);
 
-        InhaltFehler = new bildFehler(0, 0, "#FE2E2E");
-        InhaltFehler.draw();
+        Inhalt[random] = new bild(0, 0, "#FE2E2E");
+        Inhalt[random].draw();
     }
 
     function falsch(): void {

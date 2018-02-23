@@ -7,7 +7,6 @@ var final;
     window.addEventListener("load", createPicture);
     let clickCounter = 0;
     let Inhalt = [];
-    let InhaltFehler;
     let bilder = 5;
     let fehlerText = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus = 0;
@@ -45,8 +44,8 @@ var final;
         let canvas = document.getElementsByTagName("canvas")[random];
         final.can = canvas.getContext("2d");
         console.log(final.can);
-        InhaltFehler = new final.bildFehler(0, 0, "#FE2E2E");
-        InhaltFehler.draw();
+        Inhalt[random] = new final.bild(0, 0, "#FE2E2E");
+        Inhalt[random].draw();
     }
     function falsch() {
         clickCounter = clickCounter + 1;
