@@ -10,8 +10,9 @@ var final;
     let bilder = 5;
     let fehlerText = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus = 0;
-    let random = Math.round(Math.random() * bilder);
+    let random;
     function createPicture() {
+        random = Math.round(Math.random() * bilder);
         for (let i = 0; i < bilder + 1; i++) {
             if (random != i) {
                 let inhalt = document.getElementById("content");
@@ -86,6 +87,7 @@ var final;
         document.getElementById("nl").parentNode.removeChild(document.getElementById("nl"));
         bilder += 2;
         createPicture();
+        clickCounter = 0;
     }
 })(final || (final = {}));
 //# sourceMappingURL=final.js.map

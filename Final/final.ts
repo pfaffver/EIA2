@@ -13,9 +13,11 @@ namespace final {
     let bilder: number =5;
     let fehlerText: string[] = ["Leider Falsch", "So schwer ist es doch nicht...", "Hast du was an den Augen?"];
     let textAus: number = 0;
-    let random: number = Math.round(Math.random() * bilder);
-
+    let random: number;
+    
     function createPicture(): void {
+        
+       random = Math.round(Math.random()*bilder);
 
         for (let i: number = 0; i < bilder+1; i++) {
             if (random != i) {
@@ -110,5 +112,6 @@ namespace final {
        
         bilder += 2;
         createPicture();
+        clickCounter = 0;   
     }
 }
